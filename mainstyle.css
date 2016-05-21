@@ -1,0 +1,109 @@
+.zh{
+	font-family: Klee, STFangSong, FangSong, STKaiti, KaiTi, Century Gothic, Helvetica;
+	line-height: 1.25em;
+}
+
+body{
+	background: #fb8;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	font-family: Klee, Century Gothic, Helvetica;
+	text-align: center;
+	margin: 0;
+}
+
+table{
+	width: 650px;
+	margin: auto;
+}
+
+th{
+	background: #fca;
+	font-size: 0.8em;
+	width: 5%;
+}
+
+td{
+	background: #fdc;
+	width: 33%;
+	height: 2em;
+	cursor: pointer;
+}
+
+td:hover{
+	background: #fff;
+}
+
+a{
+	color: #f43;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #f86;
+}
+
+.A{
+	border-top-left-radius: 10px;
+}
+
+.B{
+	border-top-right-radius: 10px;
+}
+
+.C{
+	border-bottom-left-radius: 10px;
+}
+
+.D{
+	border-bottom-right-radius: 10px;
+}
+
+.space{
+	background: transparent;
+	cursor: default;
+}
+
+.space:hover{
+	background: transparent;
+}
+
+.nav{
+	color: #000;
+	font-size: 0.8em;
+	height: 1em;
+}
+
+.btn{
+	width: 3%;
+}
+
+.speed{
+	color: #000;
+	font-size: 0.75em;
+}
+
+#tooltip{
+	background: #fed;
+	position: absolute;
+	box-shadow: 3px 3px 10px #963;
+	text-align: left;
+	padding: 5px;
+	display: none;
+}
+
+#translator{
+	background: #fca;
+	width: 200px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#translator:hover{
+	background: #fdc;
+}

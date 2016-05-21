@@ -1,0 +1,53 @@
+td{
+	height: 1em;
+	color: #fb8;
+}
+
+#play{
+	height: 60px;
+}
+
+#playIcon{
+	position: relative;
+	top: 0;
+	left: 50%;
+	height: 0;
+	width: 0;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 30px solid #000;
+	border-right: 0 solid transparent;
+	transform: translateX(-50%);
+	transition: border 250ms, height 250ms, width 750ms;
+}
+
+#playScroll{
+	background: #ea7;
+}
+
+#playTime{
+	background: #a00;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 10px;
+	width: 0;
+	margin: 0;
+}
+
+#outerText{
+	background: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	box-shadow: inset 0 0 10px #888;
+	vertical-align: top;
+	padding: 10px;
+	cursor: default;
+}
+
+#innerText{
+	color: #000;
+	text-align: left;
+	margin: 0;
+}

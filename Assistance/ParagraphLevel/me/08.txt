@@ -1,0 +1,7 @@
+["8311,Last Sunday ...","Little Zhang studied.","they both studied.","Li You studied."]
+["8312,Li You studied a little ...","on Saturday.","on Sunday.","on both days."]
+["8313,Li You _____ at 11 AM on Sunday.","got up","had breakfast","had lunch"]
+["8314,After lunch Li You ...","went to see Little Gao.","went home.","went to see Little Zhang."]
+["8315,Li You didn't know Little Gao could speak ...","Japanese.","Chinese.","English."]
+["8316,Last weekend Little Zhang studied a lot because ...","he will have an exam today.","he doesn't have any friends.","his pronounciation is not good enough."]
+["8317,We think that Little Gao ...","speaks Japanese quite well.","doesn't pronounce Japanese well enough.","doesn't understand Japanese."]

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Lesson ? Paragraphs: ?</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="mainstyle.css">
+<link rel="stylesheet" type="text/css" href="paragraph.css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="google" value="noTranslate">
+<meta charset="UTF-8">
+
+</head>
+<body>
+
+<div id="playScroll">
+	<div id="playTime">
+	</div>
+</div>
+
+<table>
+	<tr>
+		<td class="A C nav btn" rowspan=3 onClick="navigate(-1)">
+			<<
+		</td>
+		<td class="nav" colspan=2 onClick="location = 'contents.html'">
+			Table of Contents
+		</td>
+		<td class="B D nav btn" rowspan=3 onClick="navigate(1)">
+			>>
+		</td>
+	</tr>
+	<tr>
+		<td class="nav" id="M" onClick="newHash('M')">
+			Multiple Choice
+		</td>
+		<td class="nav" id="T" onClick="newHash('T')">
+			True or False
+		</td>
+	</tr>
+	<tr>
+		<td class="nav" id="E" onClick="newHash('E')">
+			English
+		</td>
+		<td class="nav" id="C" onClick="newHash('C')">
+			Chinese
+		</td>
+	</tr>
+</table>
+
+<h1 class="zh" id="title">第？课</h1>
+
+<audio id="mp3" onPause="mp3Pause()" onPlay="mp3Play()"></audio>
+<audio id="mpX"></audio>
+
+<div id="fulltext">
+	Listen to the entire text before proceeding.
+	<!--▕◀︎▶︎▏-->
+	<div class="A B C D" id="play" onClick="mp3Toggle()">
+		<div id="playIcon">
+		</div>
+	</div>
+	<div id="speedposition1">
+		<div class="speed">
+			Speed:
+			<input type="radio" name="rate" id="half" onClick="mp3Speed(0.5)">
+			<label for="half">50%</label>
+			<input type="radio" name="rate" id="laci" onClick="mp3Speed(0.75)">
+			<label for="laci">75%</label>
+			<input type="radio" name="rate" id="full" onClick="mp3Speed(1)" checked>
+			<label for="full">100%</label>
+		</div>
+	</div>
+	<a onClick="proceed()">Continue</a>
+</div>
+
+<table id="exercise">
+	<tr>
+		<td class="A B C D zh text" id="question" colspan=2>
+			?
+		</td>
+	</tr>
+	<tbody id="choice">
+		<tr>
+			<td class="A B zh choice" colspan=2 onClick="check(0)">
+				A
+			</td>
+		</tr>
+		<tr>
+			<td class="zh choice" colspan=2 onClick="check(1)">
+				B
+			</td>
+		</tr>
+		<tr>
+			<td class="C D zh choice" colspan=2 onClick="check(2)">
+				C
+			</td>
+		</tr>
+	</tbody>
+	<tbody id="truth">
+		<tr>
+			<td class="A C zh choice" onClick="check(0)">
+				对 (True)
+			</td>
+			<td class="B D zh choice" onClick="check(1)">
+				错 (False)
+			</td>
+		</tr>
+	</tbody>
+	<tbody id="map">
+		<tr>
+		</tr>
+		<tr>
+			<td class="space" colspan=2>
+				<img src="img/map.jpg">
+				<div class="mapanscontainer">
+				<div class="mapans choice" id="mapans1" onClick="check(0)"></div>
+				<div class="mapans choice" id="mapans2" onClick="check(1)"></div>
+				<div class="mapans choice" id="mapans3" onClick="check(2)"></div>
+				<div class="mapans choice" id="mapans4" onClick="check(3)"></div>
+				<div class="mapans choice" id="mapans5" onClick="check(4)"></div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<tr>
+		<td class="space" id="points" colspan=2>
+		</td>
+	</tr>
+	<tr>
+		<td class="A B C D" onClick="mp3.play()">
+			Play Hint
+		</td>
+		<td class="space">
+			<div id="speedposition2">
+			</div>
+		</td>
+	</tr>
+</table>
+
+<script src="mainscript.js"></script>
+<script src="mp3/paragraph/pl-content.js"></script>
+<script src="paragraph.js"></script>
+
+</body>
+</html>

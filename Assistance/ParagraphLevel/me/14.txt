@@ -1,0 +1,7 @@
+
+["14p1.1,Li Xing is writing to his ...","teacher.","American friends.","Chinese friends."]
+["14p1.2,Li Xing is in _____ now.","China","Japan","US"]
+["14p1.3,Li Xing was eager to ...","make friends.","contact his old friends.","go home."]
+["14p1.4,His school is _____ Tian'anmen.","far from","near","at"]
+["14p1.5,Li Xing has been to Tian'anmen ...","Three times.","Twice.","once."]
+

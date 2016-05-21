@@ -1,0 +1,7 @@
+
+["16p1.1,The teacher ...","will check our homework.","forgot to bring the character book.","asked them to hand in their homework."]
+["16p1.2,Little Zhang ...","forgot to bring his homework.","has gone home.","has brought out his homework."]
+["16p1.3,The class ...","has started already.","is over.","hasn't started yet."]
+["16p1.4,The teacher will accept their homework ...","before noon.","in class only.","before class only."]
+["16p1.5,Little Zhang will go home ...","after class.","at noon.","now."]
+

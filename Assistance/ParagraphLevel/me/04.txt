@@ -1,0 +1,6 @@
+["4311,This weekend is ...","lawyer Zhang's birthday.","this man's birthday.","this woman's birthday."]
+["4312,To celebrate the birthday they will ...","go out for a dinner.","go to see a Chinese movie.","go to see an American movie."]
+["4313,The man wants to see a movie ...","on Saturday.","now.","on Sunday."]
+["4314,This man will take the woman ...","to see a Chinese movie.","to dinner.","to see an American movie."]
+["4315,The woman thinks that ...","only Chinese movies are good.","all movies are boring.","American movies are interesting."]
+

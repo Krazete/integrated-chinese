@@ -1,0 +1,12 @@
+#bar{
+	background: #fca;
+	height: 50%;
+	width: 100%;
+	border-radius: 5px;
+}
+
+#complete{
+	background: #8d3;
+	height: 100%;
+	border-radius: 5px;
+}

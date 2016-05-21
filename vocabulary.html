@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Lesson ? Vocabulary</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="vocabulary.css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="google" value="noTranslate">
+<meta charset="UTF-8">
+
+</head>
+<body onkeypress="document.getElementById('search').focus()" onhashchange="loadLesson(hash())">
+
+<table class="lesson bold">
+	<tr>
+		<td onclick="location.hash=0">
+			0
+		</td>
+		<td onclick="location.hash=1">
+			1
+		</td>
+		<td onclick="location.hash=2">
+			2
+		</td>
+		<td onclick="location.hash=3">
+			3
+		</td>
+		<td onclick="location.hash=4">
+			4
+		</td>
+		<td onclick="location.hash=5">
+			5
+		</td>
+		<td onclick="location.hash=6">
+			6
+		</td>
+		<td onclick="location.hash=7">
+			7
+		</td>
+		<td onclick="location.hash=8">
+			8
+		</td>
+		<td onclick="location.hash=9">
+			9
+		</td>
+		<td onclick="location.hash=10">
+			10
+		</td>
+		<td onclick="location.hash=11">
+			11
+		</td>
+		<td onclick="location.hash=12">
+			12
+		</td>
+		<td onclick="location.hash=13">
+			13
+		</td>
+		<td onclick="location.hash=14">
+			14
+		</td>
+		<td onclick="location.hash=15">
+			15
+		</td>
+		<td onclick="location.hash=16">
+			16
+		</td>
+		<td onclick="location.hash=17">
+			17
+		</td>
+		<td onclick="location.hash=18">
+			18
+		</td>
+		<td onclick="location.hash=19">
+			19
+		</td>
+		<td onclick="location.hash=20">
+			20
+		</td>
+	</tr>
+</table>
+
+<center><a href="javascript:preference()">Switch Character Preference</a></center>
+
+<div id="container"></div>
+
+<input id="search" oninput="glossary(this.value)" onblur="this.value='';glossary('')"></input>
+<div id="selection"></div>
+<div id="select" onclick="toggler()"></div>
+<div style="position: fixed; bottom: 50px; left: 5px; font-size: 0.75em;">Activate<br>Selection<br>Toggling</div>
+
+<script src="vocabulary.js"></script>
+
+</body>
+</html>

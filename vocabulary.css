@@ -1,0 +1,117 @@
+body{
+	background: url('img/vocab.png');
+	font-family: Klee, Book Antiqua, Helvetica, Arial;
+	margin: 0 0 50px 0;
+}
+
+.bold{
+	font-family: Helvetica-Bold;
+}
+
+.center{
+	text-align: center;
+}
+
+@font-face{
+	font-family: Kata;
+    src: url(Kata.ttf);
+}
+
+.chinese{
+	height: 1.5em;
+	width: 5em;
+	font-family: STKaiti, KaiTi, STFangsong, FangSong, Kata, STHeiti, SimHei, Arial;
+	font-size: 2em;
+}
+
+.lesson{
+	position: relative;
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-spacing: 1px 0;
+	text-align: center;
+}
+.lesson td{
+	width: 1%;
+	background: #569;
+	color: #fff;
+	border-radius: 0 0 15px 15px;
+	padding: 5px;
+}
+.lesson td:hover{
+	background: #894;
+	cursor: pointer;
+}
+
+.title{
+	position: relative;
+	left: 50%;
+	transform: translateX(-425px);
+	background: #894;
+	color: #fff;
+	border-radius: 15px 15px 0 0;
+	text-align: center;
+	padding: 10px;
+}
+.title.extra{
+	background: #a88;
+}
+
+.content{
+	position: relative;
+	width: 900px;
+	left: 50%;
+	transform: translateX(-450px);
+	background: rgba(255, 255, 255, 0.75);
+	border: 2px solid #569;
+	border-radius: 25px;
+	padding: 20px;
+	margin-bottom: 25px;
+}
+.content td{
+	min-width: 2em;
+	max-width: 15em;
+}
+.content.extra{
+	border: 2px solid #a88;
+}
+
+#search{
+	position: fixed;
+	height: 1em;
+	width: 1em;
+	bottom: 15px;
+	right: 15px;
+	background: #569 url('img/search.png') no-repeat;
+	background-size: contain;
+	border: 2px solid #569;
+	border-radius: 1.5em;
+	outline: none;
+	font-family: Klee;
+	font-size: 2em;
+	padding: 0.5em;
+	transition: background 100ms, width 100ms;
+}
+#search:focus{
+	width: 5em;
+	background: #fff;
+	border-color: #894;
+}
+
+
+
+#selection{
+	position: absolute;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+#select{
+	position: fixed;
+	height: 2em;
+	width: 2em;
+	bottom: 10px;
+	left: 10px;
+	background: radial-gradient(#569, #894);
+	border-radius: 1em;
+}

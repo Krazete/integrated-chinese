@@ -1,0 +1,480 @@
+222,xian1sheng5
+223,ni3
+224,hao3
+225,xiao3jie5
+226,qing3wen4
+227,qing3
+228,wen4
+229,nin2
+230,gui4xing4
+231,gui4
+232,xing4
+233,wo3
+234,ne5
+235,jiao4
+236,shen2me5
+237,ming2zi5
+238,Wang2 Peng2
+239,wang2
+240,Li3 You3
+241,Li3
+242,shi4
+243,lao3shi1
+244,ma5
+245,bu4
+246,xue2sheng5
+247,ye3
+248,Zhong1guo2ren2
+249,Zhong1guo2
+250,ren2
+251,Mei3guo2ren2
+252,Mei3guo2
+253,peng2you5
+254,na4
+255,zhang1
+256,zhao4pian4
+257,de5
+258,zhe4
+259,ba4ba5
+260,ma1ma5
+261,ge4
+262,nan2hai2zi5
+263,nan2
+264,haizi
+265,shei2
+266,ta1
+267,di4di5
+268,nv3hai2zi5
+269,nv3
+270,mei4mei5
+271,ta1
+272,nv3'er2
+273,you3
+274,er2zi5
+275,mei2
+276,Xiao3 Gao1
+277,xiao3
+278,gao1
+279,jia1
+280,ji3
+281,ge1ge5
+282,liang3
+283,jie3jie5
+284,he2
+285,zuo4
+286,Ying1wen2
+287,lv4shi1
+288,dou1
+289,da4xue2zheng1
+290,da4xue2
+291,yi1sheng1
+292,Xiao3 Zhang1
+293,zhang1
+294,yue4
+295,hao4
+296,xing1qi1
+297,tian1
+298,sheng1ri4
+299,sheng1
+300,ri4
+301,jin1nian2
+302,nian2
+303,duo1da4
+304,duo1
+305,da4
+306,sui4
+307,qing3
+308,chi1
+309,wan3fan4
+310,wan3
+311,fan4
+312,chi1 fan4
+313,zen3me5yang4
+314,tai4 ... le5
+315,xie4xie5
+316,xi3huan5
+317,hai2shi5
+318,ke3shi4
+319,hao3
+320,wo3men5
+321,dian3
+322,zhong1
+323,ban4
+324,wan3shang5
+325,jian4
+326,zai4jian4
+327,zai4
+328,Xiao3 Bai2
+329,bai2
+330,xian4zai4
+331,ke4
+332,she4
+333,ming2tian1
+334,mang2
+335,jin1tian1
+336,hen3
+337,wei4shen2me5
+338,wei4
+339,yin1wei4
+340,hai2you3
+341,tong2xue2
+342,ren4shi5
+343,Xiao3 Li3
+344,fen1
+345,cha4
+346,zuo2tian1
+347,ming2nian2
+348,qu4nian2
+349,shang4 ge5
+350,xia4 ge5
+475,yi1yue4
+476,er4yue4
+477,san1yue4
+478,si4yue4
+479,wu5yue4
+480,liu4yue4
+481,qi1yue4
+482,ba1yue4
+483,jiu3yue4
+484,shi2yue4
+485,shi2yi1yue4
+486,shi2er4yue4
+487,xing1qi1yi1
+488,xing1qi1er4
+489,xing1qi1san1
+490,xing1qi1si4
+491,xing1qi1wu3
+492,xing1qi1liu4
+493,xing1qi1ri4
+494,xing1qi1tian1
+495,yi1hao4
+496,er4hao4
+497,san1hao4
+498,si4hao4
+499,wu3hao4
+500,liu4hao4
+501,qi1hao4
+502,ba1hao4
+503,jiu3hao4
+504,shi2hao4
+505,shi2yi1hao4
+506,shi2er4hao4
+507,shi2san1hao4
+508,shi2si4hao4
+509,shi2wu3hao4
+510,shi2liu4hao4
+511,shi2qi1hao4
+512,shi2ba1hao4
+513,shi2jiu3hao4
+514,er2shi5hao4
+515,er4shi5yi1hao4
+516,er4shi5er4hao4
+517,er4shi5san1hao4
+518,er4shi5si4hao4
+519,er4shi5wu3hao4
+520,er4shi5liu4hao4
+521,er4shi5qi1hao4
+522,er4shi5ba1hao4
+523,er4shi5jiu3hao4
+524,san1shi5hao4
+525,san1shi5yi1hao4
+526,shang4ge5 xing1qi1
+527,zhe4ge5 xing1qi1
+528,xia4ge5 xing1qi1
+529,shang4ge5 yue4
+530,zhe4ge5 yue4
+531,xia4ge5 yue5
+351,zhou1mo4
+352,da3 qiu2
+353,da3
+354,qiu2
+355,kan4
+356,dian4shi4
+357,dian4
+358,shi4
+359,chang4 ge1
+360,chang4
+361,ge1
+362,tiao4 wu3
+363,tiao4
+364,wu5
+365,ting1
+366,yin1yue4
+367,dui4
+368,you3 shi2hou5
+369,shi2hou5
+370,kan4 shu1
+371,shu1
+372,dian4ying3
+373,ying3
+374,chang2chang2
+375,na4
+376,qu4
+377,wai4guo2
+378,qing3 ke4
+379,suo3yi3
+380,hao3jiu3
+381,jiu3
+382,bu2cuo4
+383,cuo4
+384,xiang3
+385,jue2de5
+386,you3 yi4si5
+387,yi4si5
+388,zhi3
+389,shui4 jiao4
+390,shui4
+391,suan4le5
+392,zhao3
+393,bie2(de5)
+535,shang4ge5 zhou1mo4
+536,zhe4ge5 zhou1mo4
+537,xia4ge5 zhou1mo4
+538,hao3jiu3bu2jian4
+394,ya5
+395,jin4
+396,kuai4
+397,jin4 lai5
+398,lai2
+399,jie4shao4
+400,yi2xia4
+401,gao1xing4
+402,piao4liang5
+403,zuo4
+404,zai4
+405,nar3
+406,gong1zuo4
+407,xue2xiao4
+408,he1
+409,dian(r)3
+410,cha2
+411,ka1fei1
+412,pi2jiu3
+413,ba5
+414,yao4
+415,bei1
+416,ke3le4
+417,ke3yi3
+418,dui4bu5qi3
+419,gei3
+420,shui3
+421,wan(r)2
+422,tu2shu1guan3
+423,ping2
+424,yi4qi3
+425,liao2tianr1
+426,cai2
+427,hui2jia1
+428,hui2
+429,gei3
+430,da3 dian4hua4
+431,dian4hua4
+432,hua4
+433,wei4
+434,zai4
+435,jiu4
+436,na3/nei3
+437,wei4
+438,xia4wu3
+439,shi2jian1
+440,ji3
+441,wen4ti2
+442,yao4
+443,kai1 hui4
+444,kai1
+445,shang4wu3
+446,jie2
+447,ke4
+448,nian2ji2
+449,kao3shi4
+450,kao3
+451,yi3hou4
+452,you3 kong(r)4
+453,yao4shi5
+454,fang1bian4
+455,dao4 ... qu4
+456,ban4gong1shi4
+457,xing2
+458,mei2 wen4ti2
+459,deng3
+460,bu2 ke4qi5
+461,ke4qi5
+462,bang1 mang2
+463,bie2 ke4qi5
+464,bie2
+465,Zhong1wen2
+466,wen2
+467,bang1
+468,lian4xi2
+469,shuo1
+470,a5
+471,dan4shi4
+472,dei3
+473,zhi1dao5
+474,hui2lai5
+010,jiao1
+011,zen3me5
+012,jiu4
+013,xue2
+014,bi3
+015,nan2
+016,kuai4
+017,na3li5
+018,di4
+019,yu4xi2
+002,shuo1hua4
+020,yu3fa3
+021,rong2yi4
+022,duo1
+023,dong3
+024,sheng1ci2
+025,han4zi4
+026,you3yi4dianr3
+027,bu2xie4
+028,ping2chang2
+029,zao3
+003,de5
+030,zen3me5
+031,zhe4me5
+032,ban4ye4
+033,gong1ke4
+034,peng2you5
+035,zhen1
+036,da4jia1
+037,zao3
+038,kai1shi3
+039,shang4ke4
+004,bang1zhu4
+040,nian4
+041,ke4wen2
+042,lu4yin1
+043,nan2de5
+044,shuai4
+005,fu4xi2
+006,zi4
+007,xie3
+008,man4
+009,xie3zi4
+045,pian1
+046,ri4ji4
+047,zao3shang5
+048,qi3chuang2
+049,chuang2
+050,xi3zao3
+051,zao3fan4
+052,yi4bian1 ... yi4bian1 ...
+053,jiao4shi4
+532,shang4ge5 xue2qi1
+533,zhe4ge5 xue2qi1
+534,xia4ge5 xue2qi1
+054,fa1yin1
+055,xin1
+056,dian4nao3
+057,nao3
+058,zhong1wu3
+059,can1ting1
+060,wu3fan4
+061,bao4
+062,su4she4
+063,nar4
+064,... de5 shi2hou5
+065,zheng4zai4
+066,yi3qian2
+067,gao4su5
+068,yi3jing1
+069,feng1
+070,xin4
+071,zui4jin4
+072,zui4
+073,jin4
+074,xue2qi1
+075,chu2le5 ... yi3wai4
+076,zhuan1ye4
+077,hui4
+078,kai1shi3
+079,xi2guan4
+080,hou4lai2
+081,qing1chu5
+082,jin4bu4
+083,yin1yue4hui4
+084,xi1wang4
+085,neng2
+086,yong4
+087,xiao4
+088,zhu4
+089,Yi4 Wen2
+100,tiao2
+101,ku4zi5
+102,hao4
+103,zhong1
+104,gui4
+105,pian2yi5
+106,fu4 qian2
+107,qian2
+108,zher4
+109,yi2gong4
+110,duo1shao5
+111,kuai4
+112,mao2
+113,fen1
+114,bai3
+115,zhao3 (qian2)
+116,shuang1
+117,xie2
+118,huan4
+119,yi2yang4
+120,sui1ran2
+121,da4xiao3
+122,he2shi4
+123,ka1fei1se4
+124,hei1
+125,bu2yong4
+211,yan2se4
+090,mai3
+091,dong1xi5
+092,shou4hou4yuan2
+093,yao4
+094,yi1fu5
+095,jian4
+096,chen4shan1
+097,huang2
+098,hong2
+099,chuan1
+126,tian1qi4
+127,bi3
+128,xia4yu3
+129,bao4shang5
+130,yu4bao4
+131,geng4
+132,bu2dan4 ... er2qie3
+133,hui4
+134,nuan3huo5
+135,yi4dianr3
+136,yue1
+137,gong1yuan2
+138,hong2ye4
+139,zen3me5ban4
+140,lu4xiang4
+141,xie4
+142,Shang4hai3
+143,zao1gao1
+144,you4
+145,gang1cai2
+146,zhe4ge5
+147,chu1qu5
+148,re4
+149,shu1fu5
+150,xia4tian1
+151,zhe4yang4
+152,liang2kuai5
+153,chun1tian1
+154,dong1tian1
+155,you4 ... you4 ...
+156,leng3
+157,men1
+158,xia4ci4
+159,ci4
+160,zui4hao3
+161,qiu1tian1
+162,Tai2bei3
+163,Tai2wan1

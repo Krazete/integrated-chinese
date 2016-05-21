@@ -1,0 +1,60 @@
+——————————————————————————————————————————————————
+FUTURE ADDITIONS
+——————————————————————————————————————————————————
+Remove Century Gothic from body and zh font family.
+Set review text font family to Heiti/SimHei.
+Remove Klee from zh font family.
+Find a Klee lookalike.
+Simplify the menu on the contents page.
+
+Split mainscript into multiple modules.
+	translator.js		pinyin.js
+	numbers.js		mp3.js
+	tooltip.js		mpX.js
+	navigator.js		quiz.js
+
+Make tooltip easier to work with.
+Make contents tooltip look nicer.
+Make w-content and p-content look nice.
+Fix hash change on numbers less than 10.
+Make paragraph level code readable.
+
+Fix jia translation.
+	Check for other mistranslations.
+Stop reloading when changing between TWP on review page.
+Add lesson concatenation option to word level page.
+Remove hollow button design from review page.
+	Or add it to every other page.
+Add suggestion/bug submission box.
+Properly check for mismatch errors in paragraph level page.
+	Lesson 7 True or False
+
+Check the following files for paragraph level page.
+	Missing Files
+		/wav/7328.wav
+		/wav/4331.wav
+		/wav/4332.wav
+		/wav/4333.wav
+		/wav/4335.wav
+	Questionable Files
+		/wav/a311.wav
+		/wav/a312.wav
+		/wav/a313.wav
+		/wav/a314.wav
+		/wav/a315.wav
+		/wav/a316.wav
+		/wav/a317.wav
+		/wav/a318.wav
+
+Do something with the loose files in mp3/vocab.
+
+——————————————————————————————————————————————————
+COMPLETED
+——————————————————————————————————————————————————
+Add a slow audio function to mainscript.
+Fix hash change handling on paragraph page.
+
+——————————————————————————————————————————————————
+DISCARDED
+——————————————————————————————————————————————————
+Change anchor color from red to blue.

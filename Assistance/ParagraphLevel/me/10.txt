@@ -1,0 +1,9 @@
+["a311,Little Ye was very busy ...","a while ago.","just now.","last night."]
+["a312,... invited Little Li to go on a trip.","Mr. Zhang","Teacher Wang","Little Ye"]
+["a313,They plan to go this ...","winter.","spring.","autumn."]
+["a314,Why did Little Li come to see Little Ye?","To get information on Taiwan's weather.","To find out if he is busy.","To find out what kind of a person Mr. Zhang is."]
+["a315,Taipei's winter is ...","colder than here.","warmer than here.","very warm."]
+["a316,Little Ye panicked because ...","she didn't have warm clothes.","she didn't have clothes for warm weather.","her clothes were all small."]
+["a317,Right after their conversation Little Li will ...","get Little Ye's clothes.","go to visit Teacher Wang.","go to Taipei."]
+["a318,Little Li is ...","smaller than Little Ye.","taller than Little Ye.","bigger than Little Ye."]
+
