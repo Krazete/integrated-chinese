@@ -1,4 +1,4 @@
 # integrated-chinese
-The files are currently hosted on a local computer.
+A website for the first year of Chinese courses at University of California, Irvine.
 <br>
-I will upload them soon (in ~1 month).
+Contains content from http://www.language.berkeley.edu/ic.
