@@ -1,0 +1,186 @@
+222,Mr.
+223,you
+224,fine; good; nice; O.K.
+225,Miss; young lady
+226,May I ask
+227,please (polite request)
+228,to ask
+229,you (polite)
+230,What is your honorable surname?
+231,honorable
+232,(one's) surname is /surname
+233,I; me
+234,(a particle)
+235,to be called
+236,what
+237,name
+238,(a person's name)
+239,(a surname); King
+240,(a person's name)
+241,(a surname); plum
+242,to be
+243,teacher
+244,(a particle)
+245,not; no
+246,student
+247,too; also
+248,Chinese people/person
+249,China
+250,people; person
+251,American people/person
+252,the United States of America
+253,friend
+254,that
+255,(a measure word for flat objects)
+256,picture; photo
+257,(indicating  possessive)
+258,this
+259,dad
+260,mom
+261,(the most extensively used measure word)
+262,boy
+263,male
+264,child
+265,who
+266,he; him
+267,younger brother
+268,girl
+269,female
+270,younger sister
+271,she
+272,daughter
+273,to have; there is/are
+274,son
+275,not
+276,Little Gao
+277,small; little
+278,(a surname); tall
+279,family; home
+280,how many
+281,older brother
+282,two; a couple of
+283,older sister
+284,and
+285,to do
+286,English (language)
+287,lawyer
+288,both; all
+289,college student
+290,university; college
+291,doctor; physician
+292,Little Zhang
+293,(a surname)
+294,month
+295,day of the month; number
+296,week
+297,day
+298,birthday
+299,to give birth to; to be born
+300,day; sun
+301,this year
+302,year
+303,how old
+304,how much; to what degree
+305,big; old
+306,year (of age)
+307,to treat; to invite
+308,to eat
+309,dinner; supper
+310,evenig; night; late
+311,meal; (cooked)rice
+312,to eat (a meal)
+313,How does it sound? Is it O.K.?
+314,too; extremely
+315,thank you
+316,to like; to prefer
+317,or
+318,but
+319,O.K.
+320,we
+321,o'clock
+322,clock
+323,half; half an hour
+324,evening; night
+325,to see
+326,good-bye; see you again
+327,again
+328,Little Bai
+329,(a surname); white
+330,now
+331,quarter (hour); 15 minutes
+332,matter; affair; business
+333,tomorrow
+334,busy
+335,today
+336,very
+337,why
+338,for
+339,because
+340,in addition; also
+341,classmate
+342,to know (someone); to recognize
+343,Little Li
+344,minute
+345,to be short of; lack
+346,yesterday
+347,next year
+348,last year
+349,last
+350,next
+475,January
+476,February
+477,March
+478,April
+479,May
+480,June
+481,July
+482,August
+483,September
+484,October
+485,November
+486,December
+487,Monday
+488,Tuesday
+489,Wednesday
+490,Thursday
+491,Friday
+492,Saturday
+493,Sunday
+494,Sunday
+495,the first
+496,the second
+497,the third
+498,the forth
+499,the fifth
+500,the sixth
+501,the seventh
+502,the eighth
+503,the ninth
+504,the tenth
+505,the eleventh
+506,the twelveth
+507,the thirteenth
+508,the fourteenth
+509,the fifteenth
+510,the sixteenth
+511,the seventeenth
+512,the eighteenth
+513,the ninteenth
+514,the twentieth
+515,the twenty first
+516,the twenty second
+517,the twenty third
+518,the twenty forth
+519,the twenty fifth
+520,the twenty sixth
+521,the twenty seventh
+522,the twenty eighth
+523,the twenty ninth
+524,the thirtiest
+525,the thirty first
+526,last week
+527,this week
+528,next week
+529,last month
+530,this month
+531,next month

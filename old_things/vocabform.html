@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta name="google" content="notranslate" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vocabulary Form</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="vocabulary.css">
+
+</head>
+<body>
+
+<style>
+	td{
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	select,input,textarea,button{
+		background: transparent;
+		border: 1px solid #569;
+		border-radius: 5px;
+		width: 100%;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+	}
+	select{
+		width: initial;
+	}
+	button{
+		background: #569;
+		border: none;
+		color: #fff;
+	}
+	button:hover{
+		background: #894;
+		cursor: pointer;
+	}
+	iframe{
+		width: 100%;
+		height: 500px;
+		margin-top: 20px;
+	}
+</style>
+
+<center>
+	<h1>
+		Lesson
+		<select id="lesson" onchange="lesson()">
+			<option hidden>#</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+		</select>
+	</h1>
+</center>
+
+<table class="title bold">
+	<tr>
+		<td>
+			<select id="text">
+				<option value="1">I</option>
+				<option value="2">II</option>
+				<option value="3">III</option>
+			</select>
+		</td>
+	</tr>
+</table>
+
+<table class="content" id="form">
+	<tr>
+		<td>
+			#
+		</td>
+		<td>
+			Traditional
+		</td>
+		<td>
+			Simplified
+		</td>
+		<td>
+			Pinyin
+		</td>
+		<td>
+			Type
+		</td>
+		<td>
+			English Definition
+		</td>
+	</tr>
+	<tr id="adder">
+		<td colspan=6>
+			<button onclick="row()">
+				Add New Row
+			</button>
+		</td>
+	</tr>
+</table>
+
+<center>
+	<!--<button style="width: 100px" onclick="download()">
+		Download
+	</button>
+	and send to <a href="mailto:tcelis@uci.edu">tcelis@uci.edu</a>.
+	<br>-->
+	<button style="width: 100px" onclick="backup()">
+		Convert
+	</button> and send the following to tcelis@uci.edu.
+	<br>
+	<textarea id="backup" style="width: 50%; height: 100px; font-size: 0.5em;" onclick="this.select()"></textarea>
+</center>
+
+<iframe src="https://docs.google.com/spreadsheets/d/1NiI43uR5wda88QZdnT33uWUifg7rpta0Zj-0FNbBxFM/edit?usp=sharing">
+</iframe>
+
+<script>
+	function id(e){
+		return document.getElementById(e);
+	}
+
+	function fixSyllable(s, a, b){
+		var toneA = ["a", "ā", "á", "ǎ", "à"];
+		var toneE = ["e", "ē", "é", "ě", "è"];
+		var toneO = ["o", "ō", "ó", "ǒ", "ò"];
+		var toneV = ["ü", "ǖ", "ǘ", "ǚ", "ǜ"];
+		var toneI = ["i", "ī", "í", "ǐ", "ì"];
+		var toneU = ["u", "ū", "ú", "ǔ", "ù"];
+		
+		var subs = s.slice(a, b);
+		var n = parseInt(s[b]) % 5;
+		
+		if(subs.includes("a")){
+			subs = subs.replace("a", toneA[n]);
+		}
+		else if(subs.includes("e")){
+			subs = subs.replace("e", toneE[n]);
+		}
+		else if(subs.includes("o")){
+			subs = subs.replace("o", toneO[n]);
+		}
+		else if(subs.includes("ü")){
+			subs = subs.replace("ü", toneV[n]);
+		}
+		else if(subs.indexOf("i") > subs.indexOf("u")){
+			subs = subs.replace("i", toneI[n]);
+		}
+		else if(subs.indexOf("u") > subs.indexOf("i")){
+			subs = subs.replace("u", toneU[n]);
+		}
+		return s.slice(0, a) + subs + s.slice(b + 1, s.length);
+	}
+
+	function fixPinyin(s){
+		s = s.replace(/v/g, "ü");
+		var i = 0;
+		for(var j = 0; j < s.length; j++){
+			if(["1", "2", "3", "4", "5"].includes(s[j])){
+				s = fixSyllable(s, i, j);
+				i = j;
+				j--;
+			}
+		}
+		return s;
+	}
+
+	var text = [
+		[ //11
+			"Dialogue I: Tomorrow's Weather Will Be Even Better!",
+			"Dialogue II: The Weather Here Is Awful!",
+			"How About You?"
+		],
+		[ //12
+			"Dialogue I: Dining Out",
+			"Dialogue II: Eating in a Cafeteria",
+			"How About You?"
+		],
+		[ //13
+			"Dialogue I: Where Are You Off To?",
+			"Dialogue II: Going to Chinatown",
+			"How About You?"
+		],
+		[ //14
+			"Dialogue I: Let's Go to a Party!",
+			"Dialogue II: Attending a Birthday Party",
+			"How About You?"
+		],
+		[ //15
+			"Dialogue I: My Stomachache Is Killing Me!",
+			"Dialogue II: Allergies",
+			"How About You?"
+		],
+		[ //16
+			"Dialogue I: Seeing a Movie",
+			"Dialogue II: Turning Down an Invitation",
+			"How About You?"
+		],
+		[ //17
+			"Narrative: Finding a Better Place",
+			"Dialogue: Calling about an Apartment for Rent",
+			"How About You?"
+		],
+		[ //18
+			"Dialogue I: My Gut Keeps Getting Bigger and Bigger!",
+			"Dialogue II: Watching American Football",
+			"How About You?"
+		],
+		[ //19
+			"Dialogue I: Traveling to Beijing",
+			"Dialogue II: Planning an Itinerary",
+			"How About You?"
+		],
+		[ //20
+			"Dialogue I: Checking In at the Airport",
+			"Dialogue II: Arriving in Beijing",
+			"How About You?"
+		]
+	];
+
+	function lesson(){
+		var i, l = id("lesson").value - 11;
+		for(i = 0; i < text[l].length; i++){
+			id("text").options[i].innerHTML = text[l][i];
+		}
+	}
+
+	var data = [];
+
+	function cell(tr, e){
+		if(e == undefined){
+			e = "input";
+		}
+		var td = document.createElement("td");
+		element = document.createElement(e);
+		data.push(element);
+		td.appendChild(element);
+		tr.appendChild(td);
+		return td;
+	}
+
+	function row(){
+		var tr = document.createElement("tr");
+		cell(tr).width = "20px";
+		cell(tr).className = "chinese";
+		cell(tr).className = "chinese";
+		pBox = cell(tr).children[0];
+		pBox.original = "";
+		pBox.setAttribute("onblur", "this.original = this.value; this.value = fixPinyin(this.value)");
+		pBox.setAttribute("onfocus", "this.value = this.original");
+		cell(tr).width = "20px";
+		cell(tr, "textarea").width = "200px";
+		id("form").appendChild(tr);
+		id("form").appendChild(id("adder"));
+	}
+
+	function thismanytimes(i, j){
+		var d = j == 3 ? data[i + j].original.length : data[i + j].value.length;
+		if(j == 1){
+			return d < 3 ? 3 : d < 5 ? 2 : 1;
+		}
+		if(j == 2){
+			return d < 4 ? 2 : 1;
+		}
+		if(j == 3){
+			return d < 5 ? 7 : d < 9 ? 6 : d < 13 ? 5 : d < 17 ? 4 : d < 21 ? 3 : d < 25 ? 2 : 1;
+		}
+		if(j == 4){
+			return d < 1 ? 3 : d < 6 ? 2 : 1;
+		}
+	}
+
+	function file(){
+		var i, j, blob, dl, k = "\ntcelis@uci.edu\n\n" + "-".repeat(100) + "\n\n";
+		
+		k += "\t/\/\ Lesson " + id("lesson").value + "\n\t[\n\t\t[\n\t\t\t\"" + id("text").item(id("text").value - 1).innerHTML + "\",\n";
+		for(i = 0; i < data.length; i += 6){
+			if(data.slice(i, i + 6).map(function(e){return e.value.trim()}).join("").length > 0){
+				k += "\t\t\t[";
+				for(j = 1; j < 6; j++){
+					k += "\"" + (data[i].value.trim() == "" && j == 1 ? " " : "") + (j == 3 ? data[i + j].original : data[i + j].value) + "\"" + (j == 5 ? "" : ",") + "\t".repeat(thismanytimes(i, j));
+				}
+				k += "],\n";
+			}
+		}
+		k += "\t\t],\n\t],\n";
+		return k;
+	}
+
+	function download(){
+		blob = new Blob(["Send this file to:" + file()], {type: "text/plain"});
+		dl = document.createElement("a");
+		dl.href = URL.createObjectURL(blob);
+		dl.download = "L" + id("lesson").value + "T" + id("text").value + ".txt";
+		dl.click();
+	}
+
+	function backup(){
+		id("backup").value = "Copy and paste this in an email to:" + file();
+	}
+
+	row();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+
+["18p1.1,Little Zhang has known Little Xie for ...","two months.","a month.","three months."]
+["18p1.2,Little Xie ...","has difficulty finding a place.","has found an apartment.","has decided not to move."]
+["18p1.3,Little Zhang ...","likes Little Xie.","doesn't know what to do.","wants to find an apartment."]
+["18p1.4,Little Zhang's apartment has ...","a bedroom and a living room.","a bedroom and no other rooms.","two bedrooms."]
+["18p1.5,If Little Xie moves in, they will each pay ...","less than $400.","less than $300.","$700."]
+

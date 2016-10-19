@@ -1,0 +1,6 @@
+["1311,The young lady is a ...","teacher.","student.","Chinese."]
+["1312,The student is ...","a man.","a woman.","an American."]
+["1313,These 2 people ...","didn't know each other before.","knew each other before.","have the same last name."]
+["1314,The teacher's last name is ...","Wang.","Peng.","Li."]
+
+

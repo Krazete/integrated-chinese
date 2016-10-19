@@ -1,0 +1,6 @@
+
+["17p1.1,Miss Bai ...","found her medicine finally.","found the medicine for Little Li.","didn't find her medicine after all."]
+["17p1.2,Little Li ...","wasn't very helpful.","helped Miss Bai looking for the medicine.","tried to be very helpful."]
+["17p1.3,Miss Bai ...","will not take the medicine this time.","took too much of the medicine.","is seriously allergic to this medicine."]
+["17p1.4,Miss Bai ...","can't remember when she took the medicine last time.","keeps good record of her medicine intake.","didn't want to get up."]
+

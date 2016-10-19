@@ -1,0 +1,74 @@
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<head>
+<title>Lesson 14 -- Exercises</title>
+<script>
+
+
+
+function rw(fn) {
+	if(fn==5) {
+		parent.blank.document.write('<bgsound src="../wav/henhao.wav" hidden="true" autostart="true" loop="false">');
+		}
+	else {
+		budui = "../wav/budui.wav";
+		parent.blank.document.write('<bgsound src="../wav/budui.wav" hidden="true" autostart="true" loop="false">');
+	}
+}
+function playSound() { 
+parent.blank.document.write('<bgsound src="../wav/exercises/14p2.wav" hidden="true" autostart="true" loop="false">');
+
+}
+
+
+</script>
+</head>
+
+<body bgcolor=#ffbf80 background="" topmargin=0 leftmargin=0 onMouseOver="window.status='';return true" onLoad="javascript:playSound()" onMouseOver="window.status='';return true">
+
+
+
+<center><font face="arial" size=4 color="red">
+Exercises - Lesson 14, Paragraph Level
+</font></center>
+
+<hr width=350>
+<br>
+<table align=center width=350 border=1 cellspacing=4 cellpadding=0>
+
+<tr valign=top><td align=center bgcolor="white" width=50%><font face="arial" size=2>
+<map name="mapread">
+<area href="javascript:rw(1)" shape="rect" coords="369, 1, 422, 30">
+<area href="javascript:rw(2)" shape="rect" coords="198, 57, 253, 84">
+<area href="javascript:rw(3)" shape="rect" coords="181, 155, 243, 183">
+<area href="javascript:rw(4)" shape="rect" coords="521, 39, 592, 66">
+<area href="javascript:rw(5)" shape="rect" coords="529, 138, 592, 165">
+</map>
+<img src="img/mapreading.jpg" border=0 usemap="#mapread">
+<br><br>
+你要去什么地方？ (Click on the box.)
+</font></td></tr>
+</table>
+
+
+
+
+
+<table align=center width=350 border=0 cellspacing=10 cellpadding=10>
+<tr><td>
+<font face="arial" size=2>
+<a href="javascript:playSound()" valign=top><img src="img/playsound.gif" border=0 alt="Play again"></a>
+</td><td><font face="arial" size=2>
+<p align=right>
+<a href="ex14p_toc.html" target="_parent" valign=top>Back</a>
+</p>
+
+</td></tr>
+</table>
+
+
+
+</font>
+</body>
+</html>

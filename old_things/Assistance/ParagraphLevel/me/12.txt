@@ -1,0 +1,7 @@
+
+["12p1.1,This man ordered ...","rice.","dumplings.","both rice an dumplings."]
+["12p1.2,He wanted some ...","beer.","cola.","water."]
+["12p1.3,He ordered ...","fish braised in soy sauce.","sweet and sour fish.","hot and sour fish."]
+["12p1.4,The waitress made a mistake on ...","everything.","one of the dishes.","the soup only."]
+["12p1.5,The reason she made the mistake was that ...","she brought over someone else's order.","she didn't hear clearly.","what he ordered was sold out."]
+
