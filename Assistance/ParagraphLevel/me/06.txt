@@ -1,8 +1,0 @@
-["6311,Li You is looking for ...","Little Zhang.","her brother.","Little Gao."]
-["6312,Little Gao will ...","invite Li You to dinner.","call Li You.","go to a meeting."]
-["6313,Little Zhang will not be back until ...","7:30 PM.","7:00 PM.","next month."]
-["6314,Li You wants to ...","practice Chinese.","have dinner with Zhang's family.","go to a meeting at school."]
-["6315,Next month Li You will ...","go to China.","go to a meeting at school.","practice Chinese with Little Zhang."]
-["6316,... are going to China","Li You and her brother.","Li You and Little Gao.","Little Zhang and his father."]
-["6317,Li You will have dinner with _____ today","Little Gao.","her brother.","Little Zhang."]
-

@@ -1,6 +1,0 @@
-"3321,f,Miss Wang treated Mr. Li last week."
-"3322,t,Mr. Li cannot have dinner with Miss. Wang this Friday."
-"3323,f,They decided to go on Saturday."
-"3324,t,None of them is busy Sunday evening."
-"3325,t,Mr. Li loves Chinese food."
-"3326,f,They will meet at 7:15 PM."

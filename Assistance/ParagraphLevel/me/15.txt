@@ -1,7 +1,0 @@
-
-["15p1.1,Whose house did Little Li visit yesterday?","Miss Bai's.","Little Zhang's.","Miss Bai's boyfriend's."]
-["15p1.2,They both think that the puppy is ...","ugly.","too small.","pretty."]
-["15p1.3,Little Zhang thinks that the puppy's nose is ...","too big.","too small.","too short."]
-["15p1.4,The puppy's eyes are ...","too small.","too big.","beautiful."]
-["15p1.5,This puppy is ...","a present from Little Zhang.","purchased by Miss Bai's boyfriend.","purchased by Miss Bai."]
-

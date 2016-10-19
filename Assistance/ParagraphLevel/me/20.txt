@@ -1,7 +1,0 @@
-
-["20p1.1,Siwen's friend wants to ...","go swimming.","watch a football game.","play football."]
-["20p1.2,When the friend called, Siwen was ...","watching TV.","playing tennis.","sleeping."]
-["20p1.3,They haven't gone swimming for ...","two weeks.","a week.","a month."]
-["20p1.4,____ was drowned.","Little Bai's cousin","Siwen's cousin","Little Bai"]
-["20p1.5,Siwen wants to ___ now.","watch a game","go downstairs","watch a movie"]
-

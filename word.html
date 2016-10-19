@@ -1,102 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Lesson ? Words: ?</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="mainstyle.css">
-<link rel="stylesheet" type="text/css" href="word.css">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="google" value="noTranslate">
-<meta charset="UTF-8">
-
+	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="/word.css">
 </head>
 <body>
+	<div class="container">
+		<h1 class="zh" id="title"></h1>
+		<h2 class="desktop" id="subject"></h2>	
+		
+		<!--(Include Previous?)-->
+		
+		<div class="button tl tr play" id="toggle"></div>
+		<div class="flex" id="points"></div>
+		<div id="buttons">
+			<div class="button choice">A</div>
+			<div class="button choice">B</div>
+			<div class="button choice">C</div>
+			<div class="button choice bl br">D</div>
+		</div>
+		
+		<p><a href="/">Index</a></p>
+	</div>
 
-<table>
-	<tr>
-		<td class="A C nav btn" rowspan=2 onClick="navigate(-1)">
-			<<
-		</td>
-		<td class="nav" colspan=3 onClick="location = 'contents.html'">
-			Table of Contents
-		</td>
-		<td class="B D nav btn" rowspan=2 onClick="navigate(1)">
-			>>
-		</td>
-	</tr>
-	<tr>
-		<td class="nav" id="P" onClick="newHash('P')">
-			Pinyin
-		</td>
-		<td class="nav" id="E" onClick="newHash('E')">
-			English
-		</td>
-		<td class="nav" id="C" onClick="newHash('C')">
-			Chinese
-		</td>
-	</tr>
-</table>
+	<p>
+		Problem?
+		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+			Report the bug and go to the old website.
+		</a>
+	</p>
+	<form action="/bug" method="post" id="form" style="display: none">
+		<table style="border: 1px solid black; margin: auto auto 50px auto">
+			<tr>
+				<td>Description of Bug</td>
+				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="nav" id="nav">
+					<input type="hidden" name="path" id="path">
+				</td>
+				<td><input type="submit" name="submit" value="Submit and Go"></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var nav = {};
+		for (var i in navigator)
+			nav[i] = navigator[i];
+		document.getElementById("nav").value = JSON.stringify(nav);
+		document.getElementById("path").value = location.pathname;
+	</script>
 
-<h1 class="zh" id="title">第？课</h1>
-
-<audio id="mp3" onPause="enableButts()"></audio>
-<audio id="mpX" onPause="newChoices()"></audio>
-
-<!--td class="space">
-	Include Previous
-</td-->
-
-<table>
-	<tr>
-		<td class="A B C D" colspan=3 onClick="mp3.play()">
-			▶︎
-		</td>
-	</tr>
-	<tr>
-		<td class="space speed">
-			Speed:
-			<input type="radio" name="rate" id="half" onClick="mp3Speed(0.5)">
-			<label for="half">50%</label>
-			<input type="radio" name="rate" id="laci" onClick="mp3Speed(0.75)">
-			<label for="laci">75%</label>
-			<input type="radio" name="rate" id="full" onClick="mp3Speed(1)" checked>
-			<label for="full">100%</label>
-		</td>
-		<td class="space" id="completion">
-		</td>
-		<td class="space">
-			<div id="bar">
-				<div id="complete">
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td class="A B zh choice" colspan=3 onClick="check(0)">
-			A
-		</td>
-	</tr>
-	<tr>
-		<td class="zh choice" colspan=3 onClick="check(1)">
-			B
-		</td>
-	</tr>
-	<tr>
-		<td class="zh choice" colspan=3 onClick="check(2)">
-			C
-		</td>
-	</tr>
-	<tr>
-		<td class="C D zh choice" colspan=3 onClick="check(3)">
-			D
-		</td>
-	</tr>
-</table>
-
-<script src="mainscript.js"></script>
-<script src="mp3/vocab/wl-content.js"></script>
-<script src="word.js"></script>
-
+	<audio id="mpX"></audio>
+	<audio src="/mp3/henhao.mp3" id="henhao"></audio>
+	<audio src="/mp3/budui.mp3" id="budui"></audio>
+	<script src="/mainscript.js"></script>
+	<script src="/data/word.js"></script>
+	<script src="/word.js"></script>
 </body>
 </html>

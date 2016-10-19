@@ -1,115 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Lesson ? Review</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="mainstyle.css">
-<link rel="stylesheet" type="text/css" href="review.css">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="google" value="noTranslate">
-<meta charset="UTF-8">
-
+	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="/review.css">
 </head>
 <body>
-
-<div id="playScroll">
-	<div id="playTime">
+	<div class="container">
+		<h1 class="zh" id="title"></h1>
+		<h2 class="desktop" id="subject"></h2>
+		
+		<ul>
+			<li>
+				<ul class="flex">
+					<li class="button tl" id="a">Text A</li>
+					<li class="button tr" id="b">Text B</li>
+				</ul>
+			</li>
+			<li class="frame">
+				<img id="photo">
+			</li>
+			<li class="zh" id="text"></li>
+			<li class="zh" id="example"></li>
+			<li>
+				<ul class="flex">
+					<li class="button bl" id="plain">Plain Text</li>
+					<li class="button" id="word">Words</li>
+					<li class="button" id="pattern">Patterns</li>
+					<li class="button br" id="image">Image</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<br>
+		
+		<ul class="flex">
+			<li class="button tl bl" id="toggle">
+			</li>
+			<li id="progress">
+				<div id="progress-after"></div>
+			</li>
+			<li class="button speed" id="speed-50">
+				<div class="speed-after"></div>
+			</li>
+			<li class="button speed" id="speed-75">
+				<div class="speed-after"></div>
+			</li>
+			<li class="button speed tr br" id="speed-100">
+				<div class="speed-after"></div>
+			</li>
+		</ul>
+		<br>
+		<p class="desktop button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
+		
+		<p><a href="/">Index</a></p>
 	</div>
-</div>
+	
+	<p>
+		Problem?
+		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+			Report the bug and go to the old website.
+		</a>
+	</p>
+	<form action="/bug" method="post" id="form" style="display: none">
+		<table style="border: 1px solid black; margin: auto auto 50px auto">
+			<tr>
+				<td>Description of Bug</td>
+				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="nav" id="nav">
+					<input type="hidden" name="path" id="path">
+				</td>
+				<td><input type="submit" name="submit" value="Submit and Go"></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var nav = {};
+		for (var i in navigator)
+			nav[i] = navigator[i];
+		document.getElementById("nav").value = JSON.stringify(nav);
+		document.getElementById("path").value = location.pathname;
+	</script>
 
-<table>
-	<tr>
-		<td class="A C nav btn" onClick="navigate(-1)">
-			<<
-		</td>
-		<td class="nav" onClick="location = 'contents.html'">
-			Table of Contents
-		</td>
-		<td class="B D nav btn" onClick="navigate(1)">
-			>>
-		</td>
-	</tr>
-</table>
 
-<h1 class="zh" id="title">第？课</h1>
-
-<audio id="mp3" onPause="mp3Pause()" onPlay="mp3Play()"></audio>
-<audio id="mpX"></audio>
-
-<table>
-	<tr>
-		<td class="space speed">
-			Speed:
-			<input type="radio" name="rate" id="half" onClick="mp3Speed(0.5)">
-			<label for="half">50%</label>
-			<input type="radio" name="rate" id="laci" onClick="mp3Speed(0.75)">
-			<label for="laci">75%</label>
-			<input type="radio" name="rate" id="full" onClick="mp3Speed(1)" checked>
-			<label for="full">100%</label>
-		</td>
-		<td class="A C" id="A" onClick="newHash('A')">
-			Text A
-		</td>
-		<td class="B D" id="B" onClick="newHash('B')">
-			Text B
-		</td>
-	</tr>
-	<tr>
-		<td class="A B C D" id="play" onClick="mp3Toggle()">
-			<div id="playIcon"></div>
-		</td>
-		<td class="A B C D" colspan=2 rowspan=999 id="outerText">
-			<p class="zh" id="innerText"></p>
-		</td>
-	</tr>
-	<tr>
-		<td class="space">
-			&nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td class="A B" id="R" onClick="newHash('R')">
-			Listen and Read
-		</td>
-	</tr>
-	<tr>
-		<td class="C D" id="L" onClick="newHash('L')">
-			Listen Only
-		</td>
-	</tr>
-	<tr>
-		<td class="space">
-			&nbsp;
-		</td>
-	</tr>
-	<tr>
-		<td class="A B" id="T" onClick="newHash('T')">
-			Pure Text
-		</td>
-	</tr>
-	<tr>
-		<td id="W" onClick="newHash('W')">
-			Show New Words
-		</td>
-	</tr>
-	<tr>
-		<td class="C D" id="P" onClick="newHash('P')">
-			Show New Patterns
-		</td>
-	</tr>
-	<tr>
-		<td class="space" rowspan=99>
-			&nbsp;
-		</td>
-	</tr>
-</table>
-
-<script src="mainscript.js"></script>
-<script src="mp3/text/t-content.js"></script>
-<script src="mp3/word/w-content.js"></script>
-<script src="mp3/pattern/p-content.js"></script>
-<script src="review.js"></script>
-
+	<ul class="desktop tl tr bl br hid" id="tip">
+		<li>Keyboard Shortcuts</li>
+		<li class="tip-line"></li>
+		<li>Play/Pause</li>
+		<li class="tip-key">space</li>
+		<li class="tip-line"></li>
+		<li>Seek</li>
+		<li class="tip-key">&larr;</li>
+		<li class="tip-key">&rarr;</li>
+		<li class="tip-key">0...9</li>
+		<li class="tip-line"></li>
+		<li>Speed</li>
+		<li class="tip-key">&uarr;</li>
+		<li class="tip-key">&darr;</li>
+	</ul>
+	<audio id="mp3"></audio>
+	<audio id="mpX"></audio>
+	<script src="/mainscript.js"></script>
+	<script src="/data/review_text.js"></script>
+	<script src="/data/review_word.js"></script>
+	<script src="/data/review_pattern.js"></script>
+	<script src="/review.js"></script>
+	<noscript><h1>JavaScript must be enabled to use this website.<h1></noscript>
 </body>
 </html>

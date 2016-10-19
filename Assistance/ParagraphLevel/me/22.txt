@@ -1,7 +1,0 @@
-
-["22p1.1,Miss Wang's uncle lives in ___ now.","California","Washington","Shanghai"]
-["22p1.2,Miss Wang asks Little Li to ___ this weekend.","ski","help her uncle move","go to Shanghai"]
-["22p1.3,We know Miss Wang's uncle likes to ...","grow vegetables.","visit her.","ski."]
-["22p1.4,Little Li will go with Miss Wang because ...","he is free this weekend.","he wants to visit Mr. Wang.","he likes cucumber."]
-["22p1.5,Miss Wang showed Little Li ___ from her uncle.","a picture","some cucumbers","a letter"]
-

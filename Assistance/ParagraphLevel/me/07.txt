@@ -1,8 +1,0 @@
-["7311,Right now is ...","8:15 AM.","8 AM.","10 AM."]
-["7312,Today Little Gao came to school ...","early.","late.","just before class."]
-["7313,What did Little Gao do last night?","Entertained some friends.","Reviewed the grammar.","Prepared the new text."]
-["7314,Little Zhang ...","introduced a few friends to Little Gao.","went to see Little Gao at midnight.","went to look for the teacher."]
-["7315,The teacher asked Little Gao to _____ now.","go to see him","study","go home"]
-["7316,The teacher told Little Gao that ...","today's grammar is a bit difficult.","there are not too many new words today.","there are a lot of grammar points today."]
-["7317,The teacher is going to _____ now.","his office","Little Gao's house","the library"]
-

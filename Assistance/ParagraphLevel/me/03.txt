@@ -1,7 +1,0 @@
-["3311,Little Wang is __ this year.","nineteen","eighteen","seventeen"]
-["3312,Miss Zhang is __ this year.","seventeen","eighteen","nineteen"]
-["3313,Miss Zhang ...","will have dinner late.","will not have dinner today.","has already had dinner."]
-["3314,Miss Zhang's birthday is ...","today.","November 6.","tomorrow."]
-["3315,Little Wang's Birthday is ...","November 6.","today.","tomorrow."]
-["3316,Li Ming has invited ...","Miss Zhang.","Little Wang.","both of them."]
-

@@ -1,83 +1,58 @@
-body{
+body {
 	background: url('img/vocab.png');
 	font-family: Klee, Book Antiqua, Helvetica, Arial;
-	margin: 0 0 50px 0;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 50px;
 }
 
-.bold{
+.bold {
 	font-family: Helvetica-Bold;
 }
 
-.center{
-	text-align: center;
-}
-
-@font-face{
+@font-face {
 	font-family: Kata;
     src: url(Kata.ttf);
 }
 
-.chinese{
-	height: 1.5em;
-	width: 5em;
-	font-family: STKaiti, KaiTi, STFangsong, FangSong, Kata, STHeiti, SimHei, Arial;
-	font-size: 2em;
+@media (pointer: fine) { /* eh */
+	.zh {
+		height: 1.5em;
+		font-size: 2em;
+	}
 }
 
-.lesson{
+.title {
 	position: relative;
-	width: 100%;
-	left: 50%;
-	transform: translateX(-50%);
-	border-spacing: 1px 0;
-	text-align: center;
-}
-.lesson td{
-	width: 1%;
-	background: #569;
-	color: #fff;
-	border-radius: 0 0 15px 15px;
-	padding: 5px;
-}
-.lesson td:hover{
-	background: #894;
-	cursor: pointer;
-}
-
-.title{
-	position: relative;
-	left: 50%;
-	transform: translateX(-425px);
 	background: #894;
 	color: #fff;
 	border-radius: 15px 15px 0 0;
 	text-align: center;
 	padding: 10px;
 }
-.title.extra{
+.title.extra {
 	background: #a88;
 }
 
-.content{
+.content {
 	position: relative;
-	width: 900px;
-	left: 50%;
-	transform: translateX(-450px);
+	width: 100%;
 	background: rgba(255, 255, 255, 0.75);
-	border: 2px solid #569;
-	border-radius: 25px;
+	border-top: 2px solid #569;
+	border-bottom: 2px solid #569;
+	border-radius: 0 25px 25px 25px;
 	padding: 20px;
 	margin-bottom: 25px;
 }
-.content td{
+.content td {
 	min-width: 2em;
 	max-width: 15em;
 }
-.content.extra{
-	border: 2px solid #a88;
+.content.extra {
+	border-color: #a88;
 }
 
-#search{
+#search {
 	position: fixed;
 	height: 1em;
 	width: 1em;
@@ -93,7 +68,7 @@ body{
 	padding: 0.5em;
 	transition: background 100ms, width 100ms;
 }
-#search:focus{
+#search:focus {
 	width: 5em;
 	background: #fff;
 	border-color: #894;
@@ -101,12 +76,12 @@ body{
 
 
 
-#selection{
+#selection {
 	position: absolute;
 	background: rgba(0, 0, 0, 0.1);
 }
 
-#select{
+#select {
 	position: fixed;
 	height: 2em;
 	width: 2em;

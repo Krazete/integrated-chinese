@@ -1,7 +1,0 @@
-
-["23p1.1,Xiao Ming is going to ...","study abroad.","visit his grandma.","visit his uncle."]
-["23p1.2,He's going to fly for ...","over 10 hours. (less than 20 hours)","over 10 hours. (less than 11 hours)","about 17 hours."]
-["23p1.3,His grandma wants him to take some __ with him.","dumplings","rice","water"]
-["23p1.4,Xiao Ming will be living ...","in the dormitory.","in an apartment.","with his uncle."]
-["23p1.5,How does Xiao Ming go to the airport?","He will take a taxi.","His uncle will take him there.","His grandma will take him there."]
-

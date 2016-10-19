@@ -1,9 +1,0 @@
-["9311,Li You asked Little Wang to ...","go to a movie.","go to a concert.","go shopping with her."]
-["9312,Little Wang was planning to _____ this afternoon","go shopping","go to a concert","go to Li You's house"]
-["9313,Lawyer Zhang invited the Wang family ...","to a concert.","to a movie.","to dinner."]
-["9314,Last month Little Wang bought a pair of _____ pants.","brown","yellow","black"]
-["9315,Little Wang bought those pants with ...","Li You.","Lawyer Zhang.","his brother."]
-["9316,Little Wang wants to ...","get a pair with a different color.","return the pants he bought.","get a pair with the same color."]
-["9317,Li You asked Little Wang to ...","try on her brother's pants.","have lunch at her house.","buy a pair of brown pants."]
-["9318,Little Wang is going to Li You's house ...","this afternoon.","tomorrow.","this morning."]
-

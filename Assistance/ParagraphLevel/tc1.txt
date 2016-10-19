@@ -1,7 +1,0 @@
-["../wav/732.wav",
-"../wav/632.wav",
-"../wav/332.wav",
-"../wav/532.wav",
-"../wav/432.wav",
-"../wav/932.wav",
-"../wav/b32.wav"]

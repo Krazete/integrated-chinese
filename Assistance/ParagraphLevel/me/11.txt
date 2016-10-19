@@ -1,7 +1,0 @@
-["b311,Miss Wang will ...","go to the store before getting home.","go to visit Mr. Zhang now.","go to the store after getting home."]
-["b312,Both Miss Wang and Mr. Zhang want to buy ...","something to drink.","some beer.","some cola."]
-["b313,Miss Wang found riding a bus in China interesting because ...","you need to buy a ticket.","you can chat with the driver.","you can drink beer on the bus."]
-["b314,Miss Wang liked taking ____ the best","a taxi","the bus","the subway"]
-["b315,It is fun to take a taxi in China because ...","you can chat with the driver.","it is very fast.","you can drink beer in the taxi."]
-["b316,Miss Wang said taking _____ is the fastest.","the subway.","the bus","a taxi"]
-

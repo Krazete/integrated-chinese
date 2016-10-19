@@ -1,7 +1,0 @@
-
-["21p1.1,Little Li will go to China ...","with Miss Wang.","with Miss Wang's sister.","with both Miss Wang and her sister."]
-["21p1.2,Little Li wants to decide the travelling date based on ...","Miss Wang's schedule.","his class schedule.","the flight information."]
-["21p1.3,They've decided to leave ...","at the beginning of June.","in December.","at the end of June."]
-["21p1.4,Little Li doesn't enjoy ...","travel alone.","talking.","planning for the trip."]
-["21p1.5,Their flight will take about ...","12 hours.","10 hours.","6 hours."]
-

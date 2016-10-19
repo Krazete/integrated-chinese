@@ -1,146 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Lesson ? Paragraphs: ?</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="mainstyle.css">
-<link rel="stylesheet" type="text/css" href="paragraph.css">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="google" value="noTranslate">
-<meta charset="UTF-8">
-
+	<meta charset="utf-8">
+	<meta name="google" content="notranslate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="/paragraph.css">
 </head>
 <body>
-
-<div id="playScroll">
-	<div id="playTime">
-	</div>
-</div>
-
-<table>
-	<tr>
-		<td class="A C nav btn" rowspan=3 onClick="navigate(-1)">
-			<<
-		</td>
-		<td class="nav" colspan=2 onClick="location = 'contents.html'">
-			Table of Contents
-		</td>
-		<td class="B D nav btn" rowspan=3 onClick="navigate(1)">
-			>>
-		</td>
-	</tr>
-	<tr>
-		<td class="nav" id="M" onClick="newHash('M')">
-			Multiple Choice
-		</td>
-		<td class="nav" id="T" onClick="newHash('T')">
-			True or False
-		</td>
-	</tr>
-	<tr>
-		<td class="nav" id="E" onClick="newHash('E')">
-			English
-		</td>
-		<td class="nav" id="C" onClick="newHash('C')">
-			Chinese
-		</td>
-	</tr>
-</table>
-
-<h1 class="zh" id="title">第？课</h1>
-
-<audio id="mp3" onPause="mp3Pause()" onPlay="mp3Play()"></audio>
-<audio id="mpX"></audio>
-
-<div id="fulltext">
-	Listen to the entire text before proceeding.
-	<!--▕◀︎▶︎▏-->
-	<div class="A B C D" id="play" onClick="mp3Toggle()">
-		<div id="playIcon">
-		</div>
-	</div>
-	<div id="speedposition1">
-		<div class="speed">
-			Speed:
-			<input type="radio" name="rate" id="half" onClick="mp3Speed(0.5)">
-			<label for="half">50%</label>
-			<input type="radio" name="rate" id="laci" onClick="mp3Speed(0.75)">
-			<label for="laci">75%</label>
-			<input type="radio" name="rate" id="full" onClick="mp3Speed(1)" checked>
-			<label for="full">100%</label>
-		</div>
-	</div>
-	<a onClick="proceed()">Continue</a>
-</div>
-
-<table id="exercise">
-	<tr>
-		<td class="A B C D zh text" id="question" colspan=2>
-			?
-		</td>
-	</tr>
-	<tbody id="choice">
-		<tr>
-			<td class="A B zh choice" colspan=2 onClick="check(0)">
-				A
-			</td>
-		</tr>
-		<tr>
-			<td class="zh choice" colspan=2 onClick="check(1)">
-				B
-			</td>
-		</tr>
-		<tr>
-			<td class="C D zh choice" colspan=2 onClick="check(2)">
-				C
-			</td>
-		</tr>
-	</tbody>
-	<tbody id="truth">
-		<tr>
-			<td class="A C zh choice" onClick="check(0)">
-				对 (True)
-			</td>
-			<td class="B D zh choice" onClick="check(1)">
-				错 (False)
-			</td>
-		</tr>
-	</tbody>
-	<tbody id="map">
-		<tr>
-		</tr>
-		<tr>
-			<td class="space" colspan=2>
-				<img src="img/map.jpg">
-				<div class="mapanscontainer">
-				<div class="mapans choice" id="mapans1" onClick="check(0)"></div>
-				<div class="mapans choice" id="mapans2" onClick="check(1)"></div>
-				<div class="mapans choice" id="mapans3" onClick="check(2)"></div>
-				<div class="mapans choice" id="mapans4" onClick="check(3)"></div>
-				<div class="mapans choice" id="mapans5" onClick="check(4)"></div>
+	<div class="container">
+		<h1 class="zh" id="title"></h1>
+		<h2 class="desktop" id="subject"></h2>
+		
+		<div id="fulltext">
+			<div class="flex">
+				<div class="button speed tl" id="speed-50">
+					<div class="speed-after"></div>
 				</div>
-			</td>
-		</tr>
-	</tbody>
-	<tr>
-		<td class="space" id="points" colspan=2>
-		</td>
-	</tr>
-	<tr>
-		<td class="A B C D" onClick="mp3.play()">
-			Play Hint
-		</td>
-		<td class="space">
-			<div id="speedposition2">
+				<div class="button speed" id="speed-75">
+					<div class="speed-after"></div>
+				</div>
+				<div class="button speed tr" id="speed-100">
+					<div class="speed-after"></div>
+				</div>
 			</div>
-		</td>
-	</tr>
-</table>
+			<div id="progress">
+				<div id="progress-after"></div>
+			</div>
+			<div class="button bl br play" id="toggle"></div>
+			<p>Listen to the entire text before proceeding.</p>
+			<p class="button tl tr bl br" id="proceed">Continue</p>
+			<p class="desktop button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
+		</div>
+		
+		<div class="tl tr hidden" id="question"></div>
+		<div class="hidden" id="mc">
+			<div class="button"></div>
+			<div class="button"></div>
+			<div class="button"></div>
+		</div>
+		<div class="flex hidden" id="tf">
+			<div class="button"><span class="zh">对</span> True</div>
+			<div class="button"><span class="zh">错</span> False</div>
+		</div>
+		<table class="hidden" id="mr">
+			<tr class="flex">
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block button zh">活動中心</td>
+			</tr>
+			<tr class="flex">
+				<td class="block button zh">飯館</td>
+				<td class="block"></td>
+				<td class="block button zh">書店</td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block"></td>
+			</tr>
+			<tr class="flex">
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block"></td>
+			</tr>
+			<tr class="flex">
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="school zh">學校</div>
+				</td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+			</tr>
+			<tr class="flex">
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block button zh">運動場</td>
+			</tr>
+			<tr class="flex">
+				<td class="block button zh">圖書館</td>
+				<td class="block"></td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block">
+					<div class="stoplight">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</td>
+				<td class="block"></td>
+				<td class="block"></td>
+			</tr>
+		</table>
+		
+		<noscript>
+			从学校王东开。			Begin from the school.
+			开到第一个路口，往右拐。	At the first intersection, turn right.
+			一直往前开。				Keep moving straight ahead.
+			在第二个红绿灯，往左拐。	At the second traffic light, turn left.
+			再往前开，过了两个路口。	Next, walk straight past two intersections.
+			左边就是你要去的地方。		The destination will be on your left.
+		</noscript>
+		
+		<div class="flex hidden" id="points"></div>
+		<div class="button bl br hidden" id="hint">Play Hint</div>
+		
+		<p><a href="/">Index</a></p>
+	</div>
 
-<script src="mainscript.js"></script>
-<script src="mp3/paragraph/pl-content.js"></script>
-<script src="paragraph.js"></script>
+	<p>
+		Problem?
+		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+			Report the bug and go to the old website.
+		</a>
+	</p>
+	<form action="/bug" method="post" id="form" style="display: none">
+		<table style="border: 1px solid black; margin: auto auto 50px auto">
+			<tr>
+				<td>Description of Bug</td>
+				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="nav" id="nav">
+					<input type="hidden" name="path" id="path">
+				</td>
+				<td><input type="submit" name="submit" value="Submit and Go"></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		var nav = {};
+		for (var i in navigator)
+			nav[i] = navigator[i];
+		document.getElementById("nav").value = JSON.stringify(nav);
+		document.getElementById("path").value = location.pathname;
+	</script>
 
+
+	<ul class="desktop tl tr bl br hid" id="tip">
+		<li>Keyboard Shortcuts</li>
+		<li class="tip-line"></li>
+		<li>Play/Pause</li>
+		<li class="tip-key">space</li>
+		<li class="tip-line"></li>
+		<li>Seek</li>
+		<li class="tip-key">&larr;</li>
+		<li class="tip-key">&rarr;</li>
+		<li class="tip-key">0...9</li>
+		<li class="tip-line"></li>
+		<li>Speed</li>
+		<li class="tip-key">&uarr;</li>
+		<li class="tip-key">&darr;</li>
+	</ul>
+	<audio id="mp3"></audio>
+	<audio id="mpX"></audio>
+	<audio src="/mp3/henhao.mp3" id="henhao"></audio>
+	<audio src="/mp3/budui.mp3" id="budui"></audio>
+	<script src="/mainscript.js"></script>
+	<script src="/data/paragraph.js"></script>
+	<script src="/paragraph.js"></script>
 </body>
 </html>

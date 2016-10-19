@@ -1,7 +1,0 @@
-
-["13p1.1,Little Wang got a tape from ...","the lab.","Japan.","Li Ming."]
-["13p1.2,The tape is in ___ now.","Japan","the lab","the kitchen"]
-["13p1.3,___ took the tape away.","Li Ming's brother","Li Ming","Little Wang"]
-["13p1.4,Li Ming's brother is interested in ...","learning Chinese.","learning Japanese.","their kitchen."]
-["13p1.5,The tape will definitely be back to the lab ...","after the due day.","on the due day.","before the due day."]
-

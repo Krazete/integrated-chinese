@@ -1,7 +1,0 @@
-
-["19p1.1,Miss Bai's mom is in ...","China.","the post office.","the bank."]
-["19p1.2,Miss Bai didn't know ...","the best way to send money to China.","how to send a register mail.","where the post office is."]
-["19p1.3,Little Wang thinks that wiring money from the bank is ...","much faster than sending a register mail.","the same as sending a register mail.","cheaper than sending a register mail."]
-["19p1.4,Which factor is more important to Miss Bai's decision?","time","money","location"]
-["19p1.5,Miss Bai is going ___ now.","to the bank","to the post office","home"]
-
