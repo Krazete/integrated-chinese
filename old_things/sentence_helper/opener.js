@@ -14,6 +14,8 @@ for (var n = 1; n < 24; n++) {
 	})(n);
 }
 
+/********************************************************************************************************************************/
+
 // Multiple Choice (Audio) (English)
 for (var i = 1; i < 24; i++)
 	open("http://www.language.berkeley.edu/ic/gb/exercises/ex" + (i < 10 ? "0" : "") + i + "s_listeningonly.html");
@@ -57,6 +59,8 @@ open("http://www.language.berkeley.edu/ic/gb/exercises/ex10s_antonyms.html");
 // Drag and Drop (Dynamic) (Unscramble)
 [1, 2, 4, 5, 7, 22].forEach(i => open("http://www.language.berkeley.edu/ic/gb/exercises/ex" + (i < 10 ? "0" : "") + i + "s_unscramble.html"));
 
+/********************************************************************************************************************************/
+
 // Mapping
 10 -> 11
 11 -> 10
@@ -72,6 +76,8 @@ open("http://www.language.berkeley.edu/ic/gb/exercises/ex10s_antonyms.html");
 21 -> 19
 22 -> 23
 23 -> 20
+
+/********************************************************************************************************************************/
 
 // Verify and Search for Hidden Pages
 var found = [];
