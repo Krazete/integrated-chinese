@@ -98,7 +98,7 @@ function setFormat(e) {
 
 function init() {
 	document.title = current + " Review";
-	id("title").innerHTML = "第" + number(current) + "课";
+	id("title").innerHTML = "第" + number(current) + "課";
 	id("subject").innerHTML = lesson[current].subject;
 	setText(optionText);
 	mp3Init();

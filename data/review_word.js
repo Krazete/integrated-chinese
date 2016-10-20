@@ -1,3 +1,5 @@
+// SIMPLIFIED
+
 var word = {
 	"a": {
 		"1": [

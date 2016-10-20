@@ -131,7 +131,7 @@ function newQuestion(n) {
 
 function init() {
 	document.title = current + " Words: " + code[optionLanguage];
-	id("title").innerHTML = "第" + number(current) + "课";
+	id("title").innerHTML = "第" + number(current) + "課";
 	id("subject").innerHTML = lesson[current].subject;
 
 	questionData = word[optionLanguage][current];

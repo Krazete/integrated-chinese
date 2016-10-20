@@ -1,3 +1,5 @@
+// NO MANDARIN
+
 var sentence = {
 	"mce": {
 		"1": [

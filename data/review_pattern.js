@@ -1,3 +1,5 @@
+// SIMPLIFIED
+
 var pattern = {
 	"a": {
 		"1": [

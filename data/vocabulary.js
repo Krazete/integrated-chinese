@@ -1,3 +1,5 @@
+// SIMPLIFED AND TRADITIONAL
+
 var vocabulary = [
 	// Introduction
 	[

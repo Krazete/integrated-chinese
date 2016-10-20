@@ -1,3 +1,5 @@
+// SIMPLIFIED
+
 var paragraph = {
 	"mce": {
 		"1": [

@@ -1,3 +1,5 @@
+// SIMPLIFIED
+
 var word = {
 	"p": {
 		"0": ["yi1", "er4", "san1", "si4", "wu3", "liu4", "qi1", "ba1", "jiu3", "shi2"],

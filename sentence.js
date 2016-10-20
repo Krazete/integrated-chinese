@@ -89,7 +89,7 @@ unscramblePrompt("我 朋友 唱歌 唱 得 不 好 。");
 
 function init() {
 	document.title = current + " Sentences: " + code[optionType + optionLanguage];
-	id("title").innerHTML = "第" + number(current) + "课";
+	id("title").innerHTML = "第" + number(current) + "課";
 	id("subject").innerHTML = lesson[current].subject;
 	
 	correct = [];
