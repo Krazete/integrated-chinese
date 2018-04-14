@@ -1,89 +1,102 @@
-var current = getCookie("lesson") > 0 && getCookie("lesson") < 21 ? getCookie("lesson") : 1;
-
-function adjustLabels() {
-	for (var i = 3, label, labeled; label = cn("label")[i], labeled = cn("labeled")[i]; i--) // because CSS won't cooperate
-		label.style.height = (labeled.clientHeight - 9) + "px"; // padding-top + margin-bottom = 9
+function getCurrentCookie(key, a, b, d) { // TODO: use this
+	var cookie = getCookie(key);
+	if (a <= cookie && cookie <= b) {
+		return cookie;
+	}
+	return d;
 }
 
-function adjustLink(n, l) {
-	id(l).href = "/" + l + "/" + n;
-}
+var current;
+var lessonButtons;
+var lessonTitle;
+var contentMenu;
+var review;
+var vocabulary;
 
-function showLevel(n, l) {
-	id(l).innerHTML = "";
-	for (var i = 0, level; level = lesson[n][l][i]; i++) {
-		var li = document.createElement("li");
-		li.className = "button link right";
-		if (i == 0)
-			li.classList.add("tr");
-		if (i == lesson[n][l].length - 1)
-			li.classList.add("br");
-		var anchor = document.createElement("a");
-		anchor.innerHTML = code[level];
-		anchor.href = "/" + l + "_" + level + "/" + n;
-		li.appendChild(anchor);
-		id(l).appendChild(li);
+function setLevel(level, lesson) {
+	var levelContainer = document.getElementById(level);
+	levelContainer.innerHTML = "";
+	var levelData = lessonData[lesson][level];
+	for (var i = 0; i < levelData.length; i++) {
+		var a = document.createElement("a");
+		a.href = [level, levelData[i], lesson].join("/");
+		var div = document.createElement("div");
+		div.className = "button";
+		div.innerHTML = parseAcronym[levelData[i]];
+		a.appendChild(div);
+		levelContainer.appendChild(a);
 	}
 }
 
-function showSubject(n) {
-	id("subject").innerHTML = lesson[n].subject;
-	adjustLink(n, "review");
-	showLevel(n, "word");
-	showLevel(n, "sentence");
-	showLevel(n, "paragraph");
-	adjustLabels();
-	adjustLink(n, "vocabulary");
-	id("original").href = (navigator.appName == "Microsoft Internet Explorer" ? "" : "http://ie10.ieonchrome.com/#")
-						+ "http://www.language.berkeley.edu/ic/gb/" + (n < 10 ? "0" : "" ) + n + ".html";
-	// rudimentary IE checker
+function setLesson(lesson) {
+	lessonTitle.innerHTML = lessonData[lesson].title;
+	review.href = ["review", lesson].join("/");
+	setLevel("word", lesson);
+	setLevel("sentence", lesson);
+	setLevel("paragraph", lesson);
+	vocabulary.href = ["vocabulary", lesson].join("/");
 }
 
-function init() {
-	for (var i = 0, div_lesson; div_lesson = cn("lesson")[i]; i++) {
-		(function(n) {
-			if (mobile) {
-				div_lesson.addEventListener("click", function(e){
-					if (current)
-						cn("lesson")[current - 1].classList.remove("selected");
-					current = n + 1;
-					showSubject(current);
-					this.classList.add("selected");
-					setCookie("lesson", current);
-				});
-			}
-			else {
-				div_lesson.addEventListener("mouseenter", function(e){
-					id("subject").classList.add("disabled");
-					id("menu").classList.add("disabled");
-					showSubject(n + 1);
-				});
-				div_lesson.addEventListener("mouseleave", function(e){
-					id("subject").classList.remove("disabled");
-					id("menu").classList.remove("disabled");
-					showSubject(current);
-				});
-				div_lesson.addEventListener("click", function(e){
-					cn("lesson")[current - 1].classList.remove("selected");
-					current = n + 1;
-					this.classList.add("selected");
-					id("subject").classList.remove("disabled");
-					id("menu").classList.remove("disabled");
-					setCookie("lesson", current);
-				});
-			}
-		})(i);
+function lessonButtonClick() {
+	current = this.dataset.lesson;
+	setCookie("lesson", current);
+	for (var i = 0; i < lessonButtons.length; i++) {
+		lessonButtons[i].classList.remove("selected");
 	}
+	this.classList.add("selected");
+	lessonButtonLeave();
+}
 
-	cn("lesson")[current - 1].classList.add("selected");
-	showSubject(current);
+function lessonButtonEnter() {
+	lessonTitle.classList.add("disabled");
+	contentMenu.classList.add("disabled");
+	setLesson(this.dataset.lesson);
+}
 
-	var konami = "";
-	document.body.addEventListener("keydown", function(e){
-		konami += e.keyCode + "_";
-		if (/38_38_40_40_37_39_37_39_66_65_$/.test(konami))
-			id("konami").classList.remove("hidden");
+function lessonButtonLeave() {
+	lessonTitle.classList.remove("disabled");
+	contentMenu.classList.remove("disabled");
+	setLesson(current);
+}
+
+function initKonami() {
+	var konami = /38_38_40_40_37_39_37_39_66_65_$/;
+	var code = "";
+	window.addEventListener("keydown", function(e) {
+		code += e.keyCode + "_";
+		if (konami.test(code)) {
+			var hidden = document.getElementsByClassName("hidden");
+			for (var i = 0; i < hidden.length; i++) {
+				hidden[i].classList.remove("hidden");
+			}
+		}
 	});
 }
 
-init();
+function init() {
+	current = getCookie("lesson") > 0 && getCookie("lesson") < 21 ? getCookie("lesson") : 1;
+	lessonButtons = document.getElementById("lesson-menu").getElementsByClassName("button");
+	lessonTitle = document.getElementById("lesson-title");
+	contentMenu = document.getElementById("content-menu");
+	review = document.getElementById("review");
+	vocabulary = document.getElementById("vocabulary");
+
+	for (var i = 0; i < lessonButtons.length; i++) {
+		var lessonButton = lessonButtons[i];
+		if (lessonButton.dataset.lesson == current) {
+			lessonButton.classList.add("selected");
+		}
+		if (mobile) {
+			lessonButton.addEventListener("touchstart", lessonButtonClick);
+		}
+		else {
+			lessonButton.addEventListener("click", lessonButtonClick);
+			lessonButton.addEventListener("mouseenter", lessonButtonEnter);
+			lessonButton.addEventListener("mouseleave", lessonButtonLeave);
+		}
+	}
+	setLesson(current);
+	initKonami();
+}
+
+window.addEventListener("DOMContentLoaded", init);

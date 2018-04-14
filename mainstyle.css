@@ -1,13 +1,141 @@
-.button {
-	background: #fca;
-	padding: 5px 0 5px 0;
-	cursor: pointer;
+body {
+	background: #fb8;
+	font-family: "Klee", "Century Gothic", "Helvetica", sans-serif;
+	text-align: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: 0;
 }
 
-.selected {
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.container {
+	width: 813px;
+	max-width: 94%;
+	margin: auto;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex > * {
+	flex: 1;
+}
+
+.rounded > :first-child > :first-child {
+	border-top-left-radius: 13px;
+}
+.rounded > :first-child > :last-child {
+	border-top-right-radius: 13px;
+}
+.rounded > :last-child > :first-child {
+	border-bottom-left-radius: 13px;
+}
+.rounded > :last-child > :last-child {
+	border-bottom-right-radius: 13px;
+}
+
+.button {
+	background: #fca;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+	padding: 4px 0;
+	cursor: pointer;
+}
+.button:hover {
+	background: #fdc;
+	border-color: #fff;
+}
+.button.selected {
 	background: #fff;
 	pointer-events: none;
 }
+
+/* index.html */
+
+.label {
+	background: #fca;
+	min-width: 94px;
+	padding: 4px 0;
+	margin: 2px -2px 2px 2px;
+	flex: 0;
+}
+.label {
+	background: linear-gradient(to right, #fca4, #fca8);
+}
+.label + div .label {
+	background: linear-gradient(to right, #fca8, #fca);
+}
+.label + div .button {
+	border-left: 0;
+}
+
+/* review.html */
+
+#content {
+	background: #fff;
+	padding: 13px;
+}
+
+#text {
+	text-align: left;
+	white-space: pre-wrap;
+}
+#text span {
+	color: #e13;
+	outline: 1px solid #e13;
+	cursor: pointer;
+}
+#text span:hover, #text span.selected {
+	outline-width: 2px;
+}
+
+#photo {
+	border: 13px solid #000;
+}
+
+#example {
+	background: #fb8;
+	text-align: left;
+	margin-top: 13px;
+	padding: 13px;
+}
+#example div {
+	cursor: pointer;
+}
+#example div:hover, #example div.selected {
+	outline: 1px solid black;
+}
+
+#toggle {
+	border: 0;
+	min-width: 54px;
+	flex: 0;
+}
+.speed {
+	border: 0;
+	min-width: 24px;
+	flex: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .disabled {
 	color: #a63;
@@ -149,10 +277,6 @@
 	display: block;
 }
 
-a {
-	text-decoration: none;
-}
-
 img {
 	max-width: 100%;
 	margin: auto;
@@ -174,13 +298,6 @@ noscript {
 	width: 100%;
 }
 
-.flex {
-	display: flex;
-}
-
-.flex > * {
-	flex: 1;
-}
 
 .hidden {
 	display: none;
@@ -191,9 +308,6 @@ noscript {
 }
 
 @media (pointer: fine) {
-	.button:hover {
-		background: #fdc;
-	}
 	.selected:hover {
 		background: #fff;
 	}
@@ -221,10 +335,7 @@ noscript {
 	h1, h2, h3, h4, h5, h6 {
 		margin: 10px;
 	}
-	body {
-		font-size: 3.5vw;
-	}
-	.desktop {
+	.desktop-only {
 		display: none;
 	}
 }
@@ -240,41 +351,6 @@ noscript {
 .zh {
 	font-family: Klee, STFangSong, FangSong, STKaiti, KaiTi, Century Gothic, Helvetica;
 	line-height: 1.25em;
-}
-
-body {
-	background: #fb8;
-	font-family: Klee, Century Gothic, Helvetica;
-	text-align: center;
-
-
-	
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	margin: 0;
-}
-
-.container {
-	width: 800px;
-	max-width: 90%;
-	margin: auto;
-}
-
-.tl {
-	border-top-left-radius: 12px;
-}
-
-.tr {
-	border-top-right-radius: 12px;
-}
-
-.bl {
-	border-bottom-left-radius: 12px;
-}
-
-.br {
-	border-bottom-right-radius: 12px;
 }
 
 

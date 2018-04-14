@@ -4,62 +4,63 @@
 	<meta charset="utf-8">
 	<meta name="google" content="notranslate">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Review</title>
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="/review.css">
 </head>
 <body>
 	<div class="container">
-		<h1 class="zh" id="title"></h1>
-		<h2 class="desktop" id="subject"></h2>
-		
-		<ul>
-			<li>
-				<ul class="flex">
-					<li class="button tl" id="a">Text A</li>
-					<li class="button tr" id="b">Text B</li>
-				</ul>
-			</li>
-			<li class="frame">
+		<h1 class="zh" id="lesson-number"></h1>
+		<h2 class="desktop-only" id="lesson-title"></h2>
+
+		<div class="rounded">
+			<div class="flex">
+				<div class="button" id="a">Text A</div>
+				<div class="button" id="b">Text B</div>
+			</div>
+			<div id="content">
 				<img id="photo">
-			</li>
-			<li class="zh" id="text"></li>
-			<li class="zh" id="example"></li>
-			<li>
-				<ul class="flex">
-					<li class="button bl" id="plain">Plain Text</li>
-					<li class="button" id="word">Words</li>
-					<li class="button" id="pattern">Patterns</li>
-					<li class="button br" id="image">Image</li>
-				</ul>
-			</li>
-		</ul>
-		
+				<div class="zh" id="text"></div>
+				<div class="zh" id="example"></div>
+			</div>
+			<div class="flex">
+				<div class="button" id="plain">Plain Text</div>
+				<div class="button" id="word">Words</div>
+				<div class="button" id="pattern">Patterns</div>
+				<div class="button" id="image">Image</div>
+			</div>
+		</div>
+
 		<br>
-		
-		<ul class="flex">
-			<li class="button tl bl" id="toggle">
-			</li>
-			<li id="progress">
-				<div id="progress-after"></div>
-			</li>
-			<li class="button speed" id="speed-50">
-				<div class="speed-after"></div>
-			</li>
-			<li class="button speed" id="speed-75">
-				<div class="speed-after"></div>
-			</li>
-			<li class="button speed tr br" id="speed-100">
-				<div class="speed-after"></div>
-			</li>
-		</ul>
+
+		<div class="rounded">
+			<div class="flex">
+				<div class="button" id="toggle">
+				</div>
+				<div id="progress">
+					<div id="progress-after"></div>
+				</div>
+				<div class="button speed" id="speed-50">
+					<div class="speed-after"></div>
+				</div>
+				<div class="button speed" id="speed-75">
+					<div class="speed-after"></div>
+				</div>
+				<div class="button speed tr br" id="speed-100">
+					<div class="speed-after"></div>
+				</div>
+			</div>
+		</div>
+
 		<br>
-		<p class="desktop button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
-		
-		<p><a href="/">Index</a></p>
+
+		<p class="desktop-only button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
+
+		<div id="footer">
+			<a href="/">Index</a>
+		</div>
 	</div>
-	
+
 	<p>
 		Problem?
 		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
@@ -90,21 +91,21 @@
 	</script>
 
 
-	<ul class="desktop tl tr bl br hid" id="tip">
-		<li>Keyboard Shortcuts</li>
-		<li class="tip-line"></li>
-		<li>Play/Pause</li>
-		<li class="tip-key">space</li>
-		<li class="tip-line"></li>
-		<li>Seek</li>
-		<li class="tip-key">&larr;</li>
-		<li class="tip-key">&rarr;</li>
-		<li class="tip-key">0...9</li>
-		<li class="tip-line"></li>
-		<li>Speed</li>
-		<li class="tip-key">&uarr;</li>
-		<li class="tip-key">&darr;</li>
-	</ul>
+	<div class="desktop-only tl tr bl br hid" id="tip">
+		<div>Keyboard Shortcuts</div>
+		<div class="tip-line"></div>
+		<div>Play/Pause</div>
+		<div class="tip-key">space</div>
+		<div class="tip-line"></div>
+		<div>Seek</div>
+		<div class="tip-key">&larr;</div>
+		<div class="tip-key">&rarr;</div>
+		<div class="tip-key">0...9</div>
+		<div class="tip-line"></div>
+		<div>Speed</div>
+		<div class="tip-key">&uarr;</div>
+		<div class="tip-key">&darr;</div>
+	</div>
 	<audio id="mp3"></audio>
 	<audio id="mpX"></audio>
 	<script src="/mainscript.js"></script>

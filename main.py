@@ -115,9 +115,9 @@ def main():
     sitemap = [
         ('/', Index),
         ('/review/(\d+)', Review),
-        ('/word_([pec]/\d+)', Word),
-        ('/sentence_(\w+/\d+)', Sentence),
-        ('/paragraph_(\w+/\d+)', Paragraph),
+        ('/word/([pec]/\d+)', Word),
+        ('/sentence/(\w+/\d+)', Sentence),
+        ('/paragraph/(\w+/\d+)', Paragraph),
         ('/vocabulary/(\d+)', Vocabulary),
         ('/bug', Bug),
         ('/(.*)', Error),
@@ -125,5 +125,5 @@ def main():
     application = webapp2.WSGIApplication(sitemap, debug = True)
     util.run_wsgi_app(application)
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     main()

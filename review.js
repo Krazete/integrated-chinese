@@ -2,6 +2,8 @@ var current = location.pathname.match(/\d+/)[0];
 var optionText = "a"; // radio buttons and labels just suck
 var optionFormat = "plain";
 
+
+
 // EXAMPLES
 
 function spanExpand(n) {
@@ -27,15 +29,15 @@ function spanExpand(n) {
 	var key = Object.keys(term)[0]; // should have "title" and "entries" keys instead
 	var value = term[key]; // or maybe just have the title as the first in one list
 	for (var i = 0; i < value.length; i++) { // to remove the else condition from this loop
-		var span = document.createElement("span");
+		var div = document.createElement("div");
 		if (i == 0){
-			span.innerHTML = key;
-			span.classList.add("tempUnderline");
+			div.innerHTML = key;
+			div.classList.add("tempUnderline");
 		}
 		else
-			span.innerHTML = value[i - 1];
-		span.setAttribute("onClick", "mpXPlay(\"/mp3/review/" + optionFormat + "/" + current + optionText + n + "_" + i + ".mp3\")");
-		id("example").appendChild(span);
+			div.innerHTML = value[i - 1];
+		div.setAttribute("onClick", "mpXPlay(\"/mp3/review/" + optionFormat + "/" + current + optionText + n + "_" + i + ".mp3\")");
+		id("example").appendChild(div);
 	}
 }
 
@@ -98,8 +100,8 @@ function setFormat(e) {
 
 function init() {
 	document.title = current + " Review";
-	id("title").innerHTML = "第" + number(current) + "課";
-	id("subject").innerHTML = lesson[current].subject;
+	id("lesson-number").innerHTML = "第" + number(current) + "課";
+	id("lesson-title").innerHTML = lessonData[current].subject;
 	setText(optionText);
 	mp3Init();
 	id("a").addEventListener("click", function(){setText("a")});

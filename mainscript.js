@@ -1,6 +1,8 @@
+var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on touchscreen laptops)
+
+
 // INITIALIZATION
 
-var mobile = "ontouchstart" in window;
 
 // INCLUDES POLYFILL
 if (!Array.prototype.includes) {
@@ -206,7 +208,7 @@ function navigate(d) {
 		if (++lesson > 20)
 			lesson = 1;
 	}
-	location.hash = (lesson < 10 ? '0' : '') + lesson + hash.slice(2);	
+	location.hash = (lesson < 10 ? '0' : '') + lesson + hash.slice(2);
 }
 
 function within(e, s) {
@@ -314,164 +316,153 @@ document.body.appendChild(tr);
 
 // DATA
 
-var lesson = {
-	"0": {
-		"subject": "&nbsp;",
-		"word": [],
-		"sentence": [],
-		"paragraph": [],
-	},
+var lessonData = {
 	"1": {
-		"subject": "Greetings",
+		"title": "Greetings",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "mcc", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"2": {
-		"subject": "Family",
+		"title": "Family",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", "fic", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"3": {
-		"subject": "Dates and Time",
+		"title": "Dates and Time",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", "fic", ""],
 		"paragraph": ["mce", "tfe", "tfc"],
 	},
 	"4": {
-		"subject": "Hobbies",
+		"title": "Hobbies",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"5": {
-		"subject": "Visiting Friends",
+		"title": "Visiting Friends",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", "fic", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"6": {
-		"subject": "Making Appointments",
+		"title": "Making Appointments",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"7": {
-		"subject": "Studying Chinese",
+		"title": "Studying Chinese",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", "fic", ""],
 		"paragraph": ["mce", "tfe", "tfc"],
 	},
 	"8": {
-		"subject": "School Life",
+		"title": "School Life",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "mcc", "tfc", "fic", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"9": {
-		"subject": "Shopping",
+		"title": "Shopping",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"10": {
-		"subject": "Transportation",
+		"title": "Transportation",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", "fic", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"11": {
-		"subject": "Talking about the Weather",
+		"title": "Talking about the Weather",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "mcc", "tfc"],
 	},
 	"12": {
-		"subject": "Dining",
+		"title": "Dining",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"13": {
-		"subject": "Asking Directions",
+		"title": "Asking Directions",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "mrc"],
 	},
 	"14": {
-		"subject": "Birthday Party",
+		"title": "Birthday Party",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"15": {
-		"subject": "Seeing a Doctor",
+		"title": "Seeing a Doctor",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"16": {
-		"subject": "Dating",
+		"title": "Dating",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"17": {
-		"subject": "Renting an Apartment",
+		"title": "Renting an Apartment",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"18": {
-		"subject": "Sports",
+		"title": "Sports",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"19": {
-		"subject": "Travel",
+		"title": "Travel",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"20": {
-		"subject": "At the Airport",
+		"title": "At the Airport",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"21": {
-		"subject": "At the Library",
+		"title": "At the Library",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"22": {
-		"subject": "Post Office",
+		"title": "Post Office",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 	"23": {
-		"subject": "Hometown",
+		"title": "Hometown",
 		"word": ["p", "e", "c"],
 		"sentence": ["mce", "tfc", ""],
 		"paragraph": ["mce", "tfc"],
 	},
 };
 
-var code = {
+var parseAcronym = {
+	/* word level */
 	"p": "Pinyin",
 	"e": "English",
 	"c": "Chinese",
-
-	"mce": "Multiple Choice (English)",
-	"mcc": "Multiple Choice (Chinese)",
-	"tfe": "True or False (English)",
-	"tfc": "True or False (Chinese)",
-	"mrc": "Map Reading",
-
+	/* sentence level */
 	"mc": "Multiple Choice",
 	"tf": "True or False",
 	"fc": "Fill In (Multiple Choice)",
@@ -483,4 +474,10 @@ var code = {
 	"": "",
 	"": "",
 	"": "",
+	/* paragraph level */
+	"mce": "Multiple Choice (English)",
+	"mcc": "Multiple Choice (Chinese)",
+	"tfe": "True or False (English)",
+	"tfc": "True or False (Chinese)",
+	"mrc": "Map Reading",
 };

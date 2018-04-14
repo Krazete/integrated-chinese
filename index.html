@@ -5,98 +5,107 @@
 	<meta name="google" content="notranslate">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Integrated Chinese Multimedia Exercises</title>
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="/index.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="mainstyle.css">
+	<script src="mainscript.js"></script>
+	<script src="index.js"></script>
 </head>
 <body>
 	<div class="container">
 		<h1 class="zh">中文聽說讀寫</h1>
-		<h2 class="desktop">Integrated Chinese Multimedia Exercises</h2>
+		<h2 class="desktop-only">Integrated Chinese Multimedia Exercises</h2>
+		<div class="rounded" id="lesson-menu">
+			<div class="flex">
+				<div class="button" data-lesson="1">1</div>
+				<div class="button" data-lesson="2">2</div>
+				<div class="button" data-lesson="3">3</div>
+				<div class="button" data-lesson="4">4</div>
+				<div class="button" data-lesson="5">5</div>
+				<div class="button" data-lesson="6">6</div>
+				<div class="button" data-lesson="7">7</div>
+				<div class="button" data-lesson="8">8</div>
+				<div class="button" data-lesson="9">9</div>
+				<div class="button" data-lesson="10">10</div>
+			</div>
+			<div class="rounded flex hidden" id="konami">
+				<div class="button" data-lesson="21">Unused Lesson I</div>
+				<div class="button" data-lesson="22">Unused Lesson II</div>
+				<div class="button" data-lesson="23">Unused Lesson III</div>
+			</div>
+			<div class="flex">
+				<div class="button" data-lesson="11">11</div>
+				<div class="button" data-lesson="12">12</div>
+				<div class="button" data-lesson="13">13</div>
+				<div class="button" data-lesson="14">14</div>
+				<div class="button" data-lesson="15">15</div>
+				<div class="button" data-lesson="16">16</div>
+				<div class="button" data-lesson="17">17</div>
+				<div class="button" data-lesson="18">18</div>
+				<div class="button" data-lesson="19">19</div>
+				<div class="button" data-lesson="20">20</div>
+			</div>
+		</div>
 
-		<ul class="flex">
-			<li class="button lesson tl">1</li>
-			<li class="button lesson">2</li>
-			<li class="button lesson">3</li>
-			<li class="button lesson">4</li>
-			<li class="button lesson">5</li>
-			<li class="button lesson">6</li>
-			<li class="button lesson">7</li>
-			<li class="button lesson">8</li>
-			<li class="button lesson">9</li>
-			<li class="button lesson tr">10</li>
-		</ul>
-		<ul class="flex">
-			<li class="button lesson bl">11</li>
-			<li class="button lesson">12</li>
-			<li class="button lesson">13</li>
-			<li class="button lesson">14</li>
-			<li class="button lesson">15</li>
-			<li class="button lesson">16</li>
-			<li class="button lesson">17</li>
-			<li class="button lesson">18</li>
-			<li class="button lesson">19</li>
-			<li class="button lesson br">20</li>
-		</ul>
-		<ul class="flex hidden" id="konami">
-			<li class="button lesson tl bl">21</li>
-			<li class="button lesson">22</li>
-			<li class="button lesson tr br">23</li>
-		</ul>
+		<h3 id="lesson-title">Lesson Title</h3>
+		<div class="rounded" id="content-menu">
+			<a id="review">
+				<div class="button">Review</div>
+			</a>
+			<div class="flex" id="exercises">
+				<div class="label">Exercises</div>
+				<div>
+					<div class="flex">
+						<div class="label">Word Level</div>
+						<div id="word"></div>
+					</div>
+					<div class="flex disabled">
+						<div class="label">Sentence Level</div>
+						<div id="sentence"></div>
+					</div>
+					<div class="flex">
+						<div class="label">Paragraph Level</div>
+						<div id="paragraph"></div>
+					</div>
+				</div>
+			</div>
+			<a id="vocabulary">
+				<div class="button">Vocabulary</div>
+			</a>
+		</div>
 
-		<h3 id="subject"></h3>
-		<ul id="menu">
-			<li class="button link tl tr bl br"><a id="review">Review</a></li>
-			<li class="label left tl bl">Exercises</li>
-			<li class="labeled">
-				<ul>
-					<li class="label middle">Word Level</li>
-					<li class="labeled">
-						<ul id="word">
-						</ul>
-					</li>
-				</ul>
-				<ul class="disabled">
-					<li class="label middle">Sentence Level</li>
-					<li class="labeled">
-						<ul id="sentence">
-						</ul>
-					</li>
-				</ul>
-				<ul>
-					<li class="label middle">Paragraph Level</li>
-					<li class="labeled">
-						<ul id="paragraph">
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li class="button link tl tr bl br"><a id="vocabulary">Vocabulary</a></li>
-			<li class="button link tl tr bl br"><a id="original">Original Counterpart</a></li>
-		</ul>
+
+
+
+
+
+		<p>
+			Problem?
+			<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+				Report the bug and go to the old website.
+			</a>
+		</p>
+		<form action="bug" method="post" id="form" style="display: none">
+			<table style="border: 1px solid black; margin: auto auto 50px auto">
+				<tr>
+					<td>Description of Bug</td>
+					<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="nav" id="nav">
+						<input type="hidden" name="path" id="path">
+					</td>
+					<td><input type="submit" name="submit" value="Submit and Go"></td>
+				</tr>
+			</table>
+		</form>
+
+		<div class="footer">
+			<a href="https://github.com/Krazete/integrated-chinese">
+				<div class="button">GitHub</div>
+			</a>
+		</div>
 	</div>
-
-	<p>
-		Problem?
-		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-			Report the bug and go to the old website.
-		</a>
-	</p>
-	<form action="/bug" method="post" id="form" style="display: none">
-		<table style="border: 1px solid black; margin: auto auto 50px auto">
-			<tr>
-				<td>Description of Bug</td>
-				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-			</tr>
-			<tr>
-				<td>
-					<input type="hidden" name="nav" id="nav">
-					<input type="hidden" name="path" id="path">
-				</td>
-				<td><input type="submit" name="submit" value="Submit and Go"></td>
-			</tr>
-		</table>
-	</form>
 	<script>
 		var nav = {};
 		for (var i in navigator)
@@ -104,10 +113,5 @@
 		document.getElementById("nav").value = JSON.stringify(nav);
 		document.getElementById("path").value = location.pathname;
 	</script>
-
-
-	<script src="/mainscript.js"></script>
-	<script src="/index.js"></script>
-	<noscript><h1>JavaScript must be enabled to use this website.<h1></noscript>
 </body>
 </html>
