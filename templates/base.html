@@ -3,18 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="google" content="notranslate">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width">
 	<title>{{ title }}</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
-	<script src="/static/mainscript.js"></script>
-	<script src="{{ script }}"></script>
+	<script src="/static/mainscript.js"></script>{% for script in scripts %}
+	<script src="/static/{{ script }}"></script>
+	{% endfor %}
 </head>
 <body>
 	<div class="container">
 		<div id="header">
 			<h1 class="zh">{{ title_zh }}</h1>
-			<h2 class="desktop-only">{{ title }}</h2>
+			<h2 class="desktop-only">{{ title_en }}</h2>
 		</div>
 		{% block content %}
 		{% endblock %}

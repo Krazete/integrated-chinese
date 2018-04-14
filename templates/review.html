@@ -1,118 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="google" content="notranslate">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Review</title>
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
-</head>
-<body>
-	<div class="container">
-		<h1 class="zh" id="lesson-number"></h1>
-		<h2 class="desktop-only" id="lesson-title"></h2>
+{% extends 'base.html' %}
+{% block content %}
+		<script src="/static/data/review_text.js"></script>
+		<script src="/static/data/review_word.js"></script>
+		<script src="/static/data/review_pattern.js"></script>
+		<script src="/static/review.js"></script>
 
-		<div class="rounded">
-			<div class="flex">
-				<div class="button" id="a">Text A</div>
-				<div class="button" id="b">Text B</div>
+			<div class="rounded">
+				<div class="flex">
+					<div class="button" id="a">Text A</div>
+					<div class="button" id="b">Text B</div>
+				</div>
+				<div id="content">
+					<img id="photo">
+					<div class="zh" id="text"></div>
+					<div class="zh" id="example"></div>
+				</div>
+				<div class="flex">
+					<div class="button" id="plain">Plain Text</div>
+					<div class="button" id="word">Words</div>
+					<div class="button" id="pattern">Patterns</div>
+					<div class="button" id="image">Image</div>
+				</div>
 			</div>
-			<div id="content">
-				<img id="photo">
-				<div class="zh" id="text"></div>
-				<div class="zh" id="example"></div>
+
+			<br>
+
+			<div class="rounded">
+				<div class="flex">
+					<div class="button" id="toggle">
+					</div>
+					<div id="progress">
+						<div id="progress-after"></div>
+					</div>
+					<div class="button speed" id="speed-50">
+						<div class="speed-after"></div>
+					</div>
+					<div class="button speed" id="speed-75">
+						<div class="speed-after"></div>
+					</div>
+					<div class="button speed tr br" id="speed-100">
+						<div class="speed-after"></div>
+					</div>
+				</div>
 			</div>
-			<div class="flex">
-				<div class="button" id="plain">Plain Text</div>
-				<div class="button" id="word">Words</div>
-				<div class="button" id="pattern">Patterns</div>
-				<div class="button" id="image">Image</div>
+
+			<br>
+
+			<p class="desktop-only button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
+
+			<div id="footer">
+				<a href="/">Index</a>
 			</div>
 		</div>
 
-		<br>
-
-		<div class="rounded">
-			<div class="flex">
-				<div class="button" id="toggle">
-				</div>
-				<div id="progress">
-					<div id="progress-after"></div>
-				</div>
-				<div class="button speed" id="speed-50">
-					<div class="speed-after"></div>
-				</div>
-				<div class="button speed" id="speed-75">
-					<div class="speed-after"></div>
-				</div>
-				<div class="button speed tr br" id="speed-100">
-					<div class="speed-after"></div>
-				</div>
-			</div>
+		<div class="desktop-only tl tr bl br hid" id="tip">
+			<div>Keyboard Shortcuts</div>
+			<div class="tip-line"></div>
+			<div>Play/Pause</div>
+			<div class="tip-key">space</div>
+			<div class="tip-line"></div>
+			<div>Seek</div>
+			<div class="tip-key">&larr;</div>
+			<div class="tip-key">&rarr;</div>
+			<div class="tip-key">0...9</div>
+			<div class="tip-line"></div>
+			<div>Speed</div>
+			<div class="tip-key">&uarr;</div>
+			<div class="tip-key">&darr;</div>
 		</div>
-
-		<br>
-
-		<p class="desktop-only button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
-
-		<div id="footer">
-			<a href="/">Index</a>
-		</div>
-	</div>
-
-	<p>
-		Problem?
-		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-			Report the bug and go to the old website.
-		</a>
-	</p>
-	<form action="/bug" method="post" id="form" style="display: none">
-		<table style="border: 1px solid black; margin: auto auto 50px auto">
-			<tr>
-				<td>Description of Bug</td>
-				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-			</tr>
-			<tr>
-				<td>
-					<input type="hidden" name="nav" id="nav">
-					<input type="hidden" name="path" id="path">
-				</td>
-				<td><input type="submit" name="submit" value="Submit and Go"></td>
-			</tr>
-		</table>
-	</form>
-	<script>
-		var nav = {};
-		for (var i in navigator)
-			nav[i] = navigator[i];
-		document.getElementById("nav").value = JSON.stringify(nav);
-		document.getElementById("path").value = location.pathname;
-	</script>
-
-
-	<div class="desktop-only tl tr bl br hid" id="tip">
-		<div>Keyboard Shortcuts</div>
-		<div class="tip-line"></div>
-		<div>Play/Pause</div>
-		<div class="tip-key">space</div>
-		<div class="tip-line"></div>
-		<div>Seek</div>
-		<div class="tip-key">&larr;</div>
-		<div class="tip-key">&rarr;</div>
-		<div class="tip-key">0...9</div>
-		<div class="tip-line"></div>
-		<div>Speed</div>
-		<div class="tip-key">&uarr;</div>
-		<div class="tip-key">&darr;</div>
-	</div>
-	<audio id="mp3"></audio>
-	<audio id="mpX"></audio>
-	<script src="/mainscript.js"></script>
-	<script src="/data/review_text.js"></script>
-	<script src="/data/review_word.js"></script>
-	<script src="/data/review_pattern.js"></script>
-	<script src="/review.js"></script>
-	<noscript><h1>JavaScript must be enabled to use this website.<h1></noscript>
-</body>
-</html>
+		<audio id="mp3"></audio>
+		<audio id="mpX"></audio>
+{% endblock %}

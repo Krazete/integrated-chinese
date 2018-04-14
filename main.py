@@ -3,80 +3,95 @@
 import os
 import jinja2
 import webapp2
+# import data
 from google.appengine.api import mail
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader('/'.join([os.path.dirname(__file__), 'templates']))
 )
 
+INT_ZH = ['']
+
 class MainHandler(webapp2.RequestHandler):
-    def write_verified(self, template, lesson, variables={}, valid_lessons=range(1, 24)):
+    def write(self, template, variables={}):
+        template = JINJA_ENVIRONMENT.get_template(template)
+        self.response.write(template.render(variables))
+    def write_error(self, message):
+        self.write('error.html', {
+            'title': 'Page Not Found',
+            'title_en': 'Page Not Found',
+            'title_zh': '找不到網頁'.decode('utf8'),
+            'scripts': ['error.js'],
+            'error_message': 'Error: {}'.format(message)
+        })
+    def verify_lesson_and_write(self, template, lessons, variables={}):
         try:
+            if not lesson.isdigit():
+                raise ValueError('Invalid lesson number.')
             lesson = int(lesson)
             if lesson in valid_lessons:
                 variables.setdefault('lesson', lesson)
                 self.write(template, variables)
             else:
-                raise ValueError('Invalid lesson number.')
+                raise ValueError('Lesson number is out of bounds.')
         except Exception, e:
-            self.write('error.html', {
-                'title': 'Page Not Found',
-                'title_zh': '找不到網頁'.decode('utf8'),
-                'error_message': e
-            })
-    def write(self, template, variables={}):
-        template = JINJA_ENVIRONMENT.get_template(template)
-        self.response.write(template.render(variables))
+            self.write_error(e)
 
 class Index(MainHandler):
     def get(self):
         self.write('index.html', {
             'title': 'Integrated Chinese Multimedia Exercises',
             'title_zh': '中文聽說讀寫'.decode('utf8'),
-            'script': '/static/index.js'
+            'title_en': 'Integrated Chinese Multimedia Exercises',
+            'scripts': ['index.js']
         })
 
 class Review(MainHandler):
     def get(self, lesson):
-        self.write_verified('review.html', lesson)
+        self.verify_lesson_and_write('review.html', lesson, {
+            'title': 'Lesson {{lesson}} Review',
+            'title_zh': '中文'.decode('utf8'),
+            'title_en': 'Lesson {{lesson}} Review',
+            'scripts': ['review.js']
+        })
 
 class Word(MainHandler):
     def get(self, path):
         form, lesson = path.split('/')
         # form is already checked
-        self.write_verified('word.html', lesson, range(0, 24))
+        self.verify_lesson_and_write('word.html', lesson, range(0, 24))
 
 class Sentence(MainHandler):
     def get(self, path):
         form, lesson = path.split('/')
         if form == 'mce':
-            self.write_verified('sentence.html', lesson)
+            self.verify_lesson_and_write('sentence.html', lesson)
         elif form == 'mcc':
-            self.write_verified('sentence.html', lesson, [1, 7])
+            self.verify_lesson_and_write('sentence.html', lesson, [1, 7])
         elif form == 'tfe':
-            self.write_verified('sentence.html', lesson, [i for i in range(2, 24) if i != 3])
+            self.verify_lesson_and_write('sentence.html', lesson, [i for i in range(2, 24) if i != 3])
         elif form == 'fbt':
-            self.write_verified('sentence.html', lesson, [1, 2, 9])
+            self.verify_lesson_and_write('sentence.html', lesson, [1, 2, 9])
         elif form == 'fbc':
-            self.write_verified('sentence.html', lesson, [2, 3, 5, 7, 8, 10])
+            self.verify_lesson_and_write('sentence.html', lesson, [2, 3, 5, 7, 8, 10])
         elif form == 'fbr':
-            self.write_verified('sentence.html', lesson, [i for i in range(12, 23) if i != 17])
+            self.verify_lesson_and_write('sentence.html', lesson, [i for i in range(12, 23) if i != 17])
         elif form == 'fbp':
-            self.write_verified('sentence.html', lesson, [17])
+            self.verify_lesson_and_write('sentence.html', lesson, [17])
         elif form == 'uns':
-            self.write_verified('sentence.html', lesson, [1, 2, 4, 5, 7, 23])
+            self.verify_lesson_and_write('sentence.html', lesson, [1, 2, 4, 5, 7, 23])
         elif form == 'num':
-            self.write_verified('sentence.html', lesson, [1])
+            self.verify_lesson_and_write('sentence.html', lesson, [1])
         elif form == 'clk':
-            self.write_verified('sentence.html', lesson, [3])
+            self.verify_lesson_and_write('sentence.html', lesson, [3])
         elif form == 'gen':
-            self.write_verified('sentence.html', lesson, [3])
+            self.verify_lesson_and_write('sentence.html', lesson, [3])
         elif form == 'mon':
-            self.write_verified('sentence.html', lesson, [9])
+            self.verify_lesson_and_write('sentence.html', lesson, [9])
         elif form == 'cqf':
-            self.write_verified('sentence.html', lesson, [3])
+            self.verify_lesson_and_write('sentence.html', lesson, [3])
         elif form == 'ant':
-            self.write_verified('sentence.html', lesson, [11])
+            self.verify_lesson_and_write('sentence.html', lesson, [11])
         else:
             self.write('error.html')
 
@@ -84,15 +99,15 @@ class Paragraph(MainHandler):
     def get(self, path):
         form, lesson = path.split('/')
         if form == 'mce':
-            self.write_verified('paragraph.html', lesson)
+            self.verify_lesson_and_write('paragraph.html', lesson)
         elif form == 'mcc':
-            self.write_verified('paragraph.html', lesson, [i for i in range(4, 12) if i != 7])
+            self.verify_lesson_and_write('paragraph.html', lesson, [i for i in range(4, 12) if i != 7])
         elif form == 'tfe':
-            self.write_verified('paragraph.html', lesson, [3, 7])
+            self.verify_lesson_and_write('paragraph.html', lesson, [3, 7])
         elif form == 'tfc':
-            self.write_verified('paragraph.html', lesson, [i for i in range(1, 24) if i != 13])
+            self.verify_lesson_and_write('paragraph.html', lesson, [i for i in range(1, 24) if i != 13])
         elif form == 'mrc':
-            self.write_verified('paragraph.html', lesson, [13])
+            self.verify_lesson_and_write('paragraph.html', lesson, [13])
         else:
             self.write('error.html')
 
@@ -103,7 +118,7 @@ class Vocabulary(MainHandler):
 
 class Error(MainHandler):
     def get(self, path):
-        self.write('error.html')
+        self.write_error('Invalid path.')
 
 class Bug(MainHandler):
     def post(self):
@@ -131,7 +146,7 @@ class Bug(MainHandler):
 
 app = webapp2.WSGIApplication([
     ('/', Index),
-    ('/review/(\d+)', Review),
+    ('/review/(.*)', Review),
     ('/word/([pec]/\d+)', Word),
     ('/sentence/(\w+/\d+)', Sentence),
     ('/paragraph/(\w+/\d+)', Paragraph),
