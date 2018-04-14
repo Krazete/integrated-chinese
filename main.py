@@ -1,7 +1,14 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+
 import os
+import jinja2
 import webapp2
 from google.appengine.api import mail
-from google.appengine.ext.webapp import util
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader('/'.join([os.path.dirname(__file__), 'templates']))
+)
 
 class MainHandler(webapp2.RequestHandler):
     def write_verified(self, desired_page, lesson, valid_ints = range(1, 24)):
@@ -16,7 +23,11 @@ class MainHandler(webapp2.RequestHandler):
 
 class Index(MainHandler):
     def get(self):
-        self.write('index.html')
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.write(template.render({
+            'title': 'Integrated Chinese Multimedia Exercises',
+            'title_zh': '中文聽說讀寫'.decode('utf8')
+        }))
 
 class Review(MainHandler):
     def get(self, lesson):
@@ -111,19 +122,13 @@ class Bug(MainHandler):
             newpath = ''
         self.response.write('<meta http-equiv="refresh" content="0; url=https://2-dot-integrated-chinese.appspot.com/' + newpath + '"><meta name="viewport" content="width=device-width, initial-scale=1">Thank you. You will be redirected shortly. <a href="https://2-dot-integrated-chinese.appspot.com/' + newpath + '">(If not, click here.)</a>')
 
-def main():
-    sitemap = [
-        ('/', Index),
-        ('/review/(\d+)', Review),
-        ('/word/([pec]/\d+)', Word),
-        ('/sentence/(\w+/\d+)', Sentence),
-        ('/paragraph/(\w+/\d+)', Paragraph),
-        ('/vocabulary/(\d+)', Vocabulary),
-        ('/bug', Bug),
-        ('/(.*)', Error),
-    ]
-    application = webapp2.WSGIApplication(sitemap, debug = True)
-    util.run_wsgi_app(application)
-
-if __name__ == '__main__':
-    main()
+app = webapp2.WSGIApplication([
+    ('/', Index),
+    ('/review/(\d+)', Review),
+    ('/word/([pec]/\d+)', Word),
+    ('/sentence/(\w+/\d+)', Sentence),
+    ('/paragraph/(\w+/\d+)', Paragraph),
+    ('/vocabulary/(\d+)', Vocabulary),
+    ('/bug', Bug),
+    ('/(.*)', Error),
+], debug=True) # TODO: change to False

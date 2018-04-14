@@ -4,6 +4,12 @@ runtime: python27
 api_version: 1
 threadsafe: false
 
+libraries:
+- name: webapp2
+  version: latest # TODO: set an actual version number
+- name: jinja2
+  version: latest # TODO: set an actual version number
+
 skip_files:
 - ^(.*/)?\.wav$
 - Assistance
@@ -14,4 +20,4 @@ handlers:
   upload: (.*\.(gif|png|jpg|ico|js|css|mp3|ttf|otf|txt))
 
 - url: .*
-  script: main.py
+  script: main.app
