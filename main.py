@@ -10,24 +10,31 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 )
 
 class MainHandler(webapp2.RequestHandler):
-    def write_verified(self, desired_page, lesson, valid_ints = range(1, 24)):
-        page = 'error.html'
-        if lesson.isdigit():
-            if int(lesson) in valid_ints:
-                page = desired_page
-        self.write(page)
-    def write(self, page):
-        self.response.headers['Content-Type'] = 'text/html'
-        self.response.write(open(page).read())
+    def write_verified(self, template, lesson, variables={}, valid_lessons=range(1, 24)):
+        try:
+            lesson = int(lesson)
+            if lesson in valid_lessons:
+                variables.setdefault('lesson', lesson)
+                self.write(template, variables)
+            else:
+                raise ValueError('Invalid lesson number.')
+        except Exception, e:
+            self.write('error.html', {
+                'title': 'Page Not Found',
+                'title_zh': '找不到網頁'.decode('utf8'),
+                'error_message': e
+            })
+    def write(self, template, variables={}):
+        template = JINJA_ENVIRONMENT.get_template(template)
+        self.response.write(template.render(variables))
 
 class Index(MainHandler):
     def get(self):
-        template = JINJA_ENVIRONMENT.get_template('index.html')
-        self.response.write(template.render({
+        self.write('index.html', {
             'title': 'Integrated Chinese Multimedia Exercises',
             'title_zh': '中文聽說讀寫'.decode('utf8'),
             'script': '/static/index.js'
-        }))
+        })
 
 class Review(MainHandler):
     def get(self, lesson):
