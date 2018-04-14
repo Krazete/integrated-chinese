@@ -6,50 +6,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ title }}</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-	<link rel="stylesheet" type="text/css" href="static/mainstyle.css">
-	<script src="mainscript.js"></script>
-	<script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
+	<script src="/static/mainscript.js"></script>
+	<script src="{{ script }}"></script>
 </head>
 <body>
 	<div class="container">
-		<h1 class="zh">{{ title_zh }}</h1>
-		<h2 class="desktop-only">{{ title }}</h2>
+		<div id="header">
+			<h1 class="zh">{{ title_zh }}</h1>
+			<h2 class="desktop-only">{{ title }}</h2>
+		</div>
 		{% block content %}
 		{% endblock %}
-		<p>
-			Problem?
-			<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-				Report the bug and go to the old website.
-			</a>
-		</p>
-		<form action="bug" method="post" id="form" style="display: none">
-			<table style="border: 1px solid black; margin: auto auto 50px auto">
-				<tr>
-					<td>Description of Bug</td>
-					<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-				</tr>
-				<tr>
-					<td>
-						<input type="hidden" name="nav" id="nav">
-						<input type="hidden" name="path" id="path">
-					</td>
-					<td><input type="submit" name="submit" value="Submit and Go"></td>
-				</tr>
-			</table>
-		</form>
+		<div id="footer">
+			<p>
+				Problem?
+				<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+					Report the bug and go to the old website.
+				</a>
+			</p>
+			<form action="bug" method="post" id="form" style="display: none">
+				<table style="border: 1px solid black; margin: auto auto 50px auto">
+					<tr>
+						<td>Description of Bug</td>
+						<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="hidden" name="nav" id="nav">
+							<input type="hidden" name="path" id="path">
+						</td>
+						<td><input type="submit" name="submit" value="Submit and Go"></td>
+					</tr>
+				</table>
+			</form>
 
-		<div class="footer">
 			<a href="https://github.com/Krazete/integrated-chinese">
 				<div class="button">GitHub</div>
 			</a>
 		</div>
 	</div>
-	<script>
-		var nav = {};
-		for (var i in navigator)
-			nav[i] = navigator[i];
-		document.getElementById("nav").value = JSON.stringify(nav);
-		document.getElementById("path").value = location.pathname;
-	</script>
 </body>
 </html>

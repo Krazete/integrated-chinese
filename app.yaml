@@ -15,9 +15,7 @@ skip_files:
 - Assistance
 
 handlers:
-- url: /(.*\.(gif|png|jpg|ico|js|css|mp3|ttf|otf|txt))
-  static_files: \1
-  upload: (.*\.(gif|png|jpg|ico|js|css|mp3|ttf|otf|txt))
-
+- url: /static
+  static_dir: static
 - url: .*
   script: main.app

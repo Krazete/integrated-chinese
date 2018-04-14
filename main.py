@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
-
 import os
 import jinja2
 import webapp2
@@ -26,7 +25,8 @@ class Index(MainHandler):
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render({
             'title': 'Integrated Chinese Multimedia Exercises',
-            'title_zh': '中文聽說讀寫'.decode('utf8')
+            'title_zh': '中文聽說讀寫'.decode('utf8'),
+            'script': '/static/index.js'
         }))
 
 class Review(MainHandler):
