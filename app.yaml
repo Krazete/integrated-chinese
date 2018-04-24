@@ -11,8 +11,13 @@ libraries:
   version: latest # TODO: set an actual version number
 
 skip_files:
-- ^(.*/)?\.wav$
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
 - Assistance
+- ^(.*/)?\.wav$
 
 handlers:
 - url: /static
