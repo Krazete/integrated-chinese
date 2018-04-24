@@ -1,0 +1,20 @@
+{
+	"3": [
+		["Miss Wang treated Mr. Li last week", false],
+		["Mr. Li cannot have dinner with Miss Wang this Friday", true],
+		["They decided to go on Saturday", false],
+		["None of them is busy Sunday evening", true],
+		["Mr. Li loves Chinese food", true],
+		["They will meet at 7:15 PM", false]
+	],
+	"7": [
+		["王先生星期天晚上來看我爸爸了。", true],
+		["王先生說話說得很快，所以我不高興。", true],
+		["那天晚上我們學了一個中國歌兒。", false],
+		["那天晚上我妹妹也在家。", false],
+		["我說中文說得很快。", true],
+		["我想請王先生教我寫漢字。", true],
+		["王先生唱歌唱得很快。", true],
+		["我想我以後要常常陶錄音。", false]
+	]
+}

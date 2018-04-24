@@ -1,0 +1,177 @@
+{
+	"1": [
+		["The young lady is a _____.", "teacher", "student", "Chinese"],
+		["The student is _____.", "a man", "a woman", "an American"],
+		["These 2 people _____.", "didn't know each other before", "knew each other before", "have the same last name"],
+		["The teacher's last name is _____.", "Wang", "Peng", "Li"]
+	],
+	"2": [
+		["The photo belongs to _____.", "Little Wang", "Li You", "meimei"],
+		["The person in the picture is _____.", "Little Wang's nephew", "Little Wang", "Little Wang's son"],
+		["Little Wang has _____.", "an elder sister", "a younger brother", "a son"],
+		["Little Wang's sister has _____.", "three sons", "two sons", "one son"]
+	],
+	"3": [
+		["Little Wang is _____ this year.", "nineteen", "eighteen", "seventeen"],
+		["Miss Zhang is _____ this year.", "seventeen", "eighteen", "nineteen"],
+		["Miss Zhang _____.", "will have dinner late", "will not have dinner today", "has already had dinner"],
+		["Miss Zhang's birthday is _____.", "today", "November 6", "tomorrow"],
+		["Little Wang's Birthday is _____.", "November 6", "today", "tomorrow"],
+		["Li Ming has invited _____.", "Miss Zhang", "Little Wang", "both of them"]
+	],
+	"4": [
+		["This weekend is _____.", "lawyer Zhang's birthday", "this man's birthday", "this woman's birthday"],
+		["To celebrate the birthday they will _____.", "go out for a dinner", "go to see a Chinese movie", "go to see an American movie"],
+		["The man wants to see a movie _____.", "on Saturday", "now", "on Sunday"],
+		["This man will take the woman _____.", "to see a Chinese movie", "to dinner", "to see an American movie"],
+		["The woman thinks that _____.", "only Chinese movies are good", "all movies are boring", "American movies are interesting"]
+	],
+	"5": [
+		["Little Wang _____.", "often comes to visit my brother", "is my classmate", "often comes to visit me"],
+		["Little Wang has _____.", "only brothers", "only sisters", "both brothers and sisters"],
+		["Little Wang's mother, Mrs. Wang is a _____.", "doctor", "teacher", "lawyer"],
+		["Mr. Wang and his children often _____.", "play ball", "visit my brother", "go out to eat"],
+		["Yesterday was _____.", "Sunday", "Saturday", "Tuesday"],
+		["Yesterday my brother _____.", "was with Little Wang's family", "went to see a doctor", "was invited to a dinner by Little Wang"],
+		["Yesterday my brother didn't come home till _____.", "9:15", "8:15", "6:15"],
+		["My mother wants to invite them _____.", "to have dinner with us", "to a movie", "to chat with us"]
+	],
+	"6": [
+		["Li You is looking for _____.", "Little Zhang", "her brother", "Little Gao"],
+		["Little Gao will _____.", "invite Li You to dinner", "call Li You", "go to a meeting"],
+		["Little Zhang will not be back until _____.", "7:30 PM", "7:00 PM", "next month"],
+		["Li You wants to _____.", "practice Chinese", "have dinner with Zhang's family", "go to a meeting at school"],
+		["Next month Li You will _____.", "go to China", "go to a meeting at school", "practice Chinese with Little Zhang"],
+		["_____ are going to China.", "Li You and her brother", "Li You and Little Gao", "Little Zhang and his father"],
+		["Li You will have dinner with _____ today.", "Little Gao", "her brother", "Little Zhang"]
+	],
+	"7": [
+		["Right now is _____.", "8:15 AM", "8 AM", "10 AM"],
+		["Today Little Gao came to school _____.", "early", "late", "just before class"],
+		["What did Little Gao do last night?", "Entertained some friends", "Reviewed the grammar", "Prepared the new text"],
+		["Little Zhang _____.", "introduced a few friends to Little Gao", "went to see Little Gao at midnight", "went to look for the teacher"],
+		["The teacher asked Little Gao to _____ now.", "go to see him", "study", "go home"],
+		["The teacher told Little Gao that _____.", "today's grammar is a bit difficult", "there are not too many new words today", "there are a lot of grammar points today"],
+		["The teacher is going to _____ now.", "his office", "Little Gao's house", "the library"]
+	],
+	"8": [
+		["Last Sunday _____.", "Little Zhang studied", "they both studied", "Li You studied"],
+		["Li You studied a little _____.", "on Saturday", "on Sunday", "on both days"],
+		["Li You _____ at 11 AM on Sunday.", "got u.", "had breakfast", "had lunch"],
+		["After lunch Li You _____.", "went to see Little Gao", "went home", "went to see Little Zhang"],
+		["Li You didn't know Little Gao could speak _____.", "Japanese", "Chinese", "English"],
+		["Last weekend Little Zhang studied a lot because _____.", "he will have an exam today", "he doesn't have any friends", "his pronounciation is not good enough"],
+		["We think that Little Gao _____.", "speaks Japanese quite well", "doesn't pronounce Japanese well enough", "doesn't understand Japanese"]
+	],
+	"9": [
+		["Li You asked Little Wang to _____.", "go to a movie", "go to a concert", "go shopping with her"],
+		["Little Wang was planning to _____ this afternoon.", "go shopping", "go to a concert", "go to Li You's house"],
+		["Lawyer Zhang invited the Wang family _____.", "to a concert", "to a movie", "to dinner"],
+		["Last month Little Wang bought a pair of _____ pants.", "brown", "yellow", "black"],
+		["Little Wang bought those pants with _____.", "Li You", "Lawyer Zhang", "his brother"],
+		["Little Wang wants to _____.", "get a pair with a different color", "return the pants he bought", "get a pair with the same color"],
+		["Li You asked Little Wang to _____.", "try on her brother's pants", "have lunch at her house", "buy a pair of brown pants"],
+		["Little Wang is going to Li You's house _____.", "this afternoon", "tomorrow", "this morning"]
+	],
+	"11": [
+		["Little Ye was very busy _____.", "a while ago", "just now", "last night"],
+		["_____ invited Little Li to go on a trip.", "Mr. Zhang", "Teacher Wang", "Little Ye"],
+		["They plan to go this _____.", "winter", "spring", "autumn"],
+		["Why did Little Li come to see Little Ye?", "To get information on Taiwan's weather", "To find out if he is busy", "To find out what kind of a person Mr. Zhang is"],
+		["Taipei's winter is _____.", "colder than here", "warmer than here", "very warm"],
+		["Little Ye panicked because _____.", "she didn't have warm clothes", "she didn't have clothes for warm weather", "her clothes were all small"],
+		["Right after their conversation Little Li will _____.", "get Little Ye's clothes", "go to visit Teacher Wang", "go to Taipei"],
+		["Little Li is _____.", "smaller than Little Ye", "taller than Little Ye", "bigger than Little Ye"]
+	],
+	"10": [
+		["Miss Wang will _____.", "go to the store before getting home", "go to visit Mr. Zhang now", "go to the store after getting home"],
+		["Both Miss Wang and Mr. Zhang want to buy _____.", "something to drink", "some beer", "some cola"],
+		["Miss Wang found riding a bus in China interesting because _____.", "you need to buy a ticket", "you can chat with the driver", "you can drink beer on the bus"],
+		["Miss Wang liked taking _____ the best.", "a taxi", "the bus", "the subway"],
+		["It is fun to take a taxi in China because _____.", "you can chat with the driver", "it is very fast", "you can drink beer in the taxi"],
+		["Miss Wang said taking _____ is the fastest.", "the subway", "the bus", "a taxi"]
+	],
+	"12": [
+		["This man ordered _____.", "rice", "dumplings", "both rice an dumplings"],
+		["He wanted some _____.", "beer", "cola", "water"],
+		["He ordered _____.", "fish braised in soy sauce", "sweet and sour fish", "hot and sour fish"],
+		["The waitress made a mistake on _____.", "everything", "one of the dishes", "the soup only"],
+		["The reason she made the mistake was that _____.", "she brought over someone else's order", "she didn't hear clearly", "what he ordered was sold out"]
+	],
+	"21": [
+		["Little Wang got a tape from _____.", "the lab", "Japan", "Li Ming"],
+		["The tape is in _____ now.", "Japan", "the lab", "the kitchen"],
+		["_____ took the tape away.", "Li Ming's brother", "Li Ming", "Little Wang"],
+		["Li Ming's brother is interested in _____.", "learning Chinese", "learning Japanese", "their kitchen"],
+		["The tape will definitely be back to the lab _____.", "after the due day", "on the due day", "before the due day"]
+	],
+	"13": [
+		["Li Xing is writing to his _____.", "teacher", "American friends", "Chinese friends"],
+		["Li Xing is in _____ now.", "China", "Japan", "US"],
+		["Li Xing was eager to _____.", "make friends", "contact his old friends", "go home"],
+		["His school is _____ Tian'anmen.", "far from", "near", "at"],
+		["Li Xing has been to Tian'anmen _____.", "Three times", "Twice", "once"]
+	],
+	"14": [
+		["Whose house did Little Li visit yesterday?", "Miss Bai's", "Little Zhang's", "Miss Bai's boyfriend's"],
+		["They both think that the puppy is _____.", "ugly", "too small", "pretty"],
+		["Little Zhang thinks that the puppy's nose is _____.", "too big", "too small", "too short"],
+		["The puppy's eyes are _____.", "too small", "too big", "beautiful"],
+		["This puppy is _____.", "a present from Little Zhang", "purchased by Miss Bai's boyfriend", "purchased by Miss Bai"]
+	],
+	"15": [
+		["The teacher _____.", "will check our homework", "forgot to bring the character book", "asked them to hand in their homework"],
+		["Little Zhang _____.", "forgot to bring his homework", "has gone home", "has brought out his homework"],
+		["The class _____.", "has started already", "is over", "hasn't started yet"],
+		["The teacher will accept their homework _____.", "before noon", "in class only", "before class only"],
+		["Little Zhang will go home _____.", "after class", "at noon", "now"]
+	],
+	"16": [
+		["Miss Bai _____.", "found her medicine finally", "found the medicine for Little Li", "didn't find her medicine after all"],
+		["Little Li _____.", "wasn't very helpful", "helped Miss Bai looking for the medicine", "tried to be very helpful"],
+		["Miss Bai _____.", "will not take the medicine this time", "took too much of the medicine", "is seriously allergic to this medicine"],
+		["Miss Bai _____.", "can't remember when she took the medicine last time", "keeps good record of her medicine intake", "didn't want to get u."]
+	],
+	"17": [
+		["Little Zhang has known Little Xie for _____.", "two months", "a month", "three months"],
+		["Little Xie _____.", "has difficulty finding a place", "has found an apartment", "has decided not to move"],
+		["Little Zhang _____.", "likes Little Xie", "doesn't know what to do", "wants to find an apartment"],
+		["Little Zhang's apartment has _____.", "a bedroom and a living room", "a bedroom and no other rooms", "two bedrooms"],
+		["If Little Xie moves in, they will each pay _____.", "less than $400", "less than $300", "$700"]
+	],
+	"22": [
+		["Miss Bai's mom is in _____.", "China", "the post office", "the bank"],
+		["Miss Bai didn't know _____.", "the best way to send money to China", "how to send a register mail", "where the post office is"],
+		["Little Wang thinks that wiring money from the bank is _____.", "much faster than sending a register mail", "the same as sending a register mail", "cheaper than sending a register mail"],
+		["Which factor is more important to Miss Bai's decision?", "time", "money", "location"],
+		["Miss Bai is going _____ now.", "to the bank", "to the post office", "home"]
+	],
+	"18": [
+		["Siwen's friend wants to _____.", "go swimming", "watch a football game", "play football"],
+		["When the friend called, Siwen was _____.", "watching TV", "playing tennis", "sleeping"],
+		["They haven't gone swimming for _____.", "two weeks", "a week", "a month"],
+		["_____ was drowned.", "Little Bai's cousin", "Siwen's cousin", "Little Bai"],
+		["Siwen wants to _____ now.", "watch a game", "go downstairs", "watch a movie"]
+	],
+	"19": [
+		["Little Li will go to China _____.", "with Miss Wang", "with Miss Wang's sister", "with both Miss Wang and her sister"],
+		["Little Li wants to decide the travelling date based on _____.", "Miss Wang's schedule", "his class schedule", "the flight information"],
+		["They've decided to leave _____.", "at the beginning of June", "in December", "at the end of June"],
+		["Little Li doesn't enjoy _____.", "travel alone", "talking", "planning for the tri."],
+		["Their flight will take about _____.", "12 hours", "10 hours", "6 hours"]
+	],
+	"23": [
+		["Miss Wang's uncle lives in _____ now.", "California", "Washington", "Shanghai"],
+		["Miss Wang asks Little Li to _____ this weekend.", "ski", "help her uncle move", "go to Shanghai"],
+		["We know Miss Wang's uncle likes to _____.", "grow vegetables", "visit her", "ski"],
+		["Little Li will go with Miss Wang because _____.", "he is free this weekend", "he wants to visit Mr. Wang", "he likes cucumber"],
+		["Miss Wang showed Little Li _____ from her uncle.", "a picture", "some cucumbers", "a letter"]
+	],
+	"20": [
+		["Xiao Ming is going to _____.", "study abroad", "visit his grandma", "visit his uncle"],
+		["He's going to fly for _____.", "over 10 hours (less than 20 hours)", "over 10 hours (less than 11 hours)", "about 17 hours"],
+		["His grandma wants him to take some _____ with him.", "dumplings", "rice", "water"],
+		["Xiao Ming will be living _____.", "in the dormitory", "in an apartment", "with his uncle"],
+		["How does Xiao Ming go to the airport?", "He will take a taxi", "His uncle will take him there", "His grandma will take him there"]
+	]
+}
