@@ -299,7 +299,7 @@ noscript {
 }
 
 
-.hidden {
+.hidden, .konami {
 	display: none;
 }
 

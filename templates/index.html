@@ -13,7 +13,8 @@
 				<div class="button" data-lesson="9">9</div>
 				<div class="button" data-lesson="10">10</div>
 			</div>
-			<div class="rounded flex hidden" id="konami">
+			<div class="rounded flex konami">
+				<div class="button" data-lesson="0">Basics</div>
 				<div class="button" data-lesson="21">Unused Lesson I</div>
 				<div class="button" data-lesson="22">Unused Lesson II</div>
 				<div class="button" data-lesson="23">Unused Lesson III</div>
@@ -34,28 +35,36 @@
 
 		<h3 id="lesson-title">Lesson Title</h3>
 		<div class="rounded" id="content-menu">
-			<a id="review">
-				<div class="button">Review</div>
-			</a>
+			<a id="review"><div class="button">Review</div></a>
 			<div class="flex" id="exercises">
 				<div class="label">Exercises</div>
 				<div>
 					<div class="flex">
 						<div class="label">Word Level</div>
-						<div id="word"></div>
+						<div id="word">
+							<a id="pinyin"><div class="button">Pinyin</div></a>
+							<a id="english"><div class="button">English</div></a>
+							<a id="chinese"><div class="button">Chinese</div></a>
+						</div>
 					</div>
-					<div class="flex disabled">
+					<div class="flex NOTdisabled">
 						<div class="label">Sentence Level</div>
-						<div id="sentence"></div>
+						<div id="sentence">
+							<a id="multiple-choice-en"><div class="button">Pinyin</div></a>
+							<a id="multiple-choice-zh"><div class="button">English</div></a>
+							<a id="pinyinthing"><div class="button">Chinese</div></a>
+						</div>
 					</div>
 					<div class="flex">
 						<div class="label">Paragraph Level</div>
-						<div id="paragraph"></div>
+						<div id="paragraph">
+							<a id="pinyinthing"><div class="button">Pinyin</div></a>
+							<a id="pinyinthing"><div class="button">English</div></a>
+							<a id="pinyinthing"><div class="button">Chinese</div></a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<a id="vocabulary">
-				<div class="button">Vocabulary</div>
-			</a>
+			<a id="vocabulary"><div class="button">Vocabulary</div></a>
 		</div>
 {% endblock %}

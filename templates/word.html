@@ -1,67 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="google" content="notranslate">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="/word.css">
-</head>
-<body>
-	<div class="container">
-		<h1 class="zh" id="title"></h1>
-		<h2 class="desktop" id="subject"></h2>	
-		
-		<!--(Include Previous?)-->
-		
-		<div class="button tl tr play" id="toggle"></div>
+{% extends 'base.html' %}
+{% block content %}
+		<div class="button play" id="toggle"></div>
 		<div class="flex" id="points"></div>
 		<div id="buttons">
 			<div class="button choice">A</div>
 			<div class="button choice">B</div>
 			<div class="button choice">C</div>
-			<div class="button choice bl br">D</div>
+			<div class="button choice">D</div>
 		</div>
-		
+
 		<p><a href="/">Index</a></p>
-	</div>
 
-	<p>
-		Problem?
-		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-			Report the bug and go to the old website.
-		</a>
-	</p>
-	<form action="/bug" method="post" id="form" style="display: none">
-		<table style="border: 1px solid black; margin: auto auto 50px auto">
-			<tr>
-				<td>Description of Bug</td>
-				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-			</tr>
-			<tr>
-				<td>
-					<input type="hidden" name="nav" id="nav">
-					<input type="hidden" name="path" id="path">
-				</td>
-				<td><input type="submit" name="submit" value="Submit and Go"></td>
-			</tr>
-		</table>
-	</form>
-	<script>
-		var nav = {};
-		for (var i in navigator)
-			nav[i] = navigator[i];
-		document.getElementById("nav").value = JSON.stringify(nav);
-		document.getElementById("path").value = location.pathname;
-	</script>
-
-	<audio id="mpX"></audio>
-	<audio src="/mp3/henhao.mp3" id="henhao"></audio>
-	<audio src="/mp3/budui.mp3" id="budui"></audio>
-	<script src="/mainscript.js"></script>
-	<script src="/data/word.js"></script>
-	<script src="/word.js"></script>
-</body>
-</html>
+		<audio id="mpX"></audio>
+		<audio src="/mp3/henhao.mp3" id="henhao"></audio>
+		<audio src="/mp3/budui.mp3" id="budui"></audio>
+{% endblock %}

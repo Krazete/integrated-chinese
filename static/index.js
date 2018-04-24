@@ -16,7 +16,7 @@ var vocabulary;
 function setLevel(level, lesson) {
 	var levelContainer = document.getElementById(level);
 	levelContainer.innerHTML = "";
-	var levelData = lessonData[lesson][level];
+	var levelData = data[lesson][level];
 	for (var i = 0; i < levelData.length; i++) {
 		var a = document.createElement("a");
 		a.href = [level, levelData[i], lesson].join("/");
@@ -29,7 +29,7 @@ function setLevel(level, lesson) {
 }
 
 function setLesson(lesson) {
-	lessonTitle.innerHTML = lessonData[lesson].title;
+	lessonTitle.innerHTML = data[lesson].title;
 	review.href = ["review", lesson].join("/");
 	setLevel("word", lesson);
 	setLevel("sentence", lesson);
@@ -65,10 +65,10 @@ function initKonami() {
 	window.addEventListener("keydown", function(e) {
 		code += e.keyCode + "_";
 		if (konami.test(code)) {
-			var hidden = document.getElementsByClassName("hidden");
-			for (var i = 0; i < hidden.length; i++) {
-				hidden[i].classList.remove("hidden");
-			}
+			var hidden = document.getElementsByClassName("konami");
+			Array.from(hidden).forEach(function (hid) {
+				hid.classList.remove("konami");
+			});
 		}
 	});
 }
