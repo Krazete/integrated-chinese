@@ -1,16 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 import os
+import json
 import jinja2
 import webapp2
 # import data
 from google.appengine.api import mail
 
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader('/'.join([os.path.dirname(__file__), 'templates']))
-)
+def path_to(*args):
+    root = os.path.dirname(__file__)
+    return os.path.join(root, *args)
 
-INT_ZH = ['']
+JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(path_to('templates')))
 
 class MainHandler(webapp2.RequestHandler):
     def write(self, template, variables={}):
@@ -24,18 +25,30 @@ class MainHandler(webapp2.RequestHandler):
             'scripts': ['error.js'],
             'error_message': 'Error: {}'.format(message)
         })
-    def verify_lesson_and_write(self, template, lessons, variables={}):
-        try:
-            if not lesson.isdigit():
-                raise ValueError('Invalid lesson number.')
-            lesson = int(lesson)
-            if lesson in valid_lessons:
-                variables.setdefault('lesson', lesson)
-                self.write(template, variables)
-            else:
-                raise ValueError('Lesson number is out of bounds.')
-        except Exception, e:
-            self.write_error(e)
+    # def verify_lesson_and_write(self, template, lessons, variables={}): # TODO: make this usable again
+    #     try:
+    #         if not lesson.isdigit():
+    #             raise ValueError('Invalid lesson number.')
+    #         lesson = int(lesson)
+    #         if lesson in valid_lessons:
+    #             variables.setdefault('lesson', lesson)
+    #             self.write(template, variables)
+    #         else:
+    #             raise ValueError('Lesson number is out of bounds.')
+    #     except Exception, e:
+    #         self.write_error(e)
+class DataHandler(MainHandler):
+    def write_data(self, data):
+        self.response.headers['Content-Type'] = 'application/javascript'
+        self.write('data.js', {
+            'data': self.dump(data)
+        })
+    def load(self, section):
+        with open(path_to('data', section + '.json')) as file:
+            data = json.load(file)
+        return data
+    def dump(self, data):
+        return json.dumps(data, indent=4)
 
 class Index(MainHandler):
     def get(self):
@@ -43,24 +56,44 @@ class Index(MainHandler):
             'title': 'Integrated Chinese Multimedia Exercises',
             'title_zh': '中文聽說讀寫'.decode('utf8'),
             'title_en': 'Integrated Chinese Multimedia Exercises',
-            'scripts': ['index.js']
+            'data': 'index',
+            'script': 'index'
         })
+class IndexData(DataHandler):
+    def get(self):
+        data = self.load('index')
+        self.write_data(data)
 
 class Review(MainHandler):
     def get(self, lesson):
-        self.verify_lesson_and_write('review.html', lesson, {
-            'title': 'Lesson {{lesson}} Review',
+        self.write('review.html', {
+            'title': 'Lesson {} Review'.format(lesson),
             'title_zh': '中文'.decode('utf8'),
-            'title_en': 'Lesson {{lesson}} Review',
-            'scripts': ['review.js']
+            'title_en': 'Lesson {} Review'.format(lesson),
+            'data': 'review/word/{}'.format(lesson),
+            'script': 'review'
         })
+class ReviewData(DataHandler):
+    def get(self, lesson):
+        texts = self.load('review/texts')
+        words = self.load('review/words')
+        patterns = self.load('review/patterns')
+        data = {
+            'texts': [texts['a'][lesson], texts['b'][lesson]],
+            'words': [words['a'][lesson], words['b'][lesson]],
+            'patterns': [patterns['a'][lesson], patterns['b'][lesson]]
+        }
+        self.write_data(data)
 
 class Word(MainHandler):
-    def get(self, path):
-        form, lesson = path.split('/')
-        # form is already checked
-        self.verify_lesson_and_write('word.html', lesson, range(0, 24))
-
+    def get(self, section, lesson):
+        self.write('word.html', {
+            'title': 'Lesson {} Word Exercise'.format(lesson),
+            'title_zh': '中文'.decode('utf8'),
+            'title_en': 'Lesson {} Word Exercise'.format(lesson),
+            'data': 'word/{}/{}'.format(section, lesson),
+            'script': 'word'
+        })
 class Sentence(MainHandler):
     def get(self, path):
         form, lesson = path.split('/')
@@ -94,7 +127,6 @@ class Sentence(MainHandler):
             self.verify_lesson_and_write('sentence.html', lesson, [11])
         else:
             self.write('error.html')
-
 class Paragraph(MainHandler):
     def get(self, path):
         form, lesson = path.split('/')
@@ -110,6 +142,10 @@ class Paragraph(MainHandler):
             self.verify_lesson_and_write('paragraph.html', lesson, [13])
         else:
             self.write('error.html')
+class ExerciseData(DataHandler):
+    def get(self, level, section, lesson):
+        data = self.load('{}/{}'.format(level, section))
+        self.write_data(data[lesson])
 
 class Vocabulary(MainHandler):
     def get(self, path):
@@ -145,9 +181,12 @@ class Bug(MainHandler):
         self.response.write('<meta http-equiv="refresh" content="0; url=https://2-dot-integrated-chinese.appspot.com/' + newpath + '"><meta name="viewport" content="width=device-width, initial-scale=1">Thank you. You will be redirected shortly. <a href="https://2-dot-integrated-chinese.appspot.com/' + newpath + '">(If not, click here.)</a>')
 
 app = webapp2.WSGIApplication([
+    ('/data/index.js', IndexData),
+    ('/data/review/(\d+)\.js', ReviewData),
+    ('/data/(word|sentence|paragraph)/(.+?)/(\d+)\.js', ExerciseData),
     ('/', Index),
-    ('/review/(.*)', Review),
-    ('/word/([pec]/\d+)', Word),
+    ('/review/(\d+)', Review),
+    ('/word/(pinyin|english|chinese)/(\d+)', Word),
     ('/sentence/(\w+/\d+)', Sentence),
     ('/paragraph/(\w+/\d+)', Paragraph),
     ('/vocabulary/(\d+)', Vocabulary),
