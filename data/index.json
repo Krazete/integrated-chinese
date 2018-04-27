@@ -1,146 +1,26 @@
 {
-    "0": {
-        "title": "Basics",
-        "word": ["pinyin", "english", "chinese"],
-		"sentence": [],
-		"paragraph": []
-    },
-	"1": {
-		"title": "Greetings",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"2": {
-		"title": "Family",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"3": {
-		"title": "Dates and Time",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "tfe", "true-false-zh"]
-	},
-	"4": {
-		"title": "Hobbies",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"5": {
-		"title": "Visiting Friends",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"6": {
-		"title": "Making Appointments",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"7": {
-		"title": "Studying Chinese",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "tfe", "true-false-zh"]
-	},
-	"8": {
-		"title": "School Life",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"9": {
-		"title": "Shopping",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"10": {
-		"title": "Transportation",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", "fill-in-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"11": {
-		"title": "Talking about the Weather",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "multiple-choice-zh", "true-false-zh"]
-	},
-	"12": {
-		"title": "Dining",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"13": {
-		"title": "Asking Directions",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "map-reading-zh"]
-	},
-	"14": {
-		"title": "Birthday Party",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"15": {
-		"title": "Seeing a Doctor",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"16": {
-		"title": "Dating",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"17": {
-		"title": "Renting an Apartment",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"18": {
-		"title": "Sports",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"19": {
-		"title": "Travel",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"20": {
-		"title": "At the Airport",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"21": {
-		"title": "At the Library",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"22": {
-		"title": "Post Office",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	},
-	"23": {
-		"title": "Hometown",
-		"word": ["pinyin", "english", "chinese"],
-		"sentence": ["multiple-choice-en", "true-false-zh", ""],
-		"paragraph": ["multiple-choice-en", "true-false-zh"]
-	}
+    "0": {"title": "Basics"},
+	"1": {"title": "Greetings"},
+	"2": {"title": "Family"},
+	"3": {"title": "Dates and Time"},
+	"4": {"title": "Hobbies"},
+	"5": {"title": "Visiting Friends"},
+	"6": {"title": "Making Appointments"},
+	"7": {"title": "Studying Chinese"},
+	"8": {"title": "School Life"},
+	"9": {"title": "Shopping"},
+	"10": {"title": "Transportation"},
+	"11": {"title": "Talking about the Weather"},
+	"12": {"title": "Dining"},
+	"13": {"title": "Asking Directions"},
+	"14": {"title": "Birthday Party"},
+	"15": {"title": "Seeing a Doctor"},
+	"16": {"title": "Dating"},
+	"17": {"title": "Renting an Apartment"},
+	"18": {"title": "Sports"},
+	"19": {"title": "Travel"},
+	"20": {"title": "At the Airport"},
+	"21": {"title": "At the Library"},
+	"22": {"title": "Post Office"},
+	"23": {"title": "Hometown"}
 }

@@ -6,14 +6,31 @@ function getCurrentCookie(key, a, b, d) { // TODO: use this
 	return d;
 }
 
-var current;
+var currentLesson;
 var lessonButtons;
 var lessonTitle;
 var contentMenu;
 var review;
 var vocabulary;
 
-function setLevel(level, lesson) {
+var deacronym = {
+	"english": "English",
+	"pinyin": "Pinyin",
+	"chinese": "Chinese",
+
+	"choice-en": "Multiple Choice (English)",
+	"choice-zh": "Multiple Choice (Chinese)",
+	"boolean-en": "True or False (English)",
+	"boolean-zh": "True or False (Chinese)",
+	"map": "Map Reading (Chinese)",
+
+	"money": "Money",
+	"time": "Time",
+	"antonym": "Antonyms",
+	"match": "Matching"
+};
+
+function setLevel(level, lesson) { // TODO: set the preferred order of buttons
 	var levelContainer = document.getElementById(level);
 	levelContainer.innerHTML = "";
 	var levelData = data[lesson][level];
@@ -22,7 +39,7 @@ function setLevel(level, lesson) {
 		a.href = [level, levelData[i], lesson].join("/");
 		var div = document.createElement("div");
 		div.className = "button";
-		div.innerHTML = parseAcronym[levelData[i]];
+		div.innerHTML = deacronym[levelData[i]];
 		a.appendChild(div);
 		levelContainer.appendChild(a);
 	}
@@ -38,8 +55,8 @@ function setLesson(lesson) {
 }
 
 function lessonButtonClick() {
-	current = this.dataset.lesson;
-	setCookie("lesson", current);
+	currentLesson = this.dataset.lesson;
+	setCookie("lesson", currentLesson);
 	for (var i = 0; i < lessonButtons.length; i++) {
 		lessonButtons[i].classList.remove("selected");
 	}
@@ -56,7 +73,7 @@ function lessonButtonEnter() {
 function lessonButtonLeave() {
 	lessonTitle.classList.remove("disabled");
 	contentMenu.classList.remove("disabled");
-	setLesson(current);
+	setLesson(currentLesson);
 }
 
 function initKonami() {
@@ -74,7 +91,7 @@ function initKonami() {
 }
 
 function init() {
-	current = getCookie("lesson") > 0 && getCookie("lesson") < 21 ? getCookie("lesson") : 1;
+	currentLesson = getCookie("lesson") > 0 && getCookie("lesson") < 21 ? getCookie("lesson") : 1;
 	lessonButtons = document.getElementById("lesson-menu").getElementsByClassName("button");
 	lessonTitle = document.getElementById("lesson-title");
 	contentMenu = document.getElementById("content-menu");
@@ -83,7 +100,7 @@ function init() {
 
 	for (var i = 0; i < lessonButtons.length; i++) {
 		var lessonButton = lessonButtons[i];
-		if (lessonButton.dataset.lesson == current) {
+		if (lessonButton.dataset.lesson == currentLesson) {
 			lessonButton.classList.add("selected");
 		}
 		if (mobile) {
@@ -95,7 +112,7 @@ function init() {
 			lessonButton.addEventListener("mouseleave", lessonButtonLeave);
 		}
 	}
-	setLesson(current);
+	setLesson(currentLesson);
 	initKonami();
 }
 
