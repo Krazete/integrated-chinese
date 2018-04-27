@@ -4,19 +4,42 @@ import os
 import json
 import jinja2
 import webapp2
-# import data
 from google.appengine.api import mail
 
 def path_to(*args):
     root = os.path.dirname(__file__)
     return os.path.join(root, *args)
 
+def number_zh(n):
+    # Converts Hindu-Arabic numbers to Chinese numbers. This function is limited to numbers 0-99.
+    if n == 0:
+        return '零'
+    digit = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+    digit_zh = ''
+    if n >= 20:
+        digit_zh += digit[(n - (n % 10)) / 10]
+    if n >= 10:
+        digit_zh += '十'
+    digit_zh += digit[n % 10]
+    return digit_zh
+
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(path_to('templates')))
 
 class MainHandler(webapp2.RequestHandler):
-    def write(self, template, variables={}):
+    def write(self, template, variables={}): # TODO: try/except this
         template = JINJA_ENVIRONMENT.get_template(template)
         self.response.write(template.render(variables))
+    def load_data(self, section):
+        with open(path_to('data', section)) as file:
+            data = json.load(file)
+        return data
+    def dump_data(self, data):
+        return json.dumps(data, indent=4)
+    def write_data(self, data):
+        self.response.headers['Content-Type'] = 'application/javascript'
+        self.write('data.js', {
+            'data': self.dump_data(data)
+        })
     def write_error(self, message):
         self.write('error.html', {
             'title': 'Page Not Found',
@@ -25,30 +48,6 @@ class MainHandler(webapp2.RequestHandler):
             'scripts': ['error.js'],
             'error_message': 'Error: {}'.format(message)
         })
-    # def verify_lesson_and_write(self, template, lessons, variables={}): # TODO: make this usable again
-    #     try:
-    #         if not lesson.isdigit():
-    #             raise ValueError('Invalid lesson number.')
-    #         lesson = int(lesson)
-    #         if lesson in valid_lessons:
-    #             variables.setdefault('lesson', lesson)
-    #             self.write(template, variables)
-    #         else:
-    #             raise ValueError('Lesson number is out of bounds.')
-    #     except Exception, e:
-    #         self.write_error(e)
-class DataHandler(MainHandler):
-    def write_data(self, data):
-        self.response.headers['Content-Type'] = 'application/javascript'
-        self.write('data.js', {
-            'data': self.dump(data)
-        })
-    def load(self, section):
-        with open(path_to('data', section + '.json')) as file:
-            data = json.load(file)
-        return data
-    def dump(self, data):
-        return json.dumps(data, indent=4)
 
 class Index(MainHandler):
     def get(self):
@@ -56,28 +55,41 @@ class Index(MainHandler):
             'title': 'Integrated Chinese Multimedia Exercises',
             'title_zh': '中文聽說讀寫'.decode('utf8'),
             'title_en': 'Integrated Chinese Multimedia Exercises',
-            'data': 'index',
-            'script': 'index'
+            'data': 'index.js',
+            'script': 'index.js'
         })
-class IndexData(DataHandler):
+class IndexData(MainHandler):
     def get(self):
-        data = self.load('index')
+        data = self.load_data('index.json')
+        for level in ['word', 'sentence', 'paragraph']:
+            for root, dirs, files in os.walk(path_to('data', level)):
+                for file in files:
+                    if file.lower().endswith('.json'):
+                        temp = self.load_data('{}/{}'.format(level, file))
+                        for i in data:
+                            data[i].setdefault(level, [])
+                            if i in temp:
+                                data[i][level].append(file.split('.')[0])
         self.write_data(data)
 
 class Review(MainHandler):
     def get(self, lesson):
+        data = self.load_data('index.json')
+        x = path_to('static', 'img', lesson + 'a.png')
+        print(x, os.path.exists(x))
+
         self.write('review.html', {
             'title': 'Lesson {} Review'.format(lesson),
-            'title_zh': '中文'.decode('utf8'),
-            'title_en': 'Lesson {} Review'.format(lesson),
-            'data': 'review/word/{}'.format(lesson),
-            'script': 'review'
+            'title_zh': '第{}課'.format(number_zh(int(lesson))).decode('utf8'),
+            'title_en': data[lesson]['title'],
+            'data': 'review/{}.js'.format(lesson),
+            'script': 'review.js'
         })
-class ReviewData(DataHandler):
+class ReviewData(MainHandler):
     def get(self, lesson):
-        texts = self.load('review/texts')
-        words = self.load('review/words')
-        patterns = self.load('review/patterns')
+        texts = self.load_data('review/texts.json')
+        words = self.load_data('review/words.json')
+        patterns = self.load_data('review/patterns.json')
         data = {
             'texts': [texts['a'][lesson], texts['b'][lesson]],
             'words': [words['a'][lesson], words['b'][lesson]],
@@ -142,9 +154,9 @@ class Paragraph(MainHandler):
             self.verify_lesson_and_write('paragraph.html', lesson, [13])
         else:
             self.write('error.html')
-class ExerciseData(DataHandler):
+class ExerciseData(MainHandler):
     def get(self, level, section, lesson):
-        data = self.load('{}/{}'.format(level, section))
+        data = self.load_data('{}/{}.json'.format(level, section))
         self.write_data(data[lesson])
 
 class Vocabulary(MainHandler):

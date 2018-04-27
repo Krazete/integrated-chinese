@@ -1,73 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
-		<script src="/static/data/review_text.js"></script>
-		<script src="/static/data/review_word.js"></script>
-		<script src="/static/data/review_pattern.js"></script>
-		<script src="/static/review.js"></script>
-
-			<div class="rounded">
-				<div class="flex">
-					<div class="button" id="a">Text A</div>
-					<div class="button" id="b">Text B</div>
-				</div>
-				<div id="content">
-					<img id="photo">
-					<div class="zh" id="text"></div>
-					<div class="zh" id="example"></div>
-				</div>
-				<div class="flex">
-					<div class="button" id="plain">Plain Text</div>
-					<div class="button" id="word">Words</div>
-					<div class="button" id="pattern">Patterns</div>
-					<div class="button" id="image">Image</div>
-				</div>
+		<div class="rounded">
+			<form class="flex">
+				<div class="button" id="text-a" data-text="0">Text A</div>
+				<div class="button" id="text-b" data-text="1">Text B</div>
+			</form>
+			<div id="content">
+				<div class="zh" id="text"></div>
+				<div class="zh" id="examples"></div>
+				<img id="frame">
 			</div>
-
-			<br>
-
-			<div class="rounded">
-				<div class="flex">
-					<div class="button" id="toggle">
-					</div>
-					<div id="progress">
-						<div id="progress-after"></div>
-					</div>
-					<div class="button speed" id="speed-50">
-						<div class="speed-after"></div>
-					</div>
-					<div class="button speed" id="speed-75">
-						<div class="speed-after"></div>
-					</div>
-					<div class="button speed tr br" id="speed-100">
-						<div class="speed-after"></div>
-					</div>
-				</div>
-			</div>
-
-			<br>
-
-			<p class="desktop-only button tl tr bl br" id="tip-button">Keyboard Shortcuts</p>
-
-			<div id="footer">
-				<a href="/">Index</a>
+			<div class="flex">
+				<div class="button" id="plaintext" data-format="0">Plain Text</div>
+				<div class="button" id="words" data-format="1">Words</div>
+				<div class="button" id="patterns" data-format="2">Patterns</div>
+				<div class="button" id="photo" data-format="3">Photo</div>
 			</div>
 		</div>
 
-		<div class="desktop-only tl tr bl br hid" id="tip">
-			<div>Keyboard Shortcuts</div>
-			<div class="tip-line"></div>
-			<div>Play/Pause</div>
-			<div class="tip-key">space</div>
-			<div class="tip-line"></div>
-			<div>Seek</div>
-			<div class="tip-key">&larr;</div>
-			<div class="tip-key">&rarr;</div>
-			<div class="tip-key">0...9</div>
-			<div class="tip-line"></div>
-			<div>Speed</div>
-			<div class="tip-key">&uarr;</div>
-			<div class="tip-key">&darr;</div>
+		<br>
+
+		<div class="rounded">
+			<div class="flex">
+				<div class="button" id="toggle">
+				</div>
+				<div id="progress">
+					<div id="progress-after"></div>
+				</div>
+				<div class="button speed" id="speed-50">
+					<div class="speed-after"></div>
+				</div>
+				<div class="button speed" id="speed-75">
+					<div class="speed-after"></div>
+				</div>
+				<div class="button speed tr br" id="speed-100">
+					<div class="speed-after"></div>
+				</div>
+			</div>
 		</div>
-		<audio id="mp3"></audio>
-		<audio id="mpX"></audio>
+
+		<br>
+
+		<div id="footer">
+			<a href="/">Index</a>
+		</div>
+
+		<div id="jukebox">
+			<p class="desktop-only button" id="tip-button">Keyboard Shortcuts</p>
+			<div class="desktop-only hid" id="tip">
+				<div>Keyboard Shortcuts</div>
+				<div class="tip-line"></div>
+				<div>Play/Pause</div>
+				<div class="tip-key">space</div>
+				<div class="tip-line"></div>
+				<div>Seek</div>
+				<div class="tip-key">&larr;</div>
+				<div class="tip-key">&rarr;</div>
+				<div class="tip-key">0...9</div>
+				<div class="tip-line"></div>
+				<div>Speed</div>
+				<div class="tip-key">&uarr;</div>
+				<div class="tip-key">&darr;</div>
+			</div>
+		</div>
+{% endblock %}
+{% block audio %}
+	sup
 {% endblock %}

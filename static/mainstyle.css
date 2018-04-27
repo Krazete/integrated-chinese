@@ -95,21 +95,21 @@ a {
 	outline-width: 2px;
 }
 
-#photo {
-	border: 13px solid #000;
-}
-
-#example {
+#examples {
 	background: #fb8;
 	text-align: left;
 	margin-top: 13px;
 	padding: 13px;
 }
-#example div {
+#examples div {
 	cursor: pointer;
 }
-#example div:hover, #example div.selected {
+#examples div:hover, #examples div.selected {
 	outline: 1px solid black;
+}
+
+#frame {
+	border: 13px solid #000;
 }
 
 #toggle {

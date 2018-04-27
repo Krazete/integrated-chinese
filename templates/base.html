@@ -8,46 +8,43 @@
 	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
 	<script src="/static/mainscript.js"></script>{% if data %}
-	<script src="/data/{{ data }}.js"></script>{% endif %}{% if script %}
-	<script src="/static/{{ script }}.js"></script>{% endif %}
+	<script src="/data/{{ data }}"></script>{% endif %}{% if script %}
+	<script src="/static/{{ script }}"></script>{% endif %}
 </head>
-<body>{% if audio %}
-	<audio src="/mp3/henhao.mp3" id="henhao"></audio>
-	<audio src="/mp3/budui.mp3" id="budui"></audio>{% endif %}
-	<div class="container">
-		<div id="header">
-			<h1 class="zh">{{ title_zh }}</h1>
-			<h2 class="desktop-only">{{ title_en }}</h2>
-		</div>
-		{% block content %}
-		{% endblock %}
-		<div id="footer">
-			<p>
-				Problem?
-				<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-					Report the bug and go to the old website.
-				</a>
-			</p>
-			<form action="bug" method="post" id="form" style="display: none">
-				<table style="border: 1px solid black; margin: auto auto 50px auto">
-					<tr>
-						<td>Description of Bug</td>
-						<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-					</tr>
-					<tr>
-						<td>
-							<input type="hidden" name="nav" id="nav">
-							<input type="hidden" name="path" id="path">
-						</td>
-						<td><input type="submit" name="submit" value="Submit and Go"></td>
-					</tr>
-				</table>
-			</form>
+<body>
+	<div id="header">
+		<h1 class="zh">{{ title_zh }}</h1>
+		<h2 class="desktop-only">{{ title_en }}</h2>
+	</div>
 
-			<a href="https://github.com/Krazete/integrated-chinese">
-				<div class="button">GitHub</div>
+	<div class="container">{% block content %}{% endblock %}	</div>
+	{% block audio %}{% endblock %}
+	<div id="footer">
+		<p>
+			Problem?
+			<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+				Report the bug and go to the old website.
 			</a>
-		</div>
+		</p>
+		<form action="bug" method="post" id="form" style="display: none">
+			<table style="border: 1px solid black; margin: auto auto 50px auto">
+				<tr>
+					<td>Description of Bug</td>
+					<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="hidden" name="nav" id="nav">
+						<input type="hidden" name="path" id="path">
+					</td>
+					<td><input type="submit" name="submit" value="Submit and Go"></td>
+				</tr>
+			</table>
+		</form>
+
+		<a href="https://github.com/Krazete/integrated-chinese">
+			<div class="button">GitHub</div>
+		</a>
 	</div>
 </body>
 </html>

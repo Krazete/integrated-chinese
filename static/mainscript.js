@@ -36,14 +36,14 @@ if (!Array.prototype.includes) {
 }
 
 // GET ELEMENT
-
-function id(e) {
-	return document.getElementById(e);
-}
-
-function cn(e) {
-	return document.getElementsByClassName(e);
-}
+//
+// function id(e) {
+// 	return document.getElementById(e);
+// }
+//
+// function cn(e) {
+// 	return document.getElementsByClassName(e);
+// }
 
 // COOKIE
 
@@ -171,19 +171,19 @@ function mpXPlay(e) {
 }
 
 // TRANSLATION
-
-function number(n) {
-	// Converts Hindu-Arabic numbers to Chinese numbers. This function is limited to numbers 0-99.
-	if (n == 0)
-		return "零";
-	var digit = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
-	var zhDigit = "";
-	if (n > 19)
-		zhDigit += digit[(n - (n % 10)) / 10];
-	if (n > 9)
-		zhDigit += "十";
-	return zhDigit + digit[n % 10];
-}
+//
+// function number(n) {
+// 	// Converts Hindu-Arabic numbers to Chinese numbers. This function is limited to numbers 0-99.
+// 	if (n == 0)
+// 		return "零";
+// 	var digit = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+// 	var zhDigit = "";
+// 	if (n > 19)
+// 		zhDigit += digit[(n - (n % 10)) / 10];
+// 	if (n > 9)
+// 		zhDigit += "十";
+// 	return zhDigit + digit[n % 10];
+// }
 
 // SETS
 
