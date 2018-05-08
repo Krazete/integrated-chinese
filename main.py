@@ -58,6 +58,32 @@ class Index(MainHandler):
             'data': 'index.js',
             'script': 'index.js'
         })
+def exercise_order(a, b):
+    preferred_order = [ # TODO: fix this thing
+        "english",
+    	"pinyin",
+    	"chinese",
+
+    	"choice-en",
+    	"choice-zh",
+    	"boolean-en",
+    	"boolean-zh",
+    	"map",
+
+    	"money",
+    	"time",
+    	"antonym",
+    	"match"
+    ]
+    try:
+        ai = preferred_order.index(a)
+    except ValueError:
+        ai = len(preferred_order)
+    try:
+        bi = preferred_order.index(b)
+    except ValueError:
+        bi = len(preferred_order)
+    return ai - bi
 class IndexData(MainHandler):
     def get(self):
         data = self.load_data('index.json')
@@ -65,11 +91,15 @@ class IndexData(MainHandler):
             for root, dirs, files in os.walk(path_to('data', level)):
                 for file in files:
                     if file.lower().endswith('.json'):
-                        temp = self.load_data('{}/{}'.format(level, file))
-                        for i in data:
-                            data[i].setdefault(level, [])
-                            if i in temp:
-                                data[i][level].append(file.split('.')[0])
+                        exercise_data = self.load_data('{}/{}'.format(level, file))
+                        for lesson in data:
+                            data[lesson].setdefault(level, [])
+                            if lesson in exercise_data:
+                                exercise_acronym = file.split('.')[0]
+                                data[lesson][level].append(exercise_acronym)
+        for lesson in data:
+            for level in ['word', 'sentence', 'paragraph']:
+                data[lesson][level].sort(exercise_order)
         self.write_data(data)
 
 class Review(MainHandler):

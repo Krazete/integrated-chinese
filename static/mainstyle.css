@@ -42,8 +42,7 @@ a {
 
 .button {
 	background: #fca;
-	border: 2px solid transparent;
-	background-clip: padding-box;
+	border: 2px solid #fb8;
 	padding: 4px 0;
 	cursor: pointer;
 }
@@ -53,6 +52,7 @@ a {
 }
 .button.selected {
 	background: #fff;
+	border-color: #fff;
 	pointer-events: none;
 }
 
@@ -60,19 +60,29 @@ a {
 
 .label {
 	background: #fca;
+	border: 2px solid #fb8;
 	min-width: 94px;
 	padding: 4px 0;
-	margin: 2px -2px 2px 2px;
 	flex: 0;
 }
 .label {
-	background: linear-gradient(to right, #fca4, #fca8);
+	background: linear-gradient(to right, #fb8, #ffc499);
+	border-right: 0px;
 }
 .label + div .label {
-	background: linear-gradient(to right, #fca8, #fca);
+	background: linear-gradient(to right, #ffc499, #fca);
+	border-left: 0px;
 }
 .label + div .button {
-	border-left: 0;
+	border-left: 0px;
+}
+.flex:hover > .label {
+	background: linear-gradient(to right, #fb8, #fca);
+	border-color: #fff;
+}
+.label + div .flex:hover > .label {
+	background: linear-gradient(to right, #fca, #fdc);
+	border-color: #fff;
 }
 
 /* review.html */
