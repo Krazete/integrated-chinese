@@ -1,5 +1,14 @@
+:root {
+	--lo: #ff9f50;
+
+	--bg: #ffbf80; /* must still be bright enough */
+	--fg: #ffcf98;
+
+	--hi: #ffefc8;
+}
+
 body {
-	background: #fb8;
+	background: var(--bg);
 	font-family: "Klee", "Century Gothic", "Helvetica", sans-serif;
 	text-align: center;
 	position: absolute;
@@ -14,8 +23,9 @@ a {
 }
 
 .container {
-	width: 813px;
-	max-width: 94%;
+	width: 800px;
+	min-width: 25%;
+	max-width: 95%;
 	margin: auto;
 }
 
@@ -41,54 +51,51 @@ a {
 }
 
 .button {
-	background: #fca;
-	border: 2px solid #fb8;
+	background: var(--fg);
+	border: 1px solid var(--bg);
 	padding: 4px 0;
 	cursor: pointer;
 }
 .button:hover {
-	background: #fdc;
-	border-color: #fff;
+	background: var(--hi);
 }
 .button.selected {
-	background: #fff;
-	border-color: #fff;
+	background: white;
 	pointer-events: none;
 }
 
 /* index.html */
 
 .label {
-	background: #fca;
-	border: 2px solid #fb8;
+	background: var(--fg);
+	border: 1px solid var(--bg);
 	min-width: 94px;
 	padding: 4px 0;
 	flex: 0;
 }
-.label {
-	background: linear-gradient(to right, #fb8, #ffc499);
-	border-right: 0px;
+.flex .label {
+	border-right-width: 0;
 }
-.label + div .label {
-	background: linear-gradient(to right, #ffc499, #fca);
-	border-left: 0px;
+.flex .flex .label, .label + div .button {
+	border-left-width: 0;
 }
-.label + div .button {
-	border-left: 0px;
+.flex:hover .flex .label {
+	background: linear-gradient(to right, var(--hi), var(--fg));
 }
-.flex:hover > .label {
-	background: linear-gradient(to right, #fb8, #fca);
-	border-color: #fff;
+.flex:hover .label, .flex .flex:hover .label {
+	background: var(--hi);
 }
-.label + div .flex:hover > .label {
-	background: linear-gradient(to right, #fca, #fdc);
-	border-color: #fff;
+.flex .flex:hover .label + div .button {
+	background: linear-gradient(to right, var(--hi), var(--fg));
+}
+.flex .flex .label + div .button:hover {
+	background: var(--hi);
 }
 
 /* review.html */
 
 #content {
-	background: #fff;
+	background: white;
 	padding: 13px;
 }
 
@@ -106,7 +113,7 @@ a {
 }
 
 #examples {
-	background: #fb8;
+	background: var(--bg);
 	text-align: left;
 	margin-top: 13px;
 	padding: 13px;
@@ -148,7 +155,8 @@ a {
 
 
 .disabled {
-	color: #a63;
+	color: var(--lo);
+	font-weight: bold;
 	pointer-events: none;
 }
 
@@ -300,7 +308,7 @@ ul {
 }
 
 noscript {
-	background: #fb8;
+	background: var(--bg);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -382,7 +390,7 @@ noscript {
 }
 
 #translator {
-	background: #fca;
+	background: var(--fg);
 	width: 200px;
 	position: fixed;
 	bottom: 0;
@@ -392,5 +400,5 @@ noscript {
 }
 
 #translator:hover {
-	background: #fdc;
+	background: var(--hi);
 }

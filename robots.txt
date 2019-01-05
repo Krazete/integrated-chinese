@@ -1,0 +1,33 @@
+Disallow: /data
+
+TODO: set up data directory
+data/
+    review/
+        plain.json
+        words.json
+        patterns.json
+    word/
+        pinyin.json
+        english.json
+        chinese.json
+    sentence/
+        multiple_choice_english.json
+        multiple_choice_chinese.json
+        true_false.json
+        fill_in.json
+        mix_match.json
+        antonym.json
+        type.json
+        question.json
+        alternative.json
+        number.json
+        time.json
+        money.json
+    paragraph/
+        multiple_choice_english.json
+        multiple_choice_chinese.json
+        true_false_english.json
+        true_false_chinese.json
+        map_reading_chinese.json
+    vocabulary/
+        vocabulary.json

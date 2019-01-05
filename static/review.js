@@ -1,31 +1,47 @@
-var current = location.pathname.match(/\d+/)[0];
-var optionText = "a"; // radio buttons and labels just suck
-var optionFormat = "plain";
+var tid = 0; // radio buttons and labels just suck
+var fid = "texts";
+
+
+
+
+var textA;
+var textB;
+
+var text;
+var examples;
+var frame;
+
+var plaintext;
+var words;
+var patterns;
+var photo;
+
+
 
 
 
 // EXAMPLES
 
 function spanExpand(n) {
-	id("mpX").pause();
-	id("example").innerHTML = "";
-	for (var i = 0, span; span = id("text").getElementsByTagName("span")[i]; i++)
-		id("text").getElementsByTagName("span")[i].classList.remove("selected");
-	id("text").getElementsByTagName("span")[n].classList.add("selected");
-	if (current == 20 && optionText == "a" && optionFormat == "pattern"){
-		id("text").getElementsByTagName("span")[0].classList.add("selected");
-		id("text").getElementsByTagName("span")[1].classList.add("selected");
+	document.getElementById("mpX").pause();
+	examples.innerHTML = "";
+	for (var i = 0, span; span = text.getElementsByTagName("span")[i]; i++)
+		text.getElementsByTagName("span")[i].classList.remove("selected");
+	text.getElementsByTagName("span")[n].classList.add("selected");
+	if (current == 20 && tid == "a" && fid == "patterns"){
+		text.getElementsByTagName("span")[0].classList.add("selected");
+		text.getElementsByTagName("span")[1].classList.add("selected");
 		n = 0;
 	}
-	else if (current == 18 && optionText == "a" && optionFormat == "word" && (n == 5 || n == 7)){
-		id("text").getElementsByTagName("span")[5].classList.add("selected");
-		id("text").getElementsByTagName("span")[7].classList.add("selected");
+	else if (current == 18 && tid == "a" && fid == "words" && (n == 5 || n == 7)){
+		text.getElementsByTagName("span")[5].classList.add("selected");
+		text.getElementsByTagName("span")[7].classList.add("selected");
 		n = 5;
 	}
-	if (optionFormat == "word") // change to one line after restructuring data
-		var term = word[optionText][current][n];
-	else if (optionFormat == "pattern")
-		var term = pattern[optionText][current][n];
+	if (fid == "words") // change to one line after restructuring data
+		var term = words[tid][current][n];
+	else if (fid == "patterns")
+		var term = patterns[tid][current][n];
 	var key = Object.keys(term)[0]; // should have "title" and "entries" keys instead
 	var value = term[key]; // or maybe just have the title as the first in one list
 	for (var i = 0; i < value.length; i++) { // to remove the else condition from this loop
@@ -36,13 +52,13 @@ function spanExpand(n) {
 		}
 		else
 			div.innerHTML = value[i - 1];
-		div.setAttribute("onClick", "mpXPlay(\"/mp3/review/" + optionFormat + "/" + current + optionText + n + "_" + i + ".mp3\")");
-		id("example").appendChild(div);
+		div.setAttribute("onButtonClick", "mpXPlay(\"/mp3/review/" + fid + "/" + current + tid + n + "_" + i + ".mp3\")");
+		examples.appendChild(div);
 	}
 }
 
 function spanHighlight() {
-	for (var i = 0, span; span = id("text").getElementsByTagName("span")[i]; i++)
+	for (var i = 0, span; span = text.getElementsByTagName("span")[i]; i++)
 		(function(n){
 			span.addEventListener("click", function(){spanExpand(n)});
 		})(i);
@@ -50,66 +66,84 @@ function spanHighlight() {
 
 // MAIN CONTENT
 
-function setText(e) {
-	optionText = e;
-	id("a").classList.remove("selected");
-	id("b").classList.remove("selected");
-	id(e).classList.add("selected");
-	mp3Src("/mp3/review/" + current + optionText.toLowerCase() + ".mp3");
-	setFormat(optionFormat);
-	if (current < 12 || current == 14)
-		id("image").classList.add("disabled");
-	else {
-		id("photo").src = "/img/" + current + e.toLowerCase() + ".png";
-		id("photo").alt = current + e.toLowerCase();
+function setText(id) {
+	tid = id;
+	// mp3Src("/mp3/review/" + current + tid.toLowerCase() + ".mp3");
+	setFormat(fid);
+	// if (current < 12 || current == 14)
+	// 	photo.classList.add("disabled");
+	// else {
+	// 	photo.src = "/img/" + current + text.toLowerCase() + ".png";
+	// 	photo.alt = current + text.toLowerCase();
+	// }
+}
+
+function setFormat(id) {
+	fid = id;
+	photo.classList.remove("hidden");
+	text.classList.remove("hidden");
+	examples.classList.remove("hidden");
+	examples.innerHTML = "";
+	// document.getElementById("mpX").pause();
+	if (id == "0") {
+		text.innerHTML = data.texts[tid].replace(/[\[\]{}]/g, "");
+		examples.classList.add("hidden");
+		frame.classList.add("hidden");
+	}
+	else if (id == "1") {
+		text.innerHTML = data.texts[tid].replace(/\[|\]/g, "").replace(/{/g, "<span>").replace(/}/g, "</span>");
+		frame.classList.add("hidden");
+		spanHighlight();
+	}
+	else if (id == "2") {
+		text.innerHTML = data.texts[tid].replace(/{|}/g, "").replace(/\[/g, "<span>").replace(/]/g, "</span>");
+		frame.classList.add("hidden");
+		spanHighlight();
+	}
+	else if (id == "3") {
+		text.classList.add("hidden");
+		examples.classList.add("hidden");
 	}
 }
 
-function setFormat(e) {
-	optionFormat = e;
-	id("plain").classList.remove("selected");
-	id("word").classList.remove("selected");
-	id("pattern").classList.remove("selected");
-	id("image").classList.remove("selected");
-	id("photo").classList.remove("hidden");
-	id("text").classList.remove("hidden");
-	id("example").classList.remove("hidden");
-	id("example").innerHTML = "";
-	id("mpX").pause();
-	id(e).classList.add("selected");
-	if (e == "plain") {
-		id("text").innerHTML = text[optionText][current].replace(/[\[\]{}]/g, "");
-		id("example").classList.add("hidden");
-		id("photo").classList.add("hidden");
-	}
-	else if (e == "word") {
-		id("text").innerHTML = text[optionText][current].replace(/\[|\]/g, "").replace(/{/g, "<span>").replace(/}/g, "</span>");
-		id("photo").classList.add("hidden");
-		spanHighlight();
-	}
-	else if (e == "pattern") {
-		id("text").innerHTML = text[optionText][current].replace(/{|}/g, "").replace(/\[/g, "<span>").replace(/]/g, "</span>");
-		id("photo").classList.add("hidden");
-		spanHighlight();
-	}
-	else if (e == "image") {
-		id("text").classList.add("hidden");
-		id("example").classList.add("hidden");
-	}
+function textButtonClick() {
+	textA.classList.remove("selected");
+	textB.classList.remove("selected");
+	this.classList.add("selected");
+	setText(this.id);
+}
+
+function formatButtonClick() {
+	plaintext.classList.remove("selected");
+	words.classList.remove("selected");
+	patterns.classList.remove("selected");
+	photo.classList.remove("selected");
+	this.classList.add("selected");
+	setFormat(this.id);
 }
 
 function init() {
-	document.title = current + " Review";
-	id("lesson-number").innerHTML = "第" + number(current) + "課";
-	id("lesson-title").innerHTML = lessonData[current].subject;
-	setText(optionText);
-	mp3Init();
-	id("a").addEventListener("click", function(){setText("a")});
-	id("b").addEventListener("click", function(){setText("b")});
-	id("plain").addEventListener("click", function(){setFormat("plain")});
-	id("word").addEventListener("click", function(){setFormat("word")});
-	id("pattern").addEventListener("click", function(){setFormat("pattern")});
-	id("image").addEventListener("click", function(){setFormat("image")});
+	textA = document.getElementById("text-a");
+	textB = document.getElementById("text-b");
+	text = document.getElementById("text");
+	examples = document.getElementById("examples");
+	frame = document.getElementById("frame");
+	plaintext = document.getElementById("plaintext");
+	words = document.getElementById("words");
+	patterns = document.getElementById("patterns");
+	photo = document.getElementById("photo");
+
+	textA.addEventListener("click", textButtonClick);
+	textB.addEventListener("click", textButtonClick);
+	plaintext.addEventListener("click", formatButtonClick);
+	words.addEventListener("click", formatButtonClick);
+	patterns.addEventListener("click", formatButtonClick);
+	photo.addEventListener("click", formatButtonClick);
+
+	textA.click();
+	plaintext.click();
+
+	// mp3Init();
 }
 
-init();
+window.addEventListener("DOMContentLoaded", init);

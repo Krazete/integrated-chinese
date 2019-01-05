@@ -3,67 +3,11 @@ var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on 
 
 // INITIALIZATION
 
-
-// INCLUDES POLYFILL
-if (!Array.prototype.includes) {
-	Array.prototype.includes = function(searchElement /*, fromIndex*/) {
-		'use strict';
-		if (this == null)
-			throw new TypeError('Array.prototype.includes called on null or undefined');
-		var O = Object(this);
-		var len = parseInt(O.length, 10) || 0;
-		if (len === 0)
-			return false;
-		var n = parseInt(arguments[1], 10) || 0;
-		var k;
-		if (n >= 0)
-			k = n;
-		else {
-			k = len + n;
-			if (k < 0)
-				k = 0;
-		}
-		var currentElement;
-		while (k < len) {
-			currentElement = O[k];
-			if (searchElement == currentElement || (searchElement != searchElement && currentElement != currentElement))
-				// NaN != NaN
-				return true;
-			k++;
-		}
-		return false;
-	};
-}
-
 // GET ELEMENT
 //
 // function id(e) {
 // 	return document.getElementById(e);
 // }
-//
-// function cn(e) {
-// 	return document.getElementsByClassName(e);
-// }
-
-// COOKIE
-
-function setCookie(key, value) {
-	var date = new Date();
-	date.setTime(date.getTime() + 31536000000); // 365 days
-	document.cookie = key + "=" + value + ";expires=" + date.toUTCString();
-}
-
-function getCookie(key) {
-	var pair = document.cookie.match(key + "=([^;]*)");
-	if (pair == null)
-		return "";
-	return pair[1];
-}
-
-function delCookie(key) {
-	var epoch = new Date(0);
-	document.cookie = key + "=;expires=" + epoch.toUTCString();
-}
 
 // MP3
 

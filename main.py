@@ -60,8 +60,8 @@ class Index(MainHandler):
         })
 def exercise_order(a, b):
     preferred_order = [ # TODO: fix this thing
-        "english",
     	"pinyin",
+        "english",
     	"chinese",
 
     	"choice-en",

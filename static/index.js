@@ -1,9 +1,10 @@
-function getCurrentCookie(key, a, b, d) { // TODO: use this
-	var cookie = getCookie(key);
-	if (a <= cookie && cookie <= b) {
-		return cookie;
-	}
-	return d;
+function save(key, a, b, d) {
+}
+
+function load(key) {
+	var value = localStorage.getItem("lesson", );
+
+	return [a, b, d];
 }
 
 var currentLesson;
@@ -56,7 +57,7 @@ function setLesson(lesson) {
 
 function lessonButtonClick() {
 	currentLesson = this.dataset.lesson;
-	setCookie("lesson", currentLesson);
+	localStorage.setItem("lesson", currentLesson);
 	for (var i = 0; i < lessonButtons.length; i++) {
 		lessonButtons[i].classList.remove("selected");
 	}
@@ -91,7 +92,8 @@ function initKonami() {
 }
 
 function init() {
-	currentLesson = getCookie("lesson") > 0 && getCookie("lesson") < 21 ? getCookie("lesson") : 1;
+	var gettedLesson = localStorage.getItem("lesson");
+	currentLesson = gettedLesson > 0 && gettedLesson < 21 ? gettedLesson : 1;
 	lessonButtons = document.getElementById("lesson-menu").getElementsByClassName("button");
 	lessonTitle = document.getElementById("lesson-title");
 	contentMenu = document.getElementById("content-menu");
