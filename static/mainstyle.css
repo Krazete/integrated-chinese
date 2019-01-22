@@ -1,10 +1,8 @@
 :root {
-	--lo: #ff9f50;
-
+	--lo: #ff8f40;
 	--bg: #ffbf80; /* must still be bright enough */
-	--fg: #ffcf98;
-
-	--hi: #ffefc8;
+	--fg: #ffcf90;
+	--hi: #ffefc0;
 }
 
 body {

@@ -1,46 +1,38 @@
-function save(key, a, b, d) {
-}
-
-function load(key) {
-	var value = localStorage.getItem("lesson", );
-
-	return [a, b, d];
-}
-
-var currentLesson;
-var lessonButtons;
-var lessonTitle;
-var contentMenu;
-var review;
-var vocabulary;
+var currentLesson, lessonButtons, lessonTitle, lessonMenu, review, vocabulary;
 
 var deacronym = {
-	"english": "English",
+	/* word level */
 	"pinyin": "Pinyin",
+	"english": "English",
 	"chinese": "Chinese",
-
+	/* paragraph (and sentence) level */
 	"choice-en": "Multiple Choice (English)",
 	"choice-zh": "Multiple Choice (Chinese)",
 	"boolean-en": "True or False (English)",
 	"boolean-zh": "True or False (Chinese)",
 	"map": "Map Reading (Chinese)",
-
-	"money": "Money",
-	"time": "Time",
+	/* sentence level */
+	"fill-type": "Fill in the Blanks",
+	"fill-drag-INCOMPLETE": "Fill in the Blank (Drag and Drop)",
+	"alternative": "Change Question Form (?)",
+	"question": "Generate Questions",
+	"match": "Matching",
+	"number": "Numbers",
+	"money": "Money Expressions",
+	"time": "Set the Clock",
 	"antonym": "Antonyms",
-	"match": "Matching"
+	"COMMENT": "Dunno"
 };
 
-function setLevel(level, lesson) { // TODO: set the preferred order of buttons
+function setLevel(lesson, level) {
 	var levelContainer = document.getElementById(level);
 	levelContainer.innerHTML = "";
-	var levelData = data[lesson][level];
-	for (var i = 0; i < levelData.length; i++) {
+	for (var sublevel of data[lesson][level]) { /* sorting is done in main.py */
 		var a = document.createElement("a");
-		a.href = [level, levelData[i], lesson].join("/");
+		a.href = [level, sublevel, lesson].join("/");
 		var div = document.createElement("div");
 		div.className = "button";
-		div.innerHTML = deacronym[levelData[i]];
+		div.innerHTML = deacronym[sublevel];
 		a.appendChild(div);
 		levelContainer.appendChild(a);
 	}
@@ -49,59 +41,57 @@ function setLevel(level, lesson) { // TODO: set the preferred order of buttons
 function setLesson(lesson) {
 	lessonTitle.innerHTML = data[lesson].title;
 	review.href = ["review", lesson].join("/");
-	setLevel("word", lesson);
-	setLevel("sentence", lesson);
-	setLevel("paragraph", lesson);
+	setLevel(lesson, "word");
+	setLevel(lesson, "sentence");
+	setLevel(lesson, "paragraph");
 	vocabulary.href = ["vocabulary", lesson].join("/");
-}
-
-function lessonButtonClick() {
-	currentLesson = this.dataset.lesson;
-	localStorage.setItem("lesson", currentLesson);
-	for (var i = 0; i < lessonButtons.length; i++) {
-		lessonButtons[i].classList.remove("selected");
-	}
-	this.classList.add("selected");
-	lessonButtonLeave();
 }
 
 function lessonButtonEnter() {
 	lessonTitle.classList.add("disabled");
-	contentMenu.classList.add("disabled");
+	lessonMenu.classList.add("disabled");
 	setLesson(this.dataset.lesson);
 }
 
 function lessonButtonLeave() {
 	lessonTitle.classList.remove("disabled");
-	contentMenu.classList.remove("disabled");
+	lessonMenu.classList.remove("disabled");
 	setLesson(currentLesson);
+}
+
+function lessonButtonClick() {
+	currentLesson = this.dataset.lesson;
+	for (var lessonButton of lessonButtons) {
+		lessonButton.classList.remove("selected");
+	}
+	this.classList.add("selected");
+	lessonButtonLeave();
+	localStorage.setItem("lesson", currentLesson);
 }
 
 function initKonami() {
 	var konami = /38_38_40_40_37_39_37_39_66_65_$/;
 	var code = "";
-	window.addEventListener("keydown", function(e) {
+	window.addEventListener("keydown", function (e) {
 		code += e.keyCode + "_";
 		if (konami.test(code)) {
-			var hidden = document.getElementsByClassName("konami");
-			Array.from(hidden).forEach(function (hid) {
-				hid.classList.remove("konami");
-			});
+			var secrets = Array.from(document.getElementsByClassName("konami"));
+			for (var secret of secrets) {
+				secret.classList.remove("konami");
+			}
 		}
 	});
 }
 
 function init() {
-	var gettedLesson = localStorage.getItem("lesson");
-	currentLesson = gettedLesson > 0 && gettedLesson < 21 ? gettedLesson : 1;
-	lessonButtons = document.getElementById("lesson-menu").getElementsByClassName("button");
+	currentLesson = Math.max(1, Math.min(localStorage.getItem("lesson"), 20));
+	lessonButtons = Array.from(document.getElementById("lesson-buttons").getElementsByClassName("button"));
 	lessonTitle = document.getElementById("lesson-title");
-	contentMenu = document.getElementById("content-menu");
+	lessonMenu = document.getElementById("lesson-menu");
 	review = document.getElementById("review");
 	vocabulary = document.getElementById("vocabulary");
 
-	for (var i = 0; i < lessonButtons.length; i++) {
-		var lessonButton = lessonButtons[i];
+	for (var lessonButton of lessonButtons) {
 		if (lessonButton.dataset.lesson == currentLesson) {
 			lessonButton.classList.add("selected");
 		}
@@ -109,9 +99,9 @@ function init() {
 			lessonButton.addEventListener("touchstart", lessonButtonClick);
 		}
 		else {
-			lessonButton.addEventListener("click", lessonButtonClick);
 			lessonButton.addEventListener("mouseenter", lessonButtonEnter);
 			lessonButton.addEventListener("mouseleave", lessonButtonLeave);
+			lessonButton.addEventListener("click", lessonButtonClick);
 		}
 	}
 	setLesson(currentLesson);

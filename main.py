@@ -26,7 +26,7 @@ def number_zh(n):
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(path_to('templates')))
 
 class MainHandler(webapp2.RequestHandler):
-    def write(self, template, variables={}): # TODO: try/except this
+    def write(self, template, variables={}):
         template = JINJA_ENVIRONMENT.get_template(template)
         self.response.write(template.render(variables))
     def load_data(self, section):
@@ -58,22 +58,30 @@ class Index(MainHandler):
             'data': 'index.js',
             'script': 'index.js'
         })
+
 def exercise_order(a, b):
-    preferred_order = [ # TODO: fix this thing
+    preferred_order = [
+        # word level
     	"pinyin",
         "english",
     	"chinese",
-
+        # paragraph (and sentence) level
     	"choice-en",
     	"choice-zh",
     	"boolean-en",
     	"boolean-zh",
     	"map",
-
+        # sentence level
+        "fill-type",
+        "fill-drag-INCOMPLETE",
+        "alternative",
+        "question",
+    	"match",
+        "number",
     	"money",
     	"time",
     	"antonym",
-    	"match"
+        "COMMENT"
     ]
     try:
         ai = preferred_order.index(a)
@@ -84,6 +92,7 @@ def exercise_order(a, b):
     except ValueError:
         bi = len(preferred_order)
     return ai - bi
+
 class IndexData(MainHandler):
     def get(self):
         data = self.load_data('index.json')
