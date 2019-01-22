@@ -34,7 +34,7 @@ class MainHandler(webapp2.RequestHandler):
             data = json.load(file)
         return data
     def dump_data(self, data):
-        return json.dumps(data, indent=4)
+        return json.dumps(data, indent=4, sort_keys=True)
     def write_data(self, data):
         self.response.headers['Content-Type'] = 'application/javascript'
         self.write('data.js', {
@@ -100,12 +100,12 @@ class IndexData(MainHandler):
             for root, dirs, files in os.walk(path_to('data', level)):
                 for file in files:
                     if file.lower().endswith('.json'):
-                        exercise_data = self.load_data('{}/{}'.format(level, file))
+                        sublevel = file.split('.')[0]
+                        sublevel_data = self.load_data('{}/{}'.format(level, file))
                         for lesson in data:
                             data[lesson].setdefault(level, [])
-                            if lesson in exercise_data:
-                                exercise_acronym = file.split('.')[0]
-                                data[lesson][level].append(exercise_acronym)
+                            if lesson in sublevel_data:
+                                data[lesson][level].append(sublevel)
         for lesson in data:
             for level in ['word', 'sentence', 'paragraph']:
                 data[lesson][level].sort(exercise_order)
