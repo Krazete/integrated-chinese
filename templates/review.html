@@ -1,29 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 {% block content %}
 		<div class="rounded">
-			<form class="flex">
+			<div class="flex">
 				<div class="button" id="text-a">Text A</div>
 				<div class="button" id="text-b">Text B</div>
-			</form>
+			</div>
 			<div id="content">
 				<div class="zh" id="text"></div>
 				<div class="zh" id="examples"></div>
-				<img id="frame">
+				<div id="frame"></div>
 			</div>
 			<div class="flex">
-				<div class="button" id="plaintext">Plain Text</div>
+				<div class="button" id="plain">Plain Text</div>
 				<div class="button" id="words">Words</div>
 				<div class="button" id="patterns">Patterns</div>
 				<div class="button" id="photo">Photo</div>
 			</div>
 		</div>
-
 		<br>
-
 		<div class="rounded">
 			<div class="flex">
-				<div class="button" id="toggle">
-				</div>
+				<div class="button" id="toggle"></div>
 				<div id="progress">
 					<div id="progress-after"></div>
 				</div>
@@ -38,15 +35,16 @@
 				</div>
 			</div>
 		</div>
-
 		<br>
-
 		<div id="footer">
 			<a href="/">Index</a>
 		</div>
-
 		<div id="jukebox">
-			<p class="desktop-only button" id="tip-button">Keyboard Shortcuts</p>
+			<div class="rounded">
+				<div>
+					<div class="desktop-only button" id="tip-button">Keyboard Shortcuts</div>
+				</div>
+			</div>
 			<div class="desktop-only hid" id="tip">
 				<div>Keyboard Shortcuts</div>
 				<div class="tip-line"></div>
@@ -63,7 +61,4 @@
 				<div class="tip-key">&darr;</div>
 			</div>
 		</div>
-{% endblock %}
-{% block audio %}
-	sup
 {% endblock %}

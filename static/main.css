@@ -62,6 +62,12 @@ a {
 	pointer-events: none;
 }
 
+.disabled {
+	color: var(--lo);
+	font-weight: bold;
+	pointer-events: none;
+}
+
 /* index.html */
 
 .label {
@@ -83,6 +89,7 @@ a {
 .flex:hover .label, .flex .flex:hover .label {
 	background: var(--hi);
 }
+
 .flex .flex:hover .label + div .button {
 	background: linear-gradient(to right, var(--hi), var(--fg));
 }
@@ -95,15 +102,17 @@ a {
 #content {
 	background: white;
 	padding: 13px;
+	border: 1px solid var(--bg);
 }
 
 #text {
 	text-align: left;
 	white-space: pre-wrap;
 }
+
 #text span {
-	color: #e13;
-	outline: 1px solid #e13;
+	color: var(--lo);
+	outline: 1px solid var(--lo);
 	cursor: pointer;
 }
 #text span:hover, #text span.selected {
@@ -113,9 +122,10 @@ a {
 #examples {
 	background: var(--bg);
 	text-align: left;
-	margin-top: 13px;
 	padding: 13px;
+	margin-top: 13px;
 }
+
 #examples div {
 	cursor: pointer;
 }
@@ -124,41 +134,16 @@ a {
 }
 
 #frame {
-	border: 13px solid #000;
+	border: 13px solid black;
 }
 
+/* audio */
+
 #toggle {
-	border: 0;
+	border: none;
 	min-width: 54px;
 	flex: 0;
 }
-.speed {
-	border: 0;
-	min-width: 24px;
-	flex: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.disabled {
-	color: var(--lo);
-	font-weight: bold;
-	pointer-events: none;
-}
-
-/* MP3 CONTROLS */
 
 #toggle:after {
 	content: "";
@@ -170,26 +155,27 @@ a {
 	transition: height 200ms, width 400ms, border 200ms;
 }
 
-.play:after {
+#toggle.play:after {
 	height: 0;
 	width: 0;
 	border-top: 12px solid transparent;
+	border-right: 0 solid transparent;
 	border-bottom: 12px solid transparent;
 	border-left: 24px solid #000;
-	border-right: 0 solid transparent;
 }
 
-.pause:after {
+
+#toggle.pause:after {
 	height: 24px;
 	width: 8px;
 	border-top: 0 solid transparent;
+	border-right: 8px solid #000;
 	border-bottom: 0 solid transparent;
 	border-left: 8px solid #000;
-	border-right: 8px solid #000;
 }
 
 #progress {
-	background: #e96;
+	background: var(--lo);
 	height: 40px;
 	cursor: pointer;
 }
@@ -200,6 +186,12 @@ a {
 	height: 100%;
 	width: 0;
 	display: block;
+}
+
+.speed {
+	border: 0;
+	min-width: 24px;
+	flex: 0;
 }
 
 .speed-after {

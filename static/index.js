@@ -47,25 +47,25 @@ function setLesson(lesson) {
 	vocabulary.href = ["vocabulary", lesson].join("/");
 }
 
-function lessonButtonEnter() {
+function enterLessonButton() {
 	lessonTitle.classList.add("disabled");
 	lessonMenu.classList.add("disabled");
 	setLesson(this.dataset.lesson);
 }
 
-function lessonButtonLeave() {
+function leaveLessonButton() {
 	lessonTitle.classList.remove("disabled");
 	lessonMenu.classList.remove("disabled");
 	setLesson(currentLesson);
 }
 
-function lessonButtonClick() {
+function clickLessonButton() {
 	currentLesson = this.dataset.lesson;
 	for (var lessonButton of lessonButtons) {
 		lessonButton.classList.remove("selected");
 	}
 	this.classList.add("selected");
-	lessonButtonLeave();
+	leaveLessonButton();
 	localStorage.setItem("lesson", currentLesson);
 }
 
@@ -96,12 +96,12 @@ function init() {
 			lessonButton.classList.add("selected");
 		}
 		if (mobile) {
-			lessonButton.addEventListener("touchstart", lessonButtonClick);
+			lessonButton.addEventListener("touchstart", clickLessonButton);
 		}
 		else {
-			lessonButton.addEventListener("mouseenter", lessonButtonEnter);
-			lessonButton.addEventListener("mouseleave", lessonButtonLeave);
-			lessonButton.addEventListener("click", lessonButtonClick);
+			lessonButton.addEventListener("mouseenter", enterLessonButton);
+			lessonButton.addEventListener("mouseleave", leaveLessonButton);
+			lessonButton.addEventListener("click", clickLessonButton);
 		}
 	}
 	setLesson(currentLesson);

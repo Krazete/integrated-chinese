@@ -114,9 +114,6 @@ class IndexData(MainHandler):
 class Review(MainHandler):
     def get(self, lesson):
         data = self.load_data('index.json')
-        x = path_to('static', 'img', lesson + 'a.png')
-        print(x, os.path.exists(x))
-
         self.write('review.html', {
             'title': 'Lesson {} Review'.format(lesson),
             'title_zh': '第{}課'.format(number_zh(int(lesson))).decode('utf8'),
@@ -124,12 +121,14 @@ class Review(MainHandler):
             'data': 'review/{}.js'.format(lesson),
             'script': 'review.js'
         })
+
 class ReviewData(MainHandler):
     def get(self, lesson):
         texts = self.load_data('review/texts.json')
         words = self.load_data('review/words.json')
         patterns = self.load_data('review/patterns.json')
         data = {
+            'lesson': lesson,
             'texts': [texts['a'][lesson], texts['b'][lesson]],
             'words': [words['a'][lesson], words['b'][lesson]],
             'patterns': [patterns['a'][lesson], patterns['b'][lesson]]

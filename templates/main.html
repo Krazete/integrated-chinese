@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width">
 	<title>{{ title }}</title>
 	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
-	<script src="/static/mainscript.js"></script>{% if data %}
+	<link rel="stylesheet" type="text/css" href="/static/main.css">
+	<script src="/static/main.js"></script>{% if data %}
 	<script src="/data/{{ data }}"></script>{% endif %}{% if script %}
 	<script src="/static/{{ script }}"></script>{% endif %}
 </head>
@@ -16,9 +16,7 @@
 		<h1 class="zh">{{ title_zh }}</h1>
 		<h2 class="desktop-only">{{ title_en }}</h2>
 	</div>
-
 	<div class="container">{% block content %}{% endblock %}	</div>
-	{% block audio %}{% endblock %}
 	<div id="footer">
 		<p>
 			Problem?
@@ -41,7 +39,6 @@
 				</tr>
 			</table>
 		</form>
-
 		<a href="https://github.com/Krazete/integrated-chinese">
 			<div class="button">GitHub</div>
 		</a>
