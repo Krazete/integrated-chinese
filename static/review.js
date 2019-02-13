@@ -93,15 +93,8 @@ function clickFormatButton() {
 function setText(n) {
 	currentText = n;
 	var src = data.photos[currentText];
-	if (src) {
-		photo.alt = src.split("/").slice(-1)[0];
-		photo.src = src;
-	}
-	else {
-		if (currentFormat == 3) {
-			currentFormat = 0;
-		}
-	}
+	photo.alt = src ? src.split("/").slice(-1)[0] : '';
+	photo.src = src;
 	formatButtons[currentFormat].click();
 	// mp3Src("/mp3/review/" + current + currentText.toLowerCase() + ".mp3");
 }
