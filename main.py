@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 import os
+import re
 import json
 import jinja2
 import webapp2
@@ -127,11 +128,20 @@ class ReviewData(MainHandler):
         texts = self.load_data('review/texts.json')
         words = self.load_data('review/words.json')
         patterns = self.load_data('review/patterns.json')
+        photos = [None, None]
+        for root, dirs, files in os.walk(path_to('static', 'img')):
+            for file in files:
+                if re.match(lesson + '[ab]\.png', file.lower()):
+                    if file.lower().endswith('a.png'):
+                        photos[0] = '/static/img/' + file
+                    elif file.lower().endswith('b.png'):
+                        photos[1] = '/static/img/' + file
         data = {
             'lesson': lesson,
             'texts': [texts['a'][lesson], texts['b'][lesson]],
             'words': [words['a'][lesson], words['b'][lesson]],
-            'patterns': [patterns['a'][lesson], patterns['b'][lesson]]
+            'patterns': [patterns['a'][lesson], patterns['b'][lesson]],
+            'photos': photos
         }
         self.write_data(data)
 

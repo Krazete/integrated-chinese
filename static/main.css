@@ -133,8 +133,9 @@ a {
 	outline: 1px solid black;
 }
 
-#frame {
-	border: 13px solid black;
+#photo {
+	float: right;
+	width: 256px;
 }
 
 /* audio */

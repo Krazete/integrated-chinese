@@ -1,7 +1,7 @@
 var currentText = 0;
 var currentFormat = 0;
 var textButtons, formatButtons;
-var text, examples, frame;
+var photo, text, examples;
 
 
 
@@ -67,26 +67,17 @@ function setFormat(n) {
 		text.innerHTML = data.texts[currentText].replace(/[\[\]{}]/g, "");
 		text.classList.remove("hidden");
 		examples.classList.add("hidden");
-		frame.classList.add("hidden");
 	}
-	else if (currentFormat == 1) {
-		text.innerHTML = data.texts[currentText].replace(/{|}/g, "").replace(/\[/g, "<span>").replace(/\]/g, "</span>");
+	else {
+		if (currentFormat == 1) {
+			text.innerHTML = data.texts[currentText].replace(/{|}/g, "").replace(/\[/g, "<span>").replace(/\]/g, "</span>");
+		}
+		else if (currentFormat == 2) {
+			text.innerHTML = data.texts[currentText].replace(/\[|\]/g, "").replace(/{/g, "<span>").replace(/}/g, "</span>");
+		}
 		markTerms();
 		text.classList.remove("hidden");
 		examples.classList.remove("hidden");
-		frame.classList.add("hidden");
-	}
-	else if (currentFormat == 2) {
-		text.innerHTML = data.texts[currentText].replace(/\[|\]/g, "").replace(/{/g, "<span>").replace(/}/g, "</span>");
-		markTerms();
-		text.classList.remove("hidden");
-		examples.classList.remove("hidden");
-		frame.classList.add("hidden");
-	}
-	else if (currentFormat == 3) {
-		text.classList.add("hidden");
-		examples.classList.add("hidden");
-		frame.classList.remove("hidden");
 	}
 	// document.getElementById("mpX").pause();
 }
@@ -103,15 +94,10 @@ function setText(n) {
 	currentText = n;
 	var src = data.photos[currentText];
 	if (src) {
-		var img = document.createElement("img");
-		img.alt = src.split("/").slice(-1)[0];
-		img.src = src;
-		frame.innerHTML = "";
-		frame.appendChild(img);
-		photo.classList.remove("disabled");
+		photo.alt = src.split("/").slice(-1)[0];
+		photo.src = src;
 	}
 	else {
-		photo.classList.add("disabled");
 		if (currentFormat == 3) {
 			currentFormat = 0;
 		}
@@ -129,9 +115,9 @@ function clickTextButton() {
 }
 
 function init() {
+	photo = document.getElementById("photo");
 	text = document.getElementById("text");
 	examples = document.getElementById("examples");
-	frame = document.getElementById("frame");
 	textButtons = [
 		document.getElementById("text-a"),
 		document.getElementById("text-b")
