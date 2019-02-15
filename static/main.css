@@ -135,7 +135,13 @@ a {
 
 #photo {
 	float: right;
-	width: 256px;
+	width: 25%;
+	transition: 100ms width;
+	cursor: sw-resize;
+}
+#photo.magnified {
+	width: 100%;
+	cursor: ne-resize;
 }
 
 /* audio */

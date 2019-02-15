@@ -119,9 +119,16 @@ function init() {
 		document.getElementById("plain"),
 		document.getElementById("words"),
 		document.getElementById("patterns"),
-		document.getElementById("photo")
 	];
 
+	photo.addEventListener("click", function () {
+		if (this.className == "magnified") {
+			this.className = "";
+		}
+		else {
+			this.className = "magnified";
+		}			
+	});
 	for (var textButton of textButtons) {
 		textButton.addEventListener("click", clickTextButton);
 	}
