@@ -1,21 +1,26 @@
-var currentText = 0;
-var currentFormat = 0;
-var textButtons, formatButtons;
+var currentText, currentFormat;
 var photo, text, examples;
-
-
-
-
+var textButtons, formatButtons;
 
 // EXAMPLES
 
-function clickTerm() {
+function clickPhoto() {
+	if (this.className == "magnified") {
+		this.className = "";
+	}
+	else {
+		this.className = "magnified";
+	}
+}
+
+function clickTerm() { /* TODO: verify this */
 	var n = this.dataset.index;
 	// document.getElementById("mpX").pause();
 	examples.innerHTML = "";
 	var terms = text.getElementsByTagName("span");
-	for (var term of terms)
+	for (var term of terms) {
 		term.classList.remove("selected");
+	}
 	terms[n].classList.add("selected");
 	// if (current == 20 && currentText == 0 && currentFormat == 2) {
 	// 	terms[0].classList.add("selected");
@@ -37,18 +42,20 @@ function clickTerm() {
 	var value = term[key]; // or maybe just have the title as the first in one list
 	for (var i = 0; i < value.length; i++) { // to remove the else condition from this loop
 		var div = document.createElement("div");
+		div.classList.add("loading");
 		if (i == 0){
-			div.innerHTML = key;
 			div.classList.add("tempUnderline");
+			div.innerHTML = key;
 		}
-		else
+		else {
 			div.innerHTML = value[i - 1];
+		}
 		// div.setAttribute("onButtonClick", "mpXPlay(\"/mp3/review/" + currentFormat + "/" + current + currentText + n + "_" + i + ".mp3\")");
 		examples.appendChild(div);
 	}
 }
 
-function markTerms() {
+function markTerms() { /* TODO: verify this */
 	var spans = Array.from(text.getElementsByTagName("span"));
 	var n = 0;
 	for (var span of spans) {
@@ -58,7 +65,7 @@ function markTerms() {
 	}
 }
 
-function setFormat(n) {
+function setFormat(n) { /* TODO: verify this */
 	currentFormat = n;
 	text.classList.remove("hidden");
 	examples.classList.remove("hidden");
@@ -82,7 +89,7 @@ function setFormat(n) {
 	// document.getElementById("mpX").pause();
 }
 
-function clickFormatButton() {
+function clickFormatButton() { /* TODO: verify this */
 	for (var formatButton of formatButtons) {
 		formatButton.classList.remove("selected");
 	}
@@ -90,13 +97,18 @@ function clickFormatButton() {
 	setFormat(formatButtons.indexOf(this));
 }
 
+var TEST;
+
 function setText(n) {
 	currentText = n;
-	var src = data.photos[currentText];
-	photo.alt = src ? src.split("/").slice(-1)[0] : '';
-	photo.src = src;
+	photo.alt = data.photos[currentText] ? data.lesson + "ab"[n] : "";
+	photo.src = data.photos[currentText];
 	formatButtons[currentFormat].click();
-	// mp3Src("/mp3/review/" + current + currentText.toLowerCase() + ".mp3");
+	TEST = new MP3([
+		"/mp3/review/texts",
+		["a", "b"][currentText],
+		data.lesson + ".mp3"
+	].join("/"));
 }
 
 function clickTextButton() {
@@ -107,7 +119,9 @@ function clickTextButton() {
 	setText(textButtons.indexOf(this));
 }
 
-function init() {
+function init() { /* TODO: verify this */
+	currentText = 0;
+	currentFormat = 0;
 	photo = document.getElementById("photo");
 	text = document.getElementById("text");
 	examples = document.getElementById("examples");
@@ -121,20 +135,14 @@ function init() {
 		document.getElementById("patterns"),
 	];
 
-	photo.addEventListener("click", function () {
-		if (this.className == "magnified") {
-			this.className = "";
-		}
-		else {
-			this.className = "magnified";
-		}			
-	});
+	photo.addEventListener("click", clickPhoto);
 	for (var textButton of textButtons) {
 		textButton.addEventListener("click", clickTextButton);
 	}
 	for (var formatButton of formatButtons) {
 		formatButton.addEventListener("click", clickFormatButton);
 	}
+
 	textButtons[currentText].click();
 	formatButtons[currentFormat].click();
 

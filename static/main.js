@@ -11,33 +11,36 @@ var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on 
 
 // MP3
 
+var mp3;
+
 function mp3Src(e) {
-	var rate = id("mp3").playbackRate; // (playbackRate = 1) is default
-	id("mp3").pause(); // just in case
+	var rate = mp3.audio.playbackRate; // (playbackRate = 1) is default
 	mp3Pause();
 	id("progress-after").removeAttribute("style");
-	id("mp3").src = e;
-	id("mp3").load(); // just in case
+	mp3.audio.src = e;
 	mp3Speed(rate);
 }
 
 function mp3Progress() {
 	var ratio = id("mp3").currentTime / id("mp3").duration;
 	id("progress-after").style.width = (ratio * 100) + "%";
-	if (!id("mp3").paused)
+	if (!mp3.audio.paused)
 		requestAnimationFrame(mp3Progress); // (progress) event listener is slow
 }
 
 function mp3SetTime(n){
-	id("mp3").currentTime = n; // (0 ≤ currentTime ≤ duration) is automatic
-	if (id("mp3").paused)
+	mp3.audio.currentTime = n; // currentTime is in [0, duration] by default
+	if (mp3.audio.paused)
 		mp3Progress();
 }
 
 function mp3Seek(e) {
 	var ratio = e.offsetX / id("progress").clientWidth;
-	mp3SetTime(id("mp3").duration * ratio); // (duration == Infinity) on localhost sometimes
+	mp3SetTime(mp3.audio.duration * ratio); // (duration == Infinity) on localhost sometimes
 }
+
+// function mpXPlay() {
+// }
 
 function mp3Play() {
 	id("mpX").pause();
@@ -47,8 +50,8 @@ function mp3Play() {
 }
 
 function mp3Pause() {
-	id("toggle").classList.add("play");
-	id("toggle").classList.remove("pause");
+	mp3.toggle.classList.add("play");
+	mp3.toggle.classList.remove("pause");
 }
 
 function mp3Toggle() {
@@ -90,13 +93,25 @@ function mp3Keys(e) {
 }
 
 function mp3Init(){
-	id("mp3").addEventListener("play", mp3Play);
-	id("mp3").addEventListener("pause", mp3Pause);
-	id("toggle").addEventListener("click", mp3Toggle);
-	id("progress").addEventListener("click", mp3Seek);
-	id("speed-50").addEventListener("click", function(){mp3Speed(0.5)}); // arrow functions aren't standard yet
-	id("speed-75").addEventListener("click", function(){mp3Speed(0.75)});
-	id("speed-100").addEventListener("click", function(){mp3Speed(1)});
+	var mp3 = {
+		"audio": document.getElementById("mp3"),
+		"toggle": document.getElementById("toggle"),
+		"progress": document.getElementById("progress"),
+		"speed": {
+			50: document.getElementById("speed-50"),
+			75: document.getElementById("speed-50"),
+			100: document.getElementById("speed-50"),
+		},
+		"tip": document.getElementById("tip"),
+		"tipToggle": document.getElementById("tip-button")
+	};
+	mp3.audio.addEventListener("play", mp3Play);
+	mp3.audio.addEventListener("pause", mp3Pause);
+	mp3.toggle.addEventListener("click", mp3Toggle);
+	mp3.progress.addEventListener("click", mp3Seek);
+	mp3.speed[50].addEventListener("click", function(){mp3Speed(0.5)}); // arrow functions aren't standard yet
+	mp3.speed[75].addEventListener("click", function(){mp3Speed(0.75)});
+	mp3.speed[100].addEventListener("click", function(){mp3Speed(1)});
 	if (!mobile) // idk about this
 		document.body.addEventListener("keydown", mp3Keys);
 	id("tip").addEventListener("click", function(){id("tip").classList.add("hid")});

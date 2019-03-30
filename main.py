@@ -57,7 +57,7 @@ class Index(MainHandler):
             'title_zh': '中文聽說讀寫'.decode('utf8'),
             'title_en': 'Integrated Chinese Multimedia Exercises',
             'data': 'index.js',
-            'script': 'index.js'
+            'scripts': ['index.js']
         })
 
 def exercise_order(a, b):
@@ -120,7 +120,7 @@ class Review(MainHandler):
             'title_zh': '第{}課'.format(number_zh(int(lesson))).decode('utf8'),
             'title_en': data[lesson]['title'],
             'data': 'review/{}.js'.format(lesson),
-            'script': 'review.js'
+            'scripts': ['mp3.js', 'review.js']
         })
 
 class ReviewData(MainHandler):
@@ -137,7 +137,7 @@ class ReviewData(MainHandler):
                     elif file.lower().endswith('b.png'):
                         photos[1] = '/static/img/' + file
         data = {
-            'lesson': lesson,
+            'lesson': int(lesson),
             'texts': [texts['a'][lesson], texts['b'][lesson]],
             'words': [words['a'][lesson], words['b'][lesson]],
             'patterns': [patterns['a'][lesson], patterns['b'][lesson]],
@@ -152,7 +152,7 @@ class Word(MainHandler):
             'title_zh': '中文'.decode('utf8'),
             'title_en': 'Lesson {} Word Exercise'.format(lesson),
             'data': 'word/{}/{}'.format(section, lesson),
-            'script': 'word'
+            'scripts': ['word']
         })
 class Sentence(MainHandler):
     def get(self, path):

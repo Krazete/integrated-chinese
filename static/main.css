@@ -68,6 +68,21 @@ a {
 	pointer-events: none;
 }
 
+.loading {
+	font-weight: bold;
+	pointer-events: none;
+	animation: 1s pulse linear alternate infinite;
+}
+
+@keyframes pulse {
+	from {
+		color: var(--lo);
+	}
+	to {
+		color: var(--bg);
+	}
+}
+
 /* index.html */
 
 .label {
@@ -103,6 +118,7 @@ a {
 	background: white;
 	padding: 13px;
 	border: 1px solid var(--bg);
+	overflow: hidden;
 }
 
 #text {
@@ -111,31 +127,35 @@ a {
 }
 
 #text span {
-	color: var(--lo);
+	position: relative;
 	outline: 1px solid var(--lo);
 	cursor: pointer;
 }
 #text span:hover, #text span.selected {
+	background: var(--bg);
 	outline-width: 2px;
+	z-index: 1;
 }
 
 #examples {
-	background: var(--bg);
 	text-align: left;
-	padding: 13px;
-	margin-top: 13px;
 }
 
 #examples div {
+	background: var(--bg);
+	border-radius: 4px;
+	padding: 4px;
+	margin-top: 4px;
 	cursor: pointer;
 }
 #examples div:hover, #examples div.selected {
-	outline: 1px solid black;
+	background: var(--fg);
 }
 
 #photo {
 	float: right;
 	width: 25%;
+	border-radius: 4px;
 	transition: 100ms width;
 	cursor: sw-resize;
 }
@@ -146,48 +166,59 @@ a {
 
 /* audio */
 
-#toggle {
+.toggle {
+	position: relative;
 	border: none;
 	min-width: 54px;
 	flex: 0;
 }
 
-#toggle:after {
+.toggle:before,
+.toggle:after {
 	content: "";
-	position: relative;
+	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	margin: auto;
 	display: block;
-	transition: height 200ms, width 400ms, border 200ms;
-}
+	transition: all 200ms;
 
-#toggle.play:after {
-	height: 0;
-	width: 0;
-	border-top: 12px solid transparent;
+	border-top: 6px solid transparent;
 	border-right: 0 solid transparent;
-	border-bottom: 12px solid transparent;
-	border-left: 24px solid #000;
+	border-bottom: 6px solid transparent;
+	border-left: 12px solid black;
 }
 
+.toggle.play:before {
+	right: 50%;
+	height: 12px;
+}
+.toggle.play:after {
+	left: 50%;
+	height: 0;
+}
 
-#toggle.pause:after {
+.toggle.pause:before,
+.toggle.pause:after {
 	height: 24px;
-	width: 8px;
-	border-top: 0 solid transparent;
-	border-right: 8px solid #000;
-	border-bottom: 0 solid transparent;
-	border-left: 8px solid #000;
+	border-width: 0 0 0 8px;
+}
+.toggle.pause:before {
+	right: 55%;
+	right: calc(50% + 4px);
+}
+.toggle.pause:after {
+	left: 55%;
+	left: calc(50% + 4px);
 }
 
-#progress {
+.progress {
 	background: var(--lo);
 	height: 40px;
 	cursor: pointer;
 }
 
-#progress-after {
+.progress-after {
 	content: "";
 	background: #a00;
 	height: 100%;
@@ -201,7 +232,7 @@ a {
 	flex: 0;
 }
 
-.speed-after {
+.speed:after {
 	content: "";
 	position: relative;
 	top: 50%;
@@ -326,7 +357,7 @@ noscript {
 	.selected:hover {
 		background: #fff;
 	}
-	#progress:hover {
+	.progress:hover {
 		background: #fa7;
 	}
 	#tip:hover {
