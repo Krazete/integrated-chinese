@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="google" content="notranslate">
-	<meta name="viewport" content="width=device-width">
-	<title>{{ title }}</title>
-	<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/static/main.css">
-	<script src="/static/main.js"></script>
-	{%- if data %}
-	<script src="/data/{{ data }}"></script>
-	{%- endif %}
-	{%- for script in scripts %}
-	<script src="/static/{{ script }}"></script>
-	{%- endfor %}
+{% include 'analytics.html' %}
+{% include 'pwa.html' %}
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width">
+<title>{{ title }}</title>
+<link rel="stylesheet" type="text/css" href="/static/main.css">
+<script src="/static/main.js"></script>
+{%- if data %}
+<script src="/data/{{ data }}"></script>
+{%- endif %}
+{%- for script in scripts %}
+<script src="/static/{{ script }}"></script>
+{%- endfor %}
 </head>
 <body>
-	<div id="header">
-		<h1 class="zh">{{ title_zh }}</h1>
-		<h2 class="desktop-only">{{ title_en }}</h2>
-	</div>
-	<div class="container">
-		{%- block content %}
-		{%- endblock %}
-	</div>
-	<div id="footer">
-		<p>
-			Problem?
-			<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-				Report the bug and go to the old website.
-			</a>
-		</p>
-		<form action="bug" method="post" id="form" style="display: none">
-			<table style="border: 1px solid black; margin: auto auto 50px auto">
-				<tr>
-					<td>Description of Bug</td>
-					<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-				</tr>
-				<tr>
-					<td>
-						<input type="hidden" name="nav" id="nav">
-						<input type="hidden" name="path" id="path">
-					</td>
-					<td><input type="submit" name="submit" value="Submit and Go"></td>
-				</tr>
-			</table>
-		</form>
-		<a href="https://github.com/Krazete/integrated-chinese">
-			<div class="button">GitHub</div>
+<div id="header">
+	<h1 class="zh">{{ title_zh }}</h1>
+	<h2 class="desktop-only">{{ title_en }}</h2>
+</div>
+<div class="container">
+	{%- block content %}
+	{%- endblock %}
+</div>
+<div id="footer">
+	<p>
+		Problem?
+		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
+			Report the bug and go to the old website.
 		</a>
-	</div>
+	</p>
+	<form action="bug" method="post" id="form" style="display: none">
+		<table style="border: 1px solid black; margin: auto auto 50px auto">
+			<tr>
+				<td>Description of Bug</td>
+				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="hidden" name="nav" id="nav">
+					<input type="hidden" name="path" id="path">
+				</td>
+				<td><input type="submit" name="submit" value="Submit and Go"></td>
+			</tr>
+		</table>
+	</form>
+	<a href="https://github.com/Krazete/integrated-chinese">
+		<div class="button">GitHub</div>
+	</a>
+</div>
 </body>
 </html>

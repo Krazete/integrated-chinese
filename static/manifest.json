@@ -1,0 +1,21 @@
+{
+    "name": "\u4e2d\u6587\u807d\u8aaa\u8b80\u5beb",
+    "short_name": "\u7ec3\u4e60\u4e2d\u6587",
+    "icons": [
+        {
+            "src": "favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+	"scope": "/",
+    "theme_color": "#ffbf80",
+    "background_color": "#ffbf80",
+    "display": "standalone"
+}
