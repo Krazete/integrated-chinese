@@ -151,8 +151,8 @@ class Word(MainHandler):
             'title': 'Lesson {} Word Exercise'.format(lesson),
             'title_zh': '中文'.decode('utf8'),
             'title_en': 'Lesson {} Word Exercise'.format(lesson),
-            'data': 'word/{}/{}'.format(section, lesson),
-            'scripts': ['word']
+            'data': 'word/{}/{}.js'.format(section, lesson),
+            'scripts': ['word.js']
         })
 class Sentence(MainHandler):
     def get(self, path):

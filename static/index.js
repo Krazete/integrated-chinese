@@ -40,11 +40,11 @@ function setLevel(lesson, level) {
 
 function setLesson(lesson) {
 	lessonTitle.innerHTML = data[lesson].title;
-	review.href = ["review", lesson].join("/");
+	review.href = link("review", lesson);
 	setLevel(lesson, "word");
 	setLevel(lesson, "sentence");
 	setLevel(lesson, "paragraph");
-	vocabulary.href = ["vocabulary", lesson].join("/");
+	vocabulary.href = link("vocabulary", lesson);
 }
 
 function enterLessonButton() {

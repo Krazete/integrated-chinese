@@ -1,5 +1,12 @@
 var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on touchscreen laptops)
 
+function link() {
+	var url = "/";
+	for (var i = 0; i < arguments.length; i++) {
+		url += arguments[i];
+	}
+	return url;
+}
 
 // INITIALIZATION
 
