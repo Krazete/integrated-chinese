@@ -29,7 +29,7 @@ function setLevel(lesson, level) {
 	levelContainer.innerHTML = "";
 	for (var sublevel of data[lesson][level]) { /* sorting is done in main.py */
 		var a = document.createElement("a");
-		a.href = [level, sublevel, lesson].join("/");
+		a.href = link(level, sublevel, lesson);
 		var div = document.createElement("div");
 		div.className = "button";
 		div.innerHTML = deacronym[sublevel];
