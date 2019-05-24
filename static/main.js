@@ -1,4 +1,49 @@
 var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on touchscreen laptops)
+var inits = [];
+
+function initFooter() {
+	var bug = document.getElementById("bug");
+	var report = document.getElementById("report");
+	var trap = document.getElementById("trap");
+	var palette = document.getElementById("palette");
+	var character = document.getElementById("character");
+	bug.addEventListener("click", function () {
+		report.classList.remove("hidden");
+	});
+	report.addEventListener("submit", function (e) {
+		e.preventDefault();
+		report.classList.add("loading");
+		reportBug(this).then(function (response) {
+			report.classList.add("hidden");
+			report.classList.remove("loading");
+			report.elements.bug.value = "";
+			trap.classList.remove("hidden");
+			trap.innerHTML = response.target.response;
+		});
+	});
+}
+
+function reportBug(form) {
+	var data = new FormData(form);
+	function request(resolve, reject) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/bug", true);
+		xhr.addEventListener("load", resolve);
+		xhr.addEventListener("error", reject);
+		xhr.send(data);
+	}
+	return new Promise(request);
+}
+
+function initWindow() {
+	initFooter();
+	for (var init of inits) {
+		init();
+	}
+	window.removeEventListener("DOMContentLoaded", initWindow);
+}
+
+window.addEventListener("DOMContentLoaded", initWindow);
 
 function link() {
 	var url = "";

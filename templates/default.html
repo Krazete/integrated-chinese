@@ -8,47 +8,37 @@
 <meta name="viewport" content="width=device-width">
 <title>{{ title }}</title>
 <link rel="stylesheet" type="text/css" href="/static/main.css">
-<script src="/static/main.js"></script>
 {%- if data %}
 <script src="/data/{{ data }}"></script>
 {%- endif %}
 {%- for script in scripts %}
 <script src="/static/{{ script }}"></script>
 {%- endfor %}
+<script src="/static/main.js"></script>
 </head>
-<body>
-<div id="header">
-	<h1 class="zh">{{ title_zh }}</h1>
-	<h2 class="desktop-only">{{ title_en }}</h2>
-</div>
+<body class="dark">
+<h1 class="zh">{{ title_zh }}</h1>
+<h2 class="desktop-only">{{ title_en }}</h2>
 <div class="container">
-	{%- block content %}{% endblock %}
-</div>
-<div id="footer">
-	<p>
-		Problem?
-		<a class="button" id="bug" onclick="document.getElementById('form').style.display = 'block'">
-			Report the bug and go to the old website.
-		</a>
-	</p>
-	<form action="bug" method="post" id="form" style="display: none">
-		<table style="border: 1px solid black; margin: auto auto 50px auto">
-			<tr>
-				<td>Description of Bug</td>
-				<td><textarea name="bug" cols="50" rows="5"></textarea></td>
-			</tr>
-			<tr>
-				<td>
-					<input type="hidden" name="nav" id="nav">
-					<input type="hidden" name="path" id="path">
-				</td>
-				<td><input type="submit" name="submit" value="Submit and Go"></td>
-			</tr>
-		</table>
+{%- block content %}{% endblock %}
+	<div id="trap"></div>
+	<form action="/bug" method="post" class="rounded hidden" id="report">
+		<div>
+			<textarea rows="3" placeholder="Describe the bug." name="bug">#20 the simplified version of 賣完 should be 卖完.💩</textarea>
+		</div>
+		<div>
+			<input type="submit" name="submit" value="Submit Bug Report" class="button">
+		</div>
 	</form>
-	<a href="https://github.com/Krazete/integrated-chinese">
-		<div class="button">GitHub</div>
-	</a>
+	<div class="rounded">
+		<div class="flex">
+			<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">View Original</a>
+			<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">View GitHub</a>
+			<div class="button" id="bug">Report Bug</div>
+			<div class="button" id="palette">Toggle Brightness</div>
+			<div class="button" id="character">Toggle Characters</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

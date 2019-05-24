@@ -12,6 +12,7 @@
                 console.log("[PWA] Service worker registered for " + e.scope);
             });
         }
+        window.removeEventListener("load", initPWA);
     }
     window.addEventListener("load", initPWA);
 </script>

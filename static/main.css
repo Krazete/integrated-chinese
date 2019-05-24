@@ -1,10 +1,3 @@
-:root {
-	--lo: #ff8f40;
-	--bg: #ffbf80; /* must still be bright enough */
-	--fg: #ffcf90;
-	--hi: #ffefc0;
-}
-
 body {
 	background: var(--bg);
 	font-family: "Klee", "Century Gothic", "Helvetica", sans-serif;
@@ -13,6 +6,18 @@ body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+}
+body.light {
+	--lo: #ff8840;
+	--bg: #ffb880;
+	--fg: #ffc890;
+	--hi: #ffe8c0;
+}
+body.dark {
+	--lo: #543210;
+	--bg: #876543;
+	--fg: #ba9876;
+	--hi: #edcba9;
 }
 
 a {
@@ -27,12 +32,8 @@ a {
 	margin: auto;
 }
 
-.flex {
-	display: flex;
-}
-
-.flex > * {
-	flex: 1;
+.rounded {
+	margin: 13px 0;
 }
 
 .rounded > :first-child > :first-child {
@@ -46,6 +47,14 @@ a {
 }
 .rounded > :last-child > :last-child {
 	border-bottom-right-radius: 13px;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex > * {
+	flex: 1;
 }
 
 .button {
@@ -62,6 +71,10 @@ a {
 	pointer-events: none;
 }
 
+.hidden {
+	display: none;
+}
+
 .disabled {
 	color: var(--lo);
 	font-weight: bold;
@@ -76,10 +89,45 @@ a {
 
 @keyframes pulse {
 	from {
+		opacity: 0.5;
 		color: var(--lo);
 	}
 	to {
+		opacity: 1;
 		color: var(--bg);
+	}
+}
+
+#report textarea {
+	font-family: inherit;
+	font-size: inherit;
+	padding: 4px;
+	box-sizing: border-box;
+	border: none;
+	resize: vertical;
+	width: 100%;
+	display: block;
+}
+
+#report input[type='submit'] {
+	font-family: inherit;
+	font-size: inherit;
+	border: none;
+	width: 100%;
+	display: block;
+}
+
+blockquote {
+	color: var(--lo);
+	animation: 1s bgfader ease-in;
+}
+
+@keyframes bgfader {
+	from {
+		background: var(--fg);
+	}
+	to {
+		background: transparent;
 	}
 }
 
@@ -121,6 +169,18 @@ a {
 	overflow: hidden;
 }
 
+#photo {
+	float: right;
+	width: 25%;
+	border-radius: 4px;
+	transition: 100ms width;
+	cursor: sw-resize;
+}
+#photo.magnified {
+	width: 100%;
+	cursor: ne-resize;
+}
+
 #text {
 	text-align: left;
 	white-space: pre-wrap;
@@ -128,6 +188,7 @@ a {
 
 #text span {
 	position: relative;
+	background: var(--hi);
 	outline: 1px solid var(--lo);
 	cursor: pointer;
 }
@@ -148,20 +209,11 @@ a {
 	margin-top: 4px;
 	cursor: pointer;
 }
+#examples div:first-child {
+	margin-top: 13px;
+}
 #examples div:hover, #examples div.selected {
 	background: var(--fg);
-}
-
-#photo {
-	float: right;
-	width: 25%;
-	border-radius: 4px;
-	transition: 100ms width;
-	cursor: sw-resize;
-}
-#photo.magnified {
-	width: 100%;
-	cursor: ne-resize;
 }
 
 /* audio */
@@ -244,6 +296,12 @@ a {
 	display: block;
 	pointer-events: none;
 	transform: translate(-25%, -50%) rotate(45deg);
+}
+#speed-50.speed:after {
+	transform: translate(0, -50%) rotate(45deg);
+}
+#speed-100.speed:after {
+	transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .speed-selected > .speed-after {
@@ -342,11 +400,6 @@ noscript {
 	left: 0;
 	height: 100%;
 	width: 100%;
-}
-
-
-.hidden, .konami {
-	display: none;
 }
 
 .frame { /* only if map.png is kept */

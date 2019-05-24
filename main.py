@@ -220,25 +220,12 @@ class Bug(MainHandler):
     def post(self):
         mail.EmailMessage(
             sender = 'krazete@gmail.com',
-            to = 'tcelis@uci.edu',
+            to = 'krazete@gmail.com',
             subject = 'Integrated Chinese Bug Report',
-            body = 'Description of Bug:\n' + self.request.get('bug') +
-                '\n\nNavigator:\n' + self.request.get('nav') +
-                '\n\nRequest Object:\n' + str(self.request) + '\n'
+            body = self.request.get('bug').encode('utf8') + '\n\n' + str(self.request)
         ).send()
-        path = self.request.get('path')
-        newpath = ''
-        if '/review/' in path:
-            newpath = 'review.html#{:02}ART'.format(int(path[8:]))
-        elif '/word_' in path:
-            newpath = 'word.html#{:02}P'.format(int(path[8:]))
-        elif '/sentence_' in path:
-            newpath = ''
-        elif '/paragraph_' in path:
-            newpath = 'paragraph.html#{:02}ME'.format(int(path[15:]))
-        elif '/vocabulary/' in path:
-            newpath = ''
-        self.response.write('<meta http-equiv="refresh" content="0; url=https://2-dot-integrated-chinese.appspot.com/' + newpath + '"><meta name="viewport" content="width=device-width, initial-scale=1">Thank you. You will be redirected shortly. <a href="https://2-dot-integrated-chinese.appspot.com/' + newpath + '">(If not, click here.)</a>')
+        self.response.write('Your bug report has been submitted. Thank you for notifying us about the issue.')
+        self.response.write('<blockquote>' + self.request.get('bug') + '</blockquote>')
 
 app = webapp2.WSGIApplication([
     ('/data/index.js', IndexData),
