@@ -2,14 +2,12 @@ var currentText, currentFormat;
 var photo, text, examples;
 var textButtons, formatButtons;
 
-// EXAMPLES
-
 function clickPhoto() {
-	if (this.className == "magnified") {
-		this.className = "";
+	if (this.classList.contains("magnified")) {
+		this.classList.remove("magnified");
 	}
 	else {
-		this.className = "magnified";
+		this.classList.add("magnified");
 	}
 }
 
@@ -17,7 +15,7 @@ function clickTerm() { /* TODO: verify this */
 	var n = this.dataset.index;
 	// document.getElementById("mpX").pause();
 	examples.innerHTML = "";
-	var terms = text.getElementsByTagName("span");
+	var terms = Array.from(text.getElementsByTagName("span"));
 	for (var term of terms) {
 		term.classList.remove("selected");
 	}
@@ -55,24 +53,19 @@ function clickTerm() { /* TODO: verify this */
 	}
 }
 
-function markTerms() { /* TODO: verify this */
-	var spans = Array.from(text.getElementsByTagName("span"));
-	var n = 0;
-	for (var span of spans) {
-		span.dataset.index = n;
-		span.addEventListener("click", clickTerm);
-		n++;
+function markTerms() { /* TODO */
+	var spans = text.getElementsByTagName("span");
+	for (var i = 0; i < spans.length; i++) {
+		spans[i].dataset.index = i;
+		spans[i].addEventListener("click", clickTerm);
 	}
 }
 
-function setFormat(n) { /* TODO: verify this */
+function setFormat(n) {
 	currentFormat = n;
-	text.classList.remove("hidden");
-	examples.classList.remove("hidden");
 	examples.innerHTML = "";
 	if (currentFormat == 0) {
 		text.innerHTML = data.texts[currentText].replace(/[\[\]{}]/g, "");
-		text.classList.remove("hidden");
 		examples.classList.add("hidden");
 	}
 	else {
@@ -83,13 +76,12 @@ function setFormat(n) { /* TODO: verify this */
 			text.innerHTML = data.texts[currentText].replace(/\[|\]/g, "").replace(/{/g, "<span>").replace(/}/g, "</span>");
 		}
 		markTerms();
-		text.classList.remove("hidden");
 		examples.classList.remove("hidden");
 	}
 	// document.getElementById("mpX").pause();
 }
 
-function clickFormatButton() { /* TODO: verify this */
+function clickFormatButton() {
 	for (var formatButton of formatButtons) {
 		formatButton.classList.remove("selected");
 	}
@@ -97,18 +89,20 @@ function clickFormatButton() { /* TODO: verify this */
 	setFormat(formatButtons.indexOf(this));
 }
 
-var TEST;
+var TEST; /* TODO */
 
 function setText(n) {
 	currentText = n;
 	photo.alt = data.photos[currentText] ? data.lesson + "ab"[n] : "";
 	photo.src = data.photos[currentText];
 	formatButtons[currentFormat].click();
-	TEST = new MP3([
-		"/mp3/review/texts",
-		["a", "b"][currentText],
-		data.lesson + ".mp3"
-	].join("/"));
+	// TEST = getDisc(link( /* TODO*/
+	// 	"mp3",
+	// 	"review",
+	// 	"texts",
+	// 	["a", "b"][currentText],
+	// 	data.lesson + ".mp3"
+	// ));
 }
 
 function clickTextButton() {
@@ -119,7 +113,7 @@ function clickTextButton() {
 	setText(textButtons.indexOf(this));
 }
 
-function init() { /* TODO: verify this */
+function init() {
 	currentText = 0;
 	currentFormat = 0;
 	photo = document.getElementById("photo");
@@ -146,7 +140,11 @@ function init() { /* TODO: verify this */
 	textButtons[currentText].click();
 	formatButtons[currentFormat].click();
 
-	// mp3Init();
+	/**/
+	var playerElement = document.getElementById("player");
+	var player = new Player(playerElement);
+	player.insertDisc("/static/mp3/budui.mp3");
+	console.log(player);
 }
 
 window.addEventListener("DOMContentLoaded", init);

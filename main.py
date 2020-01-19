@@ -225,7 +225,7 @@ class Bug(MainHandler):
             body = self.request.get('bug').encode('utf8') + '\n\n' + str(self.request)
         ).send()
         self.response.write('Your bug report has been submitted. Thank you for notifying us about the issue.')
-        self.response.write('<blockquote>' + self.request.get('bug') + '</blockquote>')
+        self.response.write('<blockquote>' + self.request.get('bug') + '&nbsp;</blockquote>')
 
 app = webapp2.WSGIApplication([
     ('/data/index.js', IndexData),

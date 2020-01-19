@@ -1,12 +1,13 @@
 var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on touchscreen laptops)
-var inits = [];
 
 function initFooter() {
+	var html = document.documentElement;
 	var bug = document.getElementById("bug");
 	var report = document.getElementById("report");
 	var trap = document.getElementById("trap");
 	var palette = document.getElementById("palette");
 	var character = document.getElementById("character");
+	var palettes = ["light", "dark", "pink"];
 	bug.addEventListener("click", function () {
 		report.classList.remove("hidden");
 	});
@@ -20,6 +21,15 @@ function initFooter() {
 			trap.classList.remove("hidden");
 			trap.innerHTML = response.target.response;
 		});
+	});
+	palette.addEventListener("click", function () {
+		for (var i = 0; i < palettes.length; i++) {
+			if (html.classList.contains(palettes[i])) {
+				html.classList.remove(palettes[i]);
+				html.classList.add(palettes[(i + 1) % palettes.length]);
+				break;
+			}
+		}
 	});
 }
 
@@ -37,6 +47,9 @@ function reportBug(form) {
 
 function initWindow() {
 	initFooter();
+	if (typeof inits == "undefined") {
+		inits = [];
+	}
 	for (var init of inits) {
 		init();
 	}

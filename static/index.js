@@ -39,12 +39,16 @@ function setLevel(lesson, level) {
 }
 
 function setLesson(lesson) {
+	var body1Height = document.body.getBoundingClientRect().bottom;
 	lessonTitle.innerHTML = data[lesson].title;
 	review.href = link("review", lesson);
 	setLevel(lesson, "word");
 	setLevel(lesson, "sentence");
 	setLevel(lesson, "paragraph");
 	vocabulary.href = link("vocabulary", lesson);
+	var body2Height = document.body.getBoundingClientRect().bottom;
+	var bodyHeight = Math.max(body1Height, body2Height);
+	document.body.style.height = bodyHeight + "px";
 }
 
 function enterLessonButton() {
@@ -69,21 +73,30 @@ function clickLessonButton() {
 	localStorage.setItem("lesson", currentLesson);
 }
 
+function toggleSecrets() {
+	var secrets = Array.from(document.getElementsByClassName("konami"));
+	for (var secret of secrets) {
+		if (secret.classList.contains("hidden")) {
+			secret.classList.remove("hidden");
+		}
+		else {
+			secret.classList.add("hidden");
+		}
+	}
+}
+
 function initKonami() {
 	var konami = /38_38_40_40_37_39_37_39_66_65_$/;
 	var code = "";
 	window.addEventListener("keydown", function (e) {
 		code += e.keyCode + "_";
 		if (konami.test(code)) {
-			var secrets = Array.from(document.getElementsByClassName("konami"));
-			for (var secret of secrets) {
-				secret.classList.remove("konami");
-			}
+			toggleSecrets();
 		}
 	});
 }
 
-function init() {
+function initIndex() {
 	currentLesson = Math.max(1, Math.min(localStorage.getItem("lesson"), 20));
 	lessonButtons = Array.from(document.getElementById("lesson-buttons").getElementsByClassName("button"));
 	lessonTitle = document.getElementById("lesson-title");
@@ -105,7 +118,6 @@ function init() {
 		}
 	}
 	setLesson(currentLesson);
-	initKonami();
 }
 
-window.addEventListener("DOMContentLoaded", init);
+var inits = [initKonami, initIndex];
