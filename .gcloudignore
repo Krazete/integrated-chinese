@@ -1,4 +1,6 @@
 *.pyc
-.*
+.DS_Store
+.git
+.gitignore
 README.md
 old_things
