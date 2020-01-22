@@ -39,23 +39,6 @@ a {
 	margin: auto;
 }
 
-.rounded {
-	margin: 13px 0;
-}
-
-.rounded > :first-child > :first-child {
-	border-top-left-radius: 13px;
-}
-.rounded > :first-child > :last-child {
-	border-top-right-radius: 13px;
-}
-.rounded > :last-child > :first-child {
-	border-bottom-left-radius: 13px;
-}
-.rounded > :last-child > :last-child {
-	border-bottom-right-radius: 13px;
-}
-
 .flex {
 	display: flex;
 }

@@ -1,6 +1,6 @@
 {%- extends 'default.html' %}
 {%- block content %}
-	<div class="rounded" id="lesson-buttons">
+	<div id="lesson-buttons">
 		<div class="flex">
 			<div class="button" data-lesson="1">1</div>
 			<div class="button" data-lesson="2">2</div>
@@ -12,12 +12,6 @@
 			<div class="button" data-lesson="8">8</div>
 			<div class="button" data-lesson="9">9</div>
 			<div class="button" data-lesson="10">10</div>
-		</div>
-		<div class="flex hidden konami">
-			<div class="button" data-lesson="0">Basics</div>
-			<div class="button" data-lesson="21">Unused Lesson I</div>
-			<div class="button" data-lesson="22">Unused Lesson II</div>
-			<div class="button" data-lesson="23">Unused Lesson III</div>
 		</div>
 		<div class="flex">
 			<div class="button" data-lesson="11">11</div>
@@ -31,9 +25,15 @@
 			<div class="button" data-lesson="19">19</div>
 			<div class="button" data-lesson="20">20</div>
 		</div>
+		<div class="flex hidden konami">
+			<div class="button" data-lesson="0">Basics</div>
+			<div class="button" data-lesson="21">Unused Lesson I</div>
+			<div class="button" data-lesson="22">Unused Lesson II</div>
+			<div class="button" data-lesson="23">Unused Lesson III</div>
+		</div>
 	</div>
 	<h3 id="lesson-title">Lesson Title</h3>
-	<div class="rounded" id="lesson-menu">
+	<div id="lesson-menu">
 		<a id="review"><div class="button">Review</div></a>
 		<div class="flex" id="exercises">
 			<div class="label">Exercises</div>
