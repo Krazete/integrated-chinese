@@ -1,6 +1,4 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '-v', 'github', '--no-promote']
-- name: 'python'
-  args: ['./preprocess.py']
 timeout: '600s'
