@@ -60,7 +60,7 @@ def index():
         title='Integrated Chinese Multimedia Exercises',
         title_zh='中文聽說讀寫',
         title_en='Integrated Chinese Multimedia Exercises',
-        data=['index.json'],
+        data='index.js',
         scripts=['index.js']
     )
 
@@ -124,7 +124,7 @@ def sentence(path):
 from os import path, walk
 from json import load, dump
 
-@app.route('/js/index.js')
+@app.route('/data/index.js')
 def pokpokpokopk():
     data = load_data('index.json')
     for level in ['word', 'sentence', 'paragraph']:
@@ -138,20 +138,14 @@ def pokpokpokopk():
                         data[lesson][level].append(sublevel)
         for lesson in data:
             data[lesson][level].sort()
-    js = 'var indexdata = {};'.format(dumps(data))
+    js = 'var data = {};'.format(dumps(data))
     return Response(js, mimetype='application/javascript')
 
-@app.route('/js/<varname>/<path:filename>.js')
+@app.route('/data/<varname>/<path:filename>.js')
 def script(varname, filename):
     data = load_data(filename + '.json')
     js = 'var {} = {};'.format(varname, dumps(data))
     return Response(js, mimetype='application/javascript')
-
-
-
-@app.route('/<blah>')
-def blpppp(blah):
-    return '<h1> Hello World {}</h1>'.format(blah)
 
 if __name__ == '__main__':
     app.run(debug=True)
