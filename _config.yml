@@ -1,0 +1,27 @@
+title: Integrated Chinese
+email: krazete@gmail.com
+description: >-
+  Exercises for the UCI Chinese 1 course series.
+  Originally from an old Berkeley website which only runs on IE.
+baseurl: "/integrated-chinese"
+url: "https://krazete.github.io"
+github_username: krazete
+
+# theme:
+#   - minima
+plugins:
+  - jekyll-sitemap
+
+# defaults:
+#   - scope:
+#       type: categories  # select all category pages
+#     values:
+#       layout: default
+#       permalink: categories/:index/
+
+exclude:
+  - old_things
+  - static
+  - webscraping
+  - README.md
+  - /*.py
