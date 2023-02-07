@@ -1,13 +1,7 @@
 html {
-	--lo: #444444;
-	--bg: #888888;
-	--fg: #cccccc;
-	--hi: #ffffff;
-}
-html.light {
-	--lo: #ff8840;
-	--bg: #ffb880;
-	--fg: #ffc890;
+	--lo: #823f15;
+	--bg: #dd9d60;
+	--fg: #ffbf80; /* original */
 	--hi: #ffe8c0;
 }
 html.dark {
@@ -16,9 +10,22 @@ html.dark {
 	--fg: #ba9876;
 	--hi: #edcba9;
 }
+html.gray {
+	--lo: #444444;
+	--bg: #888888;
+	--fg: #cccccc;
+	--hi: #ffffff;
+}
+html.pain {
+	--lo: cyan;
+	--bg: magenta;
+	--fg: yellow;
+	--hi: black;
+}
 
 body {
 	background: var(--bg);
+	color: var(--lo);
 	font-family: "Klee", "Century Gothic", "Helvetica", sans-serif;
 	text-align: center;
 	position: absolute;
@@ -44,17 +51,8 @@ a {
 	overflow: hidden;
 }
 
-.flex {
-	display: flex;
-}
-
-.flex > * {
-	flex: 1;
-}
-
 .button {
 	background: var(--fg);
-	outline: 1px solid transparent;
 	padding: 4px 0;
 	cursor: pointer;
 }
@@ -62,7 +60,7 @@ a {
 	background: var(--hi);
 }
 .button.selected {
-	background: white;
+	background: var(--hi);
 	pointer-events: none;
 }
 
@@ -123,18 +121,27 @@ blockquote {
 	grid-template-columns: repeat(4, 1fr);
 }
 
-#exercises div {
+#exercises div, #exercises a {
 	grid-column: 2;
 }
 #exercises .label {
 	grid-column: 1;
 	grid-row: span 3;
 }
+#exercises {
+	grid-template-columns: 1fr 4fr;
+}
+#exercises > .grid {
+	grid-template-columns: 1fr 3fr;
+}
 
 .label {
 	background: var(--fg);
+	padding: 4px 0;
 }
-:hover > .label {
+:hover > .label, #exercises .button:hover {
+	margin-left: -1px;
+	padding-left: 1px;
 	background: var(--hi);
 }
 

@@ -25,31 +25,50 @@ var deacronym = {
 };
 
 function setLevel(lesson, level) {
-	var levelContainer = document.getElementById(level);
-	levelContainer.innerHTML = "";
-	for (var sublevel of data[lesson][level]) { /* sorting is done in main.py */
-		var a = document.createElement("a");
-		a.href = link(level, sublevel, lesson);
-		var div = document.createElement("div");
-		div.className = "button";
-		div.innerHTML = deacronym[sublevel];
-		a.appendChild(div);
-		levelContainer.appendChild(a);
+	for (var level in data) {
+		var levelContainer = document.getElementById(level);
+		var levelLabel = levelContainer.getElementsByClassName("label")[0];
+		levelContainer.innerHTML = "";
+		levelContainer.appendChild(levelLabel);
+		var n = 0;
+		for(var sublevel in data[level]) {
+			if (data[level][sublevel].includes(parseInt(currentLesson))) {
+				var a = document.createElement("a");
+				a.className = "button";
+				a.href = link(level, sublevel, lesson);
+				a.innerHTML = deacronym[sublevel];
+				levelContainer.appendChild(a);
+				n++;
+			}
+		}
+		levelLabel.style.gridRow = "span " + n;
 	}
 }
 
 function setLesson(lesson) {
-	var body1Height = document.body.getBoundingClientRect().bottom;
-	lessonTitle.innerHTML = data[lesson].title;
+	// var body1Height = document.body.getBoundingClientRect().bottom;
+	// lessonTitle.innerHTML = data[lesson].title;
 	review.href = link("review", lesson);
-	setLevel(lesson, "word");
-	setLevel(lesson, "sentence");
-	setLevel(lesson, "paragraph");
+	for (var exercise in data) {
+		setLevel(lesson, exercise);
+	}
 	vocabulary.href = link("vocabulary", lesson);
-	var body2Height = document.body.getBoundingClientRect().bottom;
-	var bodyHeight = Math.max(body1Height, body2Height);
-	document.body.style.height = bodyHeight + "px";
+	// var body2Height = document.body.getBoundingClientRect().bottom;
+	// var bodyHeight = Math.max(body1Height, body2Height);
+	// document.body.style.height = bodyHeight + "px";
 }
+
+function getPointer(e, preventScrolling) {
+	if (e.touches) {
+		if (preventScrolling && e.type == "touchmove") {
+			e.preventdefault();
+		}
+		return e.touches[0];
+	}
+	return e;
+}
+
+/* Listeners */
 
 function enterLessonButton() {
 	lessonTitle.classList.add("disabled");
@@ -73,32 +92,11 @@ function clickLessonButton() {
 	localStorage.setItem("lesson", currentLesson);
 }
 
-function toggleSecrets() {
-	var secrets = Array.from(document.getElementsByClassName("konami"));
-	for (var secret of secrets) {
-		if (secret.classList.contains("hidden")) {
-			secret.classList.remove("hidden");
-		}
-		else {
-			secret.classList.add("hidden");
-		}
-	}
-}
-
-function initKonami() {
-	var konami = /38_38_40_40_37_39_37_39_66_65_$/;
-	var code = "";
-	window.addEventListener("keydown", function (e) {
-		code += e.keyCode + "_";
-		if (konami.test(code)) {
-			toggleSecrets();
-		}
-	});
-}
+/* Initializers */
 
 function initIndex() {
-	currentLesson = Math.max(1, Math.min(localStorage.getItem("lesson"), 20));
-	lessonButtons = Array.from(document.getElementById("lesson-buttons").getElementsByClassName("button"));
+	currentLesson = Math.min(Math.max(1, localStorage.getItem("lesson")), 20);
+	lessonButtons = document.getElementById("lesson-buttons").getElementsByClassName("button");
 	lessonTitle = document.getElementById("lesson-title");
 	lessonMenu = document.getElementById("lesson-menu");
 	review = document.getElementById("review");
@@ -108,16 +106,32 @@ function initIndex() {
 		if (lessonButton.dataset.lesson == currentLesson) {
 			lessonButton.classList.add("selected");
 		}
-		if (mobile) {
-			lessonButton.addEventListener("touchstart", clickLessonButton);
-		}
-		else {
-			lessonButton.addEventListener("mouseenter", enterLessonButton);
-			lessonButton.addEventListener("mouseleave", leaveLessonButton);
-			lessonButton.addEventListener("click", clickLessonButton);
-		}
+		lessonButton.addEventListener("mouseenter", enterLessonButton);
+		lessonButton.addEventListener("mouseleave", leaveLessonButton);
+		lessonButton.addEventListener("click", clickLessonButton);
+		lessonButton.addEventListener("touchstart", clickLessonButton);
 	}
+
 	setLesson(currentLesson);
+}
+
+function initKonami() {
+	var konami = /(arrowup~){2}(arrowdown~){2}(arrowleft~arrowright~){2}b~a~$/;
+	var code = "";
+	window.addEventListener("keydown", function (e) {
+		code += e.key.toLowerCase() + "~";
+		if (konami.test(code)) {
+			var secrets = document.getElementsByClassName("konami");
+			for (var secret of secrets) {
+				if (secret.classList.contains("hidden")) {
+					secret.classList.remove("hidden");
+				}
+				else {
+					secret.classList.add("hidden");
+				}
+			}
+		}
+	});
 }
 
 var inits = [initKonami, initIndex];

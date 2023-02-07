@@ -1,5 +1,5 @@
 ---
-exercises: ['word', 'paragraph', 'sentence']
+exercises: ['word', 'sentence', 'paragraph']
 ---
 var data = {
     {%- for exercise in page.exercises %}

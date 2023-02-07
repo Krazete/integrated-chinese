@@ -4,8 +4,12 @@ function initFooter() {
 	var html = document.documentElement;
 	var palette = document.getElementById("palette");
 	var character = document.getElementById("character");
-	var palettes = ["light", "dark", "pink"];
+	var palettes = ["default", "dark", "gray", "pain"];
+	console.log(html.classList);
 	palette.addEventListener("click", function () {
+		if (html.classList.length <= 0) {
+			html.classList.add(palettes[0]);
+		}
 		for (var i = 0; i < palettes.length; i++) {
 			if (html.classList.contains(palettes[i])) {
 				html.classList.remove(palettes[i]);
