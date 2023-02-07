@@ -1,13 +1,19 @@
 ---
+exercises: ['word', 'paragraph', 'sentence']
 ---
-{%- assign d = site.data.paragraph.boolean-en | first -%}
-{%- assign types = ('paragraph', 'word', 'sentence') -%}
 var data = {
-    {%- for type in types %}
-    "paragraph": {
-        {%- for type in site.data.paragraph %}
-        "{{ type }}": ""
-        {%- endfor %}
-    }
+    {%- for exercise in page.exercises %}
+    "{{ exercise }}": {
+        {%- for level in site.data[exercise] %}
+        "{{ level[0] }}": [
+            {%- for lesson in level[1] %}
+                {{- lesson[0] }}
+                {%- unless forloop.last %}, {% endunless %}
+            {%- endfor -%}
+        ]
+        {%- unless forloop.last %},{% endunless %}
     {%- endfor %}
+    }
+    {%- unless forloop.last %},{% endunless %}
+{%- endfor %}
 };

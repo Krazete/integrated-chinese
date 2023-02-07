@@ -138,6 +138,10 @@ blockquote {
 	background: var(--hi);
 }
 
+#footer {
+	grid-auto-flow: column;
+}
+
 /* review.html */
 
 #content {
