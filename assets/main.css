@@ -39,6 +39,11 @@ a {
 	margin: auto;
 }
 
+.container > div {
+	border-radius: 12px;
+	overflow: hidden;
+}
+
 .flex {
 	display: flex;
 }
@@ -49,7 +54,7 @@ a {
 
 .button {
 	background: var(--fg);
-	border: 1px solid var(--bg);
+	outline: 1px solid transparent;
 	padding: 4px 0;
 	cursor: pointer;
 }
@@ -88,25 +93,6 @@ a {
 	}
 }
 
-#report textarea {
-	font-family: inherit;
-	font-size: inherit;
-	padding: 4px;
-	box-sizing: border-box;
-	border: none;
-	resize: vertical;
-	width: 100%;
-	display: block;
-}
-
-#report input[type='submit'] {
-	font-family: inherit;
-	font-size: inherit;
-	border: none;
-	width: 100%;
-	display: block;
-}
-
 blockquote {
 	border: 1px dashed var(--lo);
 	color: var(--lo);
@@ -124,30 +110,31 @@ blockquote {
 
 /* index.html */
 
-.label {
-	background: var(--fg);
-	border: 1px solid var(--bg);
-	min-width: 94px;
-	padding: 4px 0;
-	flex: 0;
-}
-.flex .label {
-	border-right-width: 0;
-}
-.flex .flex .label, .label + div .button {
-	border-left-width: 0;
-}
-.flex:hover .flex .label {
-	background: linear-gradient(to right, var(--hi), var(--fg));
-}
-.flex:hover .label, .flex .flex:hover .label {
-	background: var(--hi);
+.grid {
+	display: grid;
+	grid-gap: 1px;
 }
 
-.flex .flex:hover .label + div .button {
-	background: linear-gradient(to right, var(--hi), var(--fg));
+#lesson-buttons {
+	grid-template-columns: repeat(10, 1fr);
 }
-.flex .flex .label + div .button:hover {
+#lesson-buttons .konami {
+	grid-column: 1 / -1;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#exercises div {
+	grid-column: 2;
+}
+#exercises .label {
+	grid-column: 1;
+	grid-row: span 3;
+}
+
+.label {
+	background: var(--fg);
+}
+:hover > .label {
 	background: var(--hi);
 }
 
@@ -473,4 +460,8 @@ noscript {
 
 #translator:hover {
 	background: var(--hi);
+}
+
+.hidden {
+	display: none;
 }

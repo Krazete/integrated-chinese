@@ -2,26 +2,9 @@ var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on 
 
 function initFooter() {
 	var html = document.documentElement;
-	var bug = document.getElementById("bug");
-	var report = document.getElementById("report");
-	var trap = document.getElementById("trap");
 	var palette = document.getElementById("palette");
 	var character = document.getElementById("character");
 	var palettes = ["light", "dark", "pink"];
-	bug.addEventListener("click", function () {
-		report.classList.remove("hidden");
-	});
-	report.addEventListener("submit", function (e) {
-		e.preventDefault();
-		report.classList.add("loading");
-		reportBug(this).then(function (response) {
-			report.classList.add("hidden");
-			report.classList.remove("loading");
-			report.elements.bug.value = "";
-			trap.classList.remove("hidden");
-			trap.innerHTML = response.target.response;
-		});
-	});
 	palette.addEventListener("click", function () {
 		for (var i = 0; i < palettes.length; i++) {
 			if (html.classList.contains(palettes[i])) {
@@ -31,18 +14,6 @@ function initFooter() {
 			}
 		}
 	});
-}
-
-function reportBug(form) {
-	var data = new FormData(form);
-	function request(resolve, reject) {
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "/bug", true);
-		xhr.addEventListener("load", resolve);
-		xhr.addEventListener("error", reject);
-		xhr.send(data);
-	}
-	return new Promise(request);
 }
 
 function initWindow() {

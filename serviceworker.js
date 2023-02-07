@@ -1,8 +1,8 @@
-const VERSION = "5.2.1"; /* update whenever anything changes */
+const VERSION = "0.0.1"; /* update whenever anything changes */
 
 self.addEventListener("install", event => {
     // console.log("PWA Install: " + VERSION);
-    self.skipWaiting;
+    self.skipWaiting();
     event.waitUntil((async () => {
         const cache = await caches.open(VERSION);
         cache.addAll(["./", "./404.html"]);
@@ -11,7 +11,7 @@ self.addEventListener("install", event => {
 
 self.addEventListener("activate", event => {
     // console.log("PWA Activate: " + VERSION);
-    self.client.claim();
+    self.clients.claim();
     event.waitUntil((async () => {
         const keys = await caches.keys();
         keys.forEach(async (key) => {
@@ -34,7 +34,9 @@ self.addEventListener("fetch", event => {
         else {
             try {
                 const fetchResponse = await fetch(event.request);
-                if (event.request.method === "GET" && !event.request.headers.get("Content-Type").includes("audio")) {
+                const isGet = event.request.method === "GET";
+                const isAudio = event.request.headers.has("Content-Type") && event.request.headers.get("Content-Type").includes("audio");
+                if (isGet && !isAudio) {
                     cache.put(event.request, fetchResponse.clone());
                 }
                 return fetchResponse;

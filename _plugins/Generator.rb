@@ -12,13 +12,13 @@ module MainPlugin
             @site = site
             @base = site.source
             @dir = 'posts'
-            @basename = datum['chapter'].to_s + datum['title']
+            @basename = datum['lesson'] + datum['title']
             @ext = '.html'
             @name = @basename + @ext
             @data = {
                 'layout' => 'default',
-                'title' => datum['title'],
-                'email' => datum['chapter']
+                # 'title' => datum['title'],
+                # 'email' => datum['chapter']
             }
             # data.default_proc = proc do |_, key|
             #     site.frontmatter_defaults.find(relative_path, :categories, key)
