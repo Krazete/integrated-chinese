@@ -32,7 +32,7 @@ function setLevel(lesson, level) {
 		levelContainer.appendChild(levelLabel);
 		var n = 0;
 		for(var sublevel in data[level]) {
-			if (data[level][sublevel].includes(parseInt(currentLesson))) {
+			if (data[level][sublevel].includes(parseInt(lesson))) {
 				var a = document.createElement("a");
 				a.className = "button";
 				a.href = link(level, sublevel, lesson);

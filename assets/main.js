@@ -5,7 +5,10 @@ function initFooter() {
 	var palette = document.getElementById("palette");
 	var character = document.getElementById("character");
 	var palettes = ["default", "dark", "gray", "pain"];
-	console.log(html.classList);
+	var storedPalette = localStorage.getItem("palette");
+	if (palettes.includes(storedPalette)) {
+		html.className = storedPalette;
+	}
 	palette.addEventListener("click", function () {
 		if (html.classList.length <= 0) {
 			html.classList.add(palettes[0]);
@@ -14,6 +17,7 @@ function initFooter() {
 			if (html.classList.contains(palettes[i])) {
 				html.classList.remove(palettes[i]);
 				html.classList.add(palettes[(i + 1) % palettes.length]);
+				localStorage["palette"] = palettes[i + 1];
 				break;
 			}
 		}
