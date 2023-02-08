@@ -143,6 +143,10 @@ a {
 	margin-left: -1px;
 }
 
+html.gold #hint.disabled {
+	visibility: hidden;
+}
+
 /* idk */
 
 .loading {
