@@ -24,8 +24,10 @@ var deacronym = {
 	"COMMENT": "Dunno"
 };
 
-function setLevel(lesson, level) {
-	for (var level in data) {
+function setLesson(lesson) {
+	lessonTitle.innerHTML = data.title[lesson];
+	review.href = link("review", lesson);
+	for (var level of ["word", "sentence", "paragraph"]) {
 		var levelContainer = document.getElementById(level);
 		var levelLabel = levelContainer.children[0];
 		levelContainer.innerHTML = "";
@@ -43,19 +45,7 @@ function setLevel(lesson, level) {
 		}
 		levelLabel.style.gridRow = "span " + n;
 	}
-}
-
-function setLesson(lesson) {
-	// var body1Height = document.body.getBoundingClientRect().bottom;
-	// lessonTitle.innerHTML = data[lesson].title;
-	review.href = link("review", lesson);
-	for (var exercise in data) {
-		setLevel(lesson, exercise);
-	}
 	vocabulary.href = link("vocabulary", lesson);
-	// var body2Height = document.body.getBoundingClientRect().bottom;
-	// var bodyHeight = Math.max(body1Height, body2Height);
-	// document.body.style.height = bodyHeight + "px";
 }
 
 function getPointer(e, preventScrolling) {
@@ -73,13 +63,17 @@ function getPointer(e, preventScrolling) {
 function enterLessonButton() {
 	lessonTitle.classList.add("disabled");
 	lessonMenu.classList.add("disabled");
+	var h0 = document.body.scrollHeight;
 	setLesson(this.dataset.lesson);
+	var h1 = document.body.scrollHeight;
+	document.body.style.height = Math.max(h0, h1) + "px"; /* prevents rapid glitchy height changes */
 }
 
 function leaveLessonButton() {
 	lessonTitle.classList.remove("disabled");
 	lessonMenu.classList.remove("disabled");
 	setLesson(currentLesson);
+	// document.body.style = "";
 }
 
 function clickLessonButton() {
