@@ -18,14 +18,15 @@
 </head>
 <body>
 <h1 class="zh">{{ page.title-zh }}</h1>
-<h2 class="desktop-only">{{ page.title-en }}</h2>
+<h2 class="notouch">{{ page.title-en }}</h2>
 <div class="container">
-{{ content -}}
-<div id="footer" class="grid">
-	<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">View Original</a>
-	<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">View GitHub</a>
-	<div class="button" id="palette">Toggle Brightness</div>
-	<div class="button" id="character">Toggle Characters</div>
+	{{ content -}}
+	<div class="grid" id="footer">
+		<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">View Original</a>
+		<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">View GitHub</a>
+		<div class="button" id="theme">Theme: default</div>
+		<div class="button" id="character">Toggle Characters</div>
+	</div>
 </div>
 </body>
 </html>

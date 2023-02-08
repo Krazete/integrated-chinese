@@ -1,23 +1,24 @@
-var mobile = "ontouchstart" in window; // TODO: ensure that this works (esp. on touchscreen laptops)
-
 function initFooter() {
 	var html = document.documentElement;
-	var palette = document.getElementById("palette");
+	var theme = document.getElementById("theme");
 	var character = document.getElementById("character");
-	var palettes = ["default", "dark", "gray", "pain"];
-	var storedPalette = localStorage.getItem("palette");
-	if (palettes.includes(storedPalette)) {
-		html.className = storedPalette;
+	var themes = ["default", "dark", "gold", "gray", "pink", "painful"];
+	var storedtheme = localStorage.getItem("theme");
+	if (themes.includes(storedtheme)) {
+		html.className = storedtheme;
+		theme.innerHTML = "Theme: " + storedtheme;
 	}
-	palette.addEventListener("click", function () {
+	theme.addEventListener("click", function () {
 		if (html.classList.length <= 0) {
-			html.classList.add(palettes[0]);
+			html.classList.add(themes[0]);
 		}
-		for (var i = 0; i < palettes.length; i++) {
-			if (html.classList.contains(palettes[i])) {
-				html.classList.remove(palettes[i]);
-				html.classList.add(palettes[(i + 1) % palettes.length]);
-				localStorage["palette"] = palettes[i + 1];
+		for (var i = 0; i < themes.length; i++) {
+			if (html.classList.contains(themes[i])) {
+				html.classList.remove(themes[i]);
+				var xp = themes[(i + 1) % themes.length]
+				html.classList.add(xp);
+				localStorage["theme"] = xp;
+				this.innerHTML = "Theme: " + xp;
 				break;
 			}
 		}

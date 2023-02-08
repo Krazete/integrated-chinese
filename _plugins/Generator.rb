@@ -16,7 +16,7 @@ module MainPlugin
             @ext = '.html'
             @name = @basename + @ext
             @data = {
-                'layout' => 'default',
+                'layout' => 'main',
                 'title-en' => datum[0],
                 'title-zh' => number_zh(datum[0].to_i)
                 # 'title' => datum['title'],

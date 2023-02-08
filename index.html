@@ -1,13 +1,13 @@
 ---
-layout: default
+layout: main
 data: index.js
 scripts: index.js
 title-zh: 中文聽說讀寫
 title-en: Integrated Chinese Multimedia Exercises 
 ---
-<div id="lesson-buttons" class="grid">
+<div class="grid" id="lesson-buttons">
 	{%- for i in (1..20) %}
-	<div class="button" data-lesson="{{ i }}" data-title="{{ site.data.index[i]['title'] }}">{{ i }}</div>
+	<div class="button" data-lesson="{{ i }}">{{ i }}</div>
 	{%- endfor %}
 	<div class="grid konami hidden">
 		<div class="button" data-lesson="0">Basics</div>
@@ -17,22 +17,22 @@ title-en: Integrated Chinese Multimedia Exercises
 	</div>
 </div>
 <h3 id="lesson-title">Lesson Title</h3>
-<div id="lesson-menu" class="grid">
-	<a id="review" class="button">Review</a>
-	<div id="exercises" class="grid">
+<div class="grid" id="lesson-menu">
+	<a class="button" id="review">Review</a>
+	<div class="grid" id="exercises">
 		<div class="label">Exercises</div>
-		<div id="word" class="grid">
+		<div class="grid" id="word">
 			<div class="label">Word Level</div>
 		</div>
-		<div id="sentence" class="grid">
+		<div class="grid" id="sentence">
 			<div class="label">Sentence Level</div>
 		</div>
-		<div id="paragraph" class="grid">
+		<div class="grid" id="paragraph">
 			<div class="label">Paragraph Level</div>
 		</div>
 	</div>
-	<a id="vocabulary" class="button">Vocabulary</a>
+	<a class="button" id="vocabulary">Vocabulary</a>
 </div>
-<div style="color:var(--bg)">
+<div class="disabled">
 	&uarr;&uarr;&darr;&darr;&larr;&rarr;&larr;&rarr;BA
 </div>

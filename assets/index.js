@@ -27,12 +27,12 @@ var deacronym = {
 function setLevel(lesson, level) {
 	for (var level in data) {
 		var levelContainer = document.getElementById(level);
-		var levelLabel = levelContainer.getElementsByClassName("label")[0];
+		var levelLabel = levelContainer.children[0];
 		levelContainer.innerHTML = "";
 		levelContainer.appendChild(levelLabel);
 		var n = 0;
-		for(var sublevel in data[level]) {
-			if (data[level][sublevel].includes(parseInt(lesson))) {
+		for(var sublevel in deacronym) {
+			if (sublevel in data[level] && data[level][sublevel].includes(parseInt(lesson))) {
 				var a = document.createElement("a");
 				a.className = "button";
 				a.href = link(level, sublevel, lesson);
