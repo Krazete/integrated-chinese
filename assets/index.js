@@ -66,7 +66,7 @@ function enterLessonButton() {
 	var h0 = document.body.scrollHeight;
 	setLesson(this.dataset.lesson);
 	var h1 = document.body.scrollHeight;
-	document.body.style.height = Math.max(h0, h1) + "px"; /* prevents rapid glitchy height changes */
+	document.body.style.height = Math.max(h0, h1) + "px"; /* prevents glitchy rapid height change */
 }
 
 function leaveLessonButton() {

@@ -1,32 +1,34 @@
-function initFooter() {
-	var html = document.documentElement;
-	var theme = document.getElementById("theme");
-	var character = document.getElementById("character");
+function initTheme() {
+	var themeButton = document.getElementById("theme");
 	var themes = ["default", "dark", "gold", "gray", "pink", "painful"];
-	var storedtheme = localStorage.getItem("theme");
-	if (themes.includes(storedtheme)) {
-		html.className = storedtheme;
-		theme.innerHTML = "Theme: " + storedtheme;
+	var ti = parseInt(localStorage.getItem("theme")) || 0;
+	var shift = false;
+
+	function updateTheme() {
+		document.documentElement.className = themes[ti];
+		themeButton.innerHTML = "Theme: " + themes[ti];
 	}
-	theme.addEventListener("click", function () {
-		if (html.classList.length <= 0) {
-			html.classList.add(themes[0]);
-		}
-		for (var i = 0; i < themes.length; i++) {
-			if (html.classList.contains(themes[i])) {
-				html.classList.remove(themes[i]);
-				var xp = themes[(i + 1) % themes.length]
-				html.classList.add(xp);
-				localStorage["theme"] = xp;
-				this.innerHTML = "Theme: " + xp;
-				break;
-			}
+
+	window.addEventListener("keydown", function (e) {
+		if (e.key == "Shift") {
+			shift = true;
 		}
 	});
+	window.addEventListener("keyup", function () {
+		shift = false;
+	});
+	
+	themeButton.addEventListener("click", function () {
+		ti = (themes.length + ti + (shift ? -1 : 1)) % themes.length;
+		updateTheme();
+		localStorage["theme"] = ti;
+	});
+
+	updateTheme();
 }
 
 function initWindow() {
-	initFooter();
+	initTheme();
 	if (typeof inits == "undefined") {
 		inits = [];
 	}
