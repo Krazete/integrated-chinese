@@ -79,7 +79,7 @@ a {
 }
 
 #footer {
-	grid-auto-flow: column;
+	grid-template-columns: repeat(4, 1fr);
 }
 
 #theme {

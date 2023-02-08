@@ -1,3 +1,5 @@
+---
+---
 function initTheme() {
 	var themeButton = document.getElementById("theme");
 	var themes = ["default", "dark", "gold", "gray", "pink", "painful"];
@@ -41,7 +43,7 @@ function initWindow() {
 window.addEventListener("DOMContentLoaded", initWindow);
 
 function link() {
-	var url = "";
+	var url = "{{ site.baseurl }}";
 	for (var i = 0; i < arguments.length; i++) {
 		url += "/" + arguments[i];
 	}

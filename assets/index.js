@@ -73,7 +73,6 @@ function leaveLessonButton() {
 	lessonTitle.classList.remove("disabled");
 	lessonMenu.classList.remove("disabled");
 	setLesson(currentLesson);
-	// document.body.style = "";
 }
 
 function clickLessonButton() {

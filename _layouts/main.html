@@ -7,14 +7,14 @@
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width">
 <title>{{ page.title-en }}</title>
-<link rel="stylesheet" type="text/css" href="./assets/main.css">
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/main.css">
 {%- if page.data %}
-<script src="./data/{{ page.data }}"></script>
+<script src="{{ site.baseurl }}/data/{{ page.data }}"></script>
 {%- endif %}
 {%- for script in page.scripts %}
-<script src="./assets/{{ script }}"></script>
+<script src="{{ site.baseurl }}/assets/{{ script }}"></script>
 {%- endfor %}
-<script src="./assets/main.js"></script>
+<script src="{{ site.baseurl }}/assets/main.js"></script>
 </head>
 <body>
 <h1 class="zh">{{ page.title-zh }}</h1>
@@ -22,10 +22,10 @@
 <div class="container">
 	{{ content -}}
 	<div class="grid" id="footer">
-		<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">View Original</a>
-		<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">View GitHub</a>
+		<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">Original</a>
+		<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">GitHub</a>
 		<div class="button" id="theme">Theme: default</div>
-		<div class="button" id="character">Toggle Characters</div>
+		<div class="button" id="character">Mode: Traditional</div>
 	</div>
 </div>
 </body>
