@@ -19,8 +19,6 @@ module MainPlugin
                 'layout' => 'main',
                 'title-en' => datum[0],
                 'title-zh' => number_zh(datum[0].to_i)
-                # 'title' => datum['title'],
-                # 'email' => datum['chapter']
             }
             # data.default_proc = proc do |_, key|
             #     site.frontmatter_defaults.find(relative_path, :categories, key)

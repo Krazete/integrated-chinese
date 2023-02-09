@@ -1,54 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="google" content="notranslate">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="/vocabulary.css">
-</head>
-<body onkeypress="document.getElementById('search').focus()">
-	<ul class="flex" id="lesson-thing">
-		<li class="lesson button">0</li>
-		<li class="lesson button">1</li>
-		<li class="lesson button">2</li>
-		<li class="lesson button">3</li>
-		<li class="lesson button">4</li>
-		<li class="lesson button">5</li>
-		<li class="lesson button">6</li>
-		<li class="lesson button">7</li>
-		<li class="lesson button">8</li>
-		<li class="lesson button">9</li>
-		<li class="lesson button">10</li>
-		<li class="lesson button">11</li>
-		<li class="lesson button">12</li>
-		<li class="lesson button">13</li>
-		<li class="lesson button">14</li>
-		<li class="lesson button">15</li>
-		<li class="lesson button">16</li>
-		<li class="lesson button">17</li>
-		<li class="lesson button">18</li>
-		<li class="lesson button">19</li>
-		<li class="lesson button">20</li>
-	</ul>
-	<h1 class="zh" id="title"></h1>
-	<h2 class="desktop" id="subject"></h2>
-	<div id="container"></div>
+---
+layout: main
+data: vocabulary.js
+scripts:
+  - mainscript.js
+  - vocabulary.js
+title-zh: zhVocab
+title-en: Vocab
+---
+<div class="grid" id="lesson-thing" style="grid-template-columns: repeat(21, 1fr);">
+	{%- for i in (0..20) %}
+	<div class="lesson button">{{ i }}</div>
+	{%- endfor %}
+</div>
+<h1 class="zh" id="title">Title</h1>
+<h2 class="desktop" id="subject">Subject</h2>
+<div id="table"></div>
 
-	<input id="search" oninput="glossary(this.value)" onblur="this.value='';glossary('')"></input>
+<input id="search"></input>
 
-	<center><a href="javascript:preference()">Switch Character Preference</a></center>
+<div class="desktop" id="selection"></div>
+<div class="desktop" id="select" onclick="toggler()"></div>
+<div class="desktop" style="position: fixed; bottom: 50px; left: 5px; font-size: 0.75em;">Activate<br>Selection<br>Toggling</div>
 
-	<div class="desktop" id="selection"></div>
-	<div class="desktop" id="select" onclick="toggler()"></div>
-	<div class="desktop" style="position: fixed; bottom: 50px; left: 5px; font-size: 0.75em;">Activate<br>Selection<br>Toggling</div>
+<p>This page isn't done yet.</p>
 
-	<p>This page isn't done yet.</p>
-	
-	<script src="/mainscript.js"></script>
-	<script src="/data/vocabulary.js"></script>
-	<script src="/vocabulary.js"></script>
-</body>
-</html>
+<script>
+	var search = document.getElementById("search");
+	search.addEventListener("input", e => glossary(this.value));
+	search.addEventListener("blur", e => {
+		this.value = "";
+		glossary("");
+	});
+</script>
