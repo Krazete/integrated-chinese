@@ -7,6 +7,7 @@
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width">
 <title>{{ page.title-en }}</title>
+<link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
 <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/main.css">
 {%- if page.data %}
 <script src="{{ site.baseurl }}/data/{{ page.data }}"></script>
@@ -20,13 +21,13 @@
 <h1 class="zh">{{ page.title-zh }}</h1>
 <h2 class="notouch">{{ page.title-en }}</h2>
 <div class="container">
-	{{ content -}}
-	<div class="grid" id="footer">
-		<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">Original</a>
-		<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">GitHub</a>
-		<div class="button" id="theme">Theme: default</div>
-		<div class="button" id="character">Mode: Traditional</div>
-	</div>
+{{ content -}}
+<div class="grid" id="footer">
+	<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">Original</a>
+	<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">GitHub</a>
+	<div class="button" id="theme">Theme: default</div>
+	<div class="button" id="character">Mode: Traditional</div>
+</div>
 </div>
 </body>
 </html>

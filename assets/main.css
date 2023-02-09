@@ -184,9 +184,8 @@ blockquote {
 /* review.html */
 
 #content {
-	background: white;
+	background: var(--hi);
 	padding: 13px;
-	border: 1px solid var(--bg);
 	overflow: hidden;
 }
 
@@ -311,18 +310,12 @@ blockquote {
 	top: 50%;
 	height: 12px;
 	width: 12px;
-	border-top: 4px solid #e96;
-	border-right: 4px solid #e96;
+	border-top: 4px solid var(--lo);
+	border-right: 4px solid var(--lo);
 	margin: auto;
 	display: block;
 	pointer-events: none;
 	transform: translate(-25%, -50%) rotate(45deg);
-}
-#speed-50.speed:after {
-	transform: translate(0, -50%) rotate(45deg);
-}
-#speed-100.speed:after {
-	transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .speed-selected > .speed-after {
