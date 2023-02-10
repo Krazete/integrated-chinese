@@ -1,28 +1,31 @@
 module MainPlugin
     class PageGenerator < Jekyll::Generator
         def generate(site)
-            data = site.data['index']
-            data.each do |datum|
-                site.pages << WordPage.new(site, datum)
+            # Review Pages
+            site.data['review'].each do |review|
+                site.pages << WordPage.new(site, review, 'review')
             end
+            # Exercise Pages
+            # exercises = ['word', 'sentence', 'paragraph']
+            # data = site.data['index']
+            # data.each do |datum|
+            #     site.pages << WordPage.new(site, datum)
+            # end
         end
     end
     class WordPage < Jekyll::Page
-        def initialize(site, datum)
+        def initialize(site, datum, pagetype)
             @site = site
             @base = site.source
-            @dir = 'posts'
-            @basename = datum[0] + datum[1]
+            @dir = pagetype
+            @basename = datum[0]
             @ext = '.html'
             @name = @basename + @ext
             @data = {
-                'layout' => 'main',
+                'layout' => pagetype,
                 'title-en' => datum[0],
-                'title-zh' => number_zh(datum[0].to_i)
+                'title-zh' => '第' + number_zh(datum[0].to_i) + '課'
             }
-            # data.default_proc = proc do |_, key|
-            #     site.frontmatter_defaults.find(relative_path, :categories, key)
-            # end
     end
     def number_zh(n)
         if n == 0
