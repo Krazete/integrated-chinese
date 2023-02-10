@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108437510-4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "UA-108437510-4");
+</script>
+<link rel="apple-touch-icon" sizes="180x180" href="/integrated-chinese/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/integrated-chinese/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/integrated-chinese/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/integrated-chinese/manifest.json">
+<link rel="mask-icon" href="/integrated-chinese/assets/favicon/safari-pinned-tab.svg" color="#da532c">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffbf80">
+<script>
+    if ("serviceWorker" in navigator) {
+        // navigator.serviceWorker.register("/integrated-chinese/serviceworker.js", {"scope": "/integrated-chinese/"});
+    }
+</script>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Exercises for the UCI Chinese 1 course series. Originally from an old Berkeley website which only runs on IE.">
+<title>words</title>
+<link rel="icon" type="image/x-icon" href="/integrated-chinese/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/integrated-chinese/assets/main.css">
+<script src="/integrated-chinese/assets/main.js"></script>
+</head>
+<body>
+<h1 class="zh">第零課</h1>
+<h2 class="notouch">words</h2>
+<div class="container">
+<style>
+	#review {
+		grid-template-areas:
+			'a a a b b b'
+			'c c c c c c'
+			'd d e e f f';
+	}
+	#text-a {grid-area: a;}
+	#text-b {grid-area: b;}
+	#content {grid-area: c;}
+	#plain {grid-area: d;}
+	#words {grid-area: e;}
+	#patterns {grid-area: f;}
+
+	#player {
+		grid-template-columns: 3fr 19fr repeat(3, 1fr);
+	}
+</style>
+<div class="grid" id="review">
+	<div class="button" id="text-a">Text A</div>
+	<div class="button" id="text-b">Text B</div>
+	<div id="content">
+		<img id="photo">
+		<div class="zh" id="text">Text</div>
+		<div class="zh" id="examples">Examples</div>
+	</div>
+	<div class="button" id="plain">Plain Text</div>
+	<div class="button" id="words">Words</div>
+	<div class="button" id="patterns">Patterns</div>
+</div>
+<br>
+<div class="grid" id="player">
+	<div class="button toggle play"></div>
+	<div class="progress">
+		<div class="progress-after"></div>
+	</div>
+	<div class="button speed" id="speed-50"></div>
+	<div class="button speed" id="speed-75"></div>
+	<div class="button speed" id="speed-100"></div>
+</div>
+<br>
+<div id="jukebox">
+	<div>
+		<div>
+			<div class="desktop-only button" id="tip-button">Keyboard Shortcuts</div>
+		</div>
+	</div>
+	<div class="desktop-only hid" id="tip">
+		<div>Keyboard Shortcuts</div>
+		<div class="tip-line"></div>
+		<div>Play/Pause</div>
+		<div class="tip-key">space</div>
+		<div class="tip-line"></div>
+		<div>Seek</div>
+		<div class="tip-key">&larr;</div>
+		<div class="tip-key">&rarr;</div>
+		<div class="tip-key">0...9</div>
+		<div class="tip-line"></div>
+		<div>Speed</div>
+		<div class="tip-key">&uarr;</div>
+		<div class="tip-key">&darr;</div>
+	</div>
+</div>
+<div class="grid" id="footer">
+	<a class="button" target="_blank" href="http://www.language.berkeley.edu/ic/">Original</a>
+	<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">GitHub</a>
+	<div class="button" id="theme">Theme: default</div>
+	<div class="button" id="character">Mode: Traditional</div>
+</div>
+</div>
+</body>
+</html>
