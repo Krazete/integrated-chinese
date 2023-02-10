@@ -3,8 +3,8 @@ email: krazete@gmail.com
 description: >-
   Exercises for the UCI Chinese 1 course series.
   Originally from an old Berkeley website which only runs on IE.
-baseurl: "/integrated-chinese"
 url: "https://krazete.github.io"
+baseurl: "/integrated-chinese"
 github_username: krazete
 
 # theme:
@@ -14,10 +14,12 @@ plugins:
 
 # defaults:
 #   - scope:
-#       type: categories  # select all category pages
+#       path: ""
+#       type: "pages"
 #     values:
-#       layout: default
+#       layout: "default"
 #       permalink: categories/:index/
+#       exercises: ["word", "sentence", "paragraph"]
 
 exclude:
   - old_things

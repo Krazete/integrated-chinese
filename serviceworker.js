@@ -1,7 +1,5 @@
 const VERSION = "0.0.0"; /* update whenever anything changes */
 
-throw 'Service worker disabled.';
-
 self.addEventListener("install", event => {
     // console.log("PWA Install: " + VERSION);
     self.skipWaiting();

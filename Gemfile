@@ -1,9 +1,12 @@
 source "https://rubygems.org"
 gem "jekyll", "~> 4.3.2"
 # gem "minima", "~> 2.5"
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
+
+# To stay consistent with GitHub Pages, remove the `gem "jekyll"` above and
+# uncomment the lines below. To upgrade, run `bundle update github-pages`.
+# gem "webrick", "~> 1.8"
+# gem "github-pages", "~> 228", group: :jekyll_plugins
+
 group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 1.4.0"
   # gem "jekyll-feed", "~> 0.12"
