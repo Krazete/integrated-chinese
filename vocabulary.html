@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108437510-4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "UA-108437510-4");
+</script>
+<link rel="apple-touch-icon" sizes="180x180" href="/integrated-chinese/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/integrated-chinese/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/integrated-chinese/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/integrated-chinese/manifest.json">
+<link rel="mask-icon" href="/integrated-chinese/assets/favicon/safari-pinned-tab.svg" color="#da532c">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffbf80">
+<script>
+    if ("serviceWorker" in navigator) {
+        // navigator.serviceWorker.register("/integrated-chinese/serviceworker.js", {"scope": "/integrated-chinese/"});
+    }
+</script>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Exercises for the UCI Chinese 1 course series. Originally from an old Berkeley website which only runs on IE.">
+<title>Vocab</title>
+<link rel="icon" type="image/x-icon" href="/integrated-chinese/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/integrated-chinese/assets/main.css">
+<script src="/integrated-chinese/data/vocabulary.js"></script>
+<script src="/integrated-chinese/assets/mainscript.js"></script>
+<script src="/integrated-chinese/assets/vocabulary.js"></script>
+<script src="/integrated-chinese/assets/main.js"></script>
+</head>
+<body>
+<h1 class="zh">zhVocab</h1>
+<h2 class="notouch">Vocab</h2>
+<div class="container">
+<div class="grid" id="lesson-thing" style="grid-template-columns: repeat(21, 1fr);">
+	<div class="lesson button">0</div>
+	<div class="lesson button">1</div>
+	<div class="lesson button">2</div>
+	<div class="lesson button">3</div>
+	<div class="lesson button">4</div>
+	<div class="lesson button">5</div>
+	<div class="lesson button">6</div>
+	<div class="lesson button">7</div>
+	<div class="lesson button">8</div>
+	<div class="lesson button">9</div>
+	<div class="lesson button">10</div>
+	<div class="lesson button">11</div>
+	<div class="lesson button">12</div>
+	<div class="lesson button">13</div>
+	<div class="lesson button">14</div>
+	<div class="lesson button">15</div>
+	<div class="lesson button">16</div>
+	<div class="lesson button">17</div>
+	<div class="lesson button">18</div>
+	<div class="lesson button">19</div>
+	<div class="lesson button">20</div>
+</div>
+<h1 class="zh" id="title">Title</h1>
+<h2 class="desktop" id="subject">Subject</h2>
+<div id="table"></div>
+
+<input id="search"></input>
+
+<div class="desktop" id="selection"></div>
+<div class="desktop" id="select" onclick="toggler()"></div>
+<div class="desktop" style="position: fixed; bottom: 50px; left: 5px; font-size: 0.75em;">Activate<br>Selection<br>Toggling</div>
+
+<p>This page isn't done yet.</p>
+
+<script>
+	var search = document.getElementById("search");
+	search.addEventListener("input", e => glossary(this.value));
+	search.addEventListener("blur", e => {
+		this.value = "";
+		glossary("");
+	});
+</script>
+<div class="grid" id="footer">
+	<a class="button" target="_blank" href="https://web.archive.org/web/20151001/http://www.language.berkeley.edu/ic/">Original</a>
+	<a class="button" target="_blank" href="https://github.com/Krazete/integrated-chinese">GitHub</a>
+	<div class="button" id="theme">Theme: default</div>
+	<div class="button" id="character">Mode: Traditional</div>
+</div>
+</div>
+</body>
+</html>
