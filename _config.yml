@@ -11,6 +11,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - vendor
   - old_things
   - static
   - webscraping
